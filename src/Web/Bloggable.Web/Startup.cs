@@ -1,8 +1,5 @@
-﻿using Bloggable.Web;
+﻿[assembly: Microsoft.Owin.OwinStartupAttribute(typeof(Bloggable.Web.Startup))]
 
-using Microsoft.Owin;
-
-[assembly: OwinStartupAttribute(typeof(Startup))]
 namespace Bloggable.Web
 {
     using Owin;

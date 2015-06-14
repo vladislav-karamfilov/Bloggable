@@ -11,7 +11,6 @@
         public BloggableDbContext()
             : base("DefaultConnection", false)
         {
-
         }
 
         public virtual IDbSet<Post> Posts { get; set; }

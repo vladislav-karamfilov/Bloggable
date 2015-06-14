@@ -8,7 +8,7 @@
         public int Id { get; set; }
 
         [Required]
-        // TODO: Add validation for length
+        //// TODO: Add validation for length
         public string Content { get; set; }
 
         public int PostId { get; set; }
