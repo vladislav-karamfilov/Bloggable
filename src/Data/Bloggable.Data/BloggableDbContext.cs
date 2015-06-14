@@ -29,5 +29,10 @@
         public virtual IDbSet<Feedback> Feedback { get; set; }
 
         public virtual IDbSet<Referral> Referrals { get; set; }
+
+        public static BloggableDbContext Create()
+        {
+            return new BloggableDbContext();
+        }
     }
 }

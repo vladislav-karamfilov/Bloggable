@@ -58,7 +58,10 @@
   <ItemGroup>
     <Compile Include="BloggableDbContext.cs" />
     <Compile Include="IBloggableDbContext.cs" />
+    <Compile Include="Migrations\DefaultMigrationConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Base\EfDeletableEntityRepository.cs" />
+    <Compile Include="Repositories\Base\EfRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">
@@ -74,9 +77,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

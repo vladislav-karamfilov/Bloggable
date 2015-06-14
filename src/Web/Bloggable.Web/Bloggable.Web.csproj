@@ -180,7 +180,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -253,7 +252,20 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">
+      <Project>{3A53475F-62D8-44D9-9AC0-219B7FAD7D5F}</Project>
+      <Name>Bloggable.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Bloggable.Data.Models\Bloggable.Data.Models.csproj">
+      <Project>{9E658BA8-6E16-47F0-952F-A9546D871118}</Project>
+      <Name>Bloggable.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Bloggable.Data\Bloggable.Data.csproj">
+      <Project>{880E85A2-3E14-49D8-9B9C-FA95405891F4}</Project>
+      <Name>Bloggable.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
