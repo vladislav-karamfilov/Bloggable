@@ -1,2 +1,3 @@
 # Bloggable
-Bloggable - Blog Engine
+
+Blog System
