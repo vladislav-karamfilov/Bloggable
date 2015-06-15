@@ -1,10 +1,10 @@
-using Bloggable.Web;
+using Bloggable.Web.Config;
 
 using WebActivator;
 
 [assembly: PostApplicationStartMethod(typeof(SimpleInjectorInitializer), "Initialize")]
 
-namespace Bloggable.Web
+namespace Bloggable.Web.Config
 {
     using System.Collections.Generic;
     using System.Data.Entity;
