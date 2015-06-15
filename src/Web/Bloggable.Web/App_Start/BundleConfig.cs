@@ -8,7 +8,8 @@
         public static void RegisterBundles(BundleCollection bundles)
         {
             RegisterScriptBundles(bundles);
-            RegisterStylesBundles(bundles);
+
+            RegisterStyleBundles(bundles);
         }
 
         private static void RegisterScriptBundles(BundleCollection bundles)
@@ -30,7 +31,7 @@
                 "~/Scripts/Respond/respond.js"));
         }
 
-        private static void RegisterStylesBundles(BundleCollection bundles)
+        private static void RegisterStyleBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/css/Bootstrap/Themes/Superhero/bootstrap-superhero.css",
