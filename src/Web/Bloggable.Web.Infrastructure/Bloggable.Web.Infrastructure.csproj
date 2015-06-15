@@ -82,8 +82,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionResults\AlertDecoratorResult.cs" />
     <Compile Include="ActionResults\ChallengeResult.cs" />
-    <Compile Include="ControllerExtensions.cs" />
+    <Compile Include="Extensions\ActionResultExtensions.cs" />
+    <Compile Include="Extensions\ControllerExtensions.cs" />
+    <Compile Include="Extensions\TempDataDictionaryExtensions.cs" />
+    <Compile Include="Models\Alert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

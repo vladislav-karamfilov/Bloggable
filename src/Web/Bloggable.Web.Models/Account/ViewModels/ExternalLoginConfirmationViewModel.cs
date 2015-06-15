@@ -1,8 +1,8 @@
-﻿namespace Bloggable.Web.Models
+﻿namespace Bloggable.Web.Models.Account.ViewModels
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class ForgotViewModel
+    public class ExternalLoginConfirmationViewModel
     {
         [Required]
         [Display(Name = "Email")]

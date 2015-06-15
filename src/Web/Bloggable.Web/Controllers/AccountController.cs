@@ -9,6 +9,8 @@
     using Bloggable.Web.Config.Identity;
     using Bloggable.Web.Infrastructure.ActionResults;
     using Bloggable.Web.Models;
+    using Bloggable.Web.Models.Account.ViewModels;
+    using Bloggable.Web.Models.Manage.ViewModels;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;

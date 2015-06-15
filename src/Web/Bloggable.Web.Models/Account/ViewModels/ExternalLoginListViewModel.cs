@@ -1,4 +1,4 @@
-namespace Bloggable.Web.Models
+namespace Bloggable.Web.Models.Account.ViewModels
 {
     public class ExternalLoginListViewModel
     {

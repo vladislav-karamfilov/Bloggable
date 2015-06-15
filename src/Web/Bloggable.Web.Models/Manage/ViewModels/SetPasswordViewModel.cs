@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Web.Models
+﻿namespace Bloggable.Web.Models.Manage.ViewModels
 {
     using System.ComponentModel.DataAnnotations;
 

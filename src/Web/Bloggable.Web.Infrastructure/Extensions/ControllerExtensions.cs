@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Web.Infrastructure
+﻿namespace Bloggable.Web.Infrastructure.Extensions
 {
     using System.Web.Mvc;
 
