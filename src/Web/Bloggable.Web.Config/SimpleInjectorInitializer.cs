@@ -2,7 +2,7 @@ using Bloggable.Web.Config;
 
 using WebActivator;
 
-[assembly: PostApplicationStartMethod(typeof(SimpleInjectorInitializer), "Initialize")]
+[assembly: PreApplicationStartMethod(typeof(SimpleInjectorInitializer), "Initialize")]
 
 namespace Bloggable.Web.Config
 {
