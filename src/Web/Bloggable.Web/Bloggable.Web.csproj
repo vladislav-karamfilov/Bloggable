@@ -184,14 +184,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ApplicationSignInManager.cs" />
-    <Compile Include="App_Start\ApplicationUserManager.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\EmailService.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
-    <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -200,7 +196,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddPhoneNumberViewModel.cs" />
-    <Compile Include="Models\BloggableUserStore.cs" />
     <Compile Include="Models\ChangePasswordViewModel.cs" />
     <Compile Include="Models\ConfigureTwoFactorViewModel.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
@@ -299,6 +294,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bloggable.Web.Config\Bloggable.Web.Config.csproj">
+      <Project>{D1E7D236-32EF-45D7-883F-CEFE78620690}</Project>
+      <Name>Bloggable.Web.Config</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">
       <Project>{3A53475F-62D8-44D9-9AC0-219B7FAD7D5F}</Project>
       <Name>Bloggable.Data.Contracts</Name>

@@ -1,10 +1,9 @@
-﻿namespace Bloggable.Web
+﻿namespace Bloggable.Web.Config.Identity
 {
     using System;
 
     using Bloggable.Data;
     using Bloggable.Data.Models;
-    using Bloggable.Web.Models;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;

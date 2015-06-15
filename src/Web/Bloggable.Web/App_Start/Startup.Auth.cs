@@ -4,6 +4,7 @@
 
     using Bloggable.Data;
     using Bloggable.Data.Models;
+    using Bloggable.Web.Config.Identity;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;

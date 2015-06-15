@@ -6,6 +6,7 @@
     using System.Web.Mvc;
 
     using Bloggable.Data.Models;
+    using Bloggable.Web.Config.Identity;
     using Bloggable.Web.Models;
 
     using Microsoft.AspNet.Identity;

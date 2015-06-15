@@ -1,4 +1,4 @@
-namespace Bloggable.Web
+namespace Bloggable.Web.Config.Identity
 {
     using System.Security.Claims;
     using System.Threading.Tasks;

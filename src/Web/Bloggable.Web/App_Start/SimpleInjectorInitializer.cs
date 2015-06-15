@@ -16,6 +16,7 @@ namespace Bloggable.Web
     using Bloggable.Data.Contracts;
     using Bloggable.Data.Models;
     using Bloggable.Data.Repositories.Base;
+    using Bloggable.Web.Config.Identity;
     using Bloggable.Web.Models;
 
     using Microsoft.AspNet.Identity;
