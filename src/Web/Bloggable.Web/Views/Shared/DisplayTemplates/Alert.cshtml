@@ -1,0 +1,10 @@
+﻿@using Bloggable.Common.Extensions
+
+@model Bloggable.Web.Infrastructure.Models.Alert
+
+<div class="alert @Model.Type.GetDescription() alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+        &times;
+    </button>
+    @Model.Message
+</div>

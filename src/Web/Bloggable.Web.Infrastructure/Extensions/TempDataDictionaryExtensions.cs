@@ -1,6 +1,7 @@
 ﻿namespace Bloggable.Web.Infrastructure.Extensions
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
 
     using Bloggable.Web.Infrastructure.Models;
@@ -9,14 +10,21 @@
     {
         private const string AlertsKey = "_Alerts";
 
-        public static ICollection<Alert> GetAlerts(this TempDataDictionary tempData)
+        public static ICollection<Alert> GetAlerts(this TempDataDictionary tempData, AlertType? type = null)
         {
             if (!tempData.ContainsKey(AlertsKey))
             {
                 tempData[AlertsKey] = new List<Alert>();
             }
 
-            return (ICollection<Alert>)tempData[AlertsKey];
+            var alerts = (ICollection<Alert>)tempData[AlertsKey];
+
+            if (type.HasValue)
+            {
+                alerts = alerts.Where(a => a.Type == type.Value).ToList();
+            }
+
+            return alerts;
         }
     }
 }

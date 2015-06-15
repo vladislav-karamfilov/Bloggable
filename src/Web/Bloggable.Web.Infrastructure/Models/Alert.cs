@@ -2,13 +2,13 @@
 {
     public class Alert
     {
-        public Alert(string cssClass, string message)
+        public Alert(AlertType type, string message)
         {
-            this.CssClass = cssClass;
+            this.Type = type;
             this.Message = message;
         }
 
-        public string CssClass { get; set; }
+        public AlertType Type { get; set; }
 
         public string Message { get; set; }
     }

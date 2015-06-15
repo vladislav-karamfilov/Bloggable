@@ -1,0 +1,9 @@
+﻿@using Bloggable.Web.Infrastructure.Extensions
+
+@{
+    var alerts = TempData.GetAlerts();
+}
+
+<div class="container alert-container">
+    @Html.DisplayFor(m => alerts)
+</div>

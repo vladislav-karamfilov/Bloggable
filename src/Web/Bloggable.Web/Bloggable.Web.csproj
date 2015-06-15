@@ -259,8 +259,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Alerts.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Alert.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
+      <Project>{636BFF57-5803-43AE-8A27-3AFCBC52BABF}</Project>
+      <Name>Bloggable.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">
       <Project>{3A53475F-62D8-44D9-9AC0-219B7FAD7D5F}</Project>
       <Name>Bloggable.Data.Contracts</Name>

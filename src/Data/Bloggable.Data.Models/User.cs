@@ -8,6 +8,7 @@
     using System.Threading.Tasks;
 
     using Bloggable.Data.Contracts;
+    using Bloggable.Data.Contracts.DataAnnotations;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -25,6 +26,7 @@
         }
 
         [Required]
+        [IsUnicode(false)]
         public override string Email { get; set; }
 
         public virtual ICollection<Post> Posts

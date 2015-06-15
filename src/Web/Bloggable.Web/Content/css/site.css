@@ -27,3 +27,10 @@ textarea {
 .navbar {
     font-size: 15px;
 }
+
+.alert-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 0 3em;
+}
