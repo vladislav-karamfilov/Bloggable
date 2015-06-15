@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Web
+﻿namespace Bloggable.Web.Config
 {
     using System.Web.Optimization;
 

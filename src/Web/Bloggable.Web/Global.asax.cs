@@ -8,6 +8,7 @@
 
     using Bloggable.Data;
     using Bloggable.Data.Migrations;
+    using Bloggable.Web.Config;
 
     public class MvcApplication : HttpApplication
     {
