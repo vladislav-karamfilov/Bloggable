@@ -34,7 +34,7 @@
         private static void RegisterStyleBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/css/Bootstrap/Themes/Superhero/bootstrap-superhero.css",
+                "~/Content/css/Bootstrap/Themes/Superhero/bootstrap.css",
                 "~/Content/css/site.css"));
         }
     }

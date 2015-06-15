@@ -124,6 +124,10 @@
       <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Mvc.Expressions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Web.Mvc.Expressions.0.8\lib\System.Web.Mvc.Expressions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
@@ -182,8 +186,8 @@
   <ItemGroup>
     <Content Include="Content\css\Bootstrap\bootstrap.css" />
     <Content Include="Content\css\Bootstrap\bootstrap.min.css" />
-    <Content Include="Content\css\Bootstrap\Themes\Superhero\bootstrap-superhero.css" />
-    <Content Include="Content\css\Bootstrap\Themes\Superhero\bootstrap-superhero.min.css" />
+    <Content Include="Content\css\Bootstrap\Themes\Superhero\bootstrap.css" />
+    <Content Include="Content\css\Bootstrap\Themes\Superhero\bootstrap.min.css" />
     <Content Include="Content\css\Font-Awesome\font-awesome.css" />
     <Content Include="Content\css\Font-Awesome\font-awesome.min.css" />
     <Content Include="Content\fonts\Font-Awesome\fontawesome-webfont.svg" />

@@ -1,6 +1,7 @@
 ﻿namespace Bloggable.Data.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     public class Post : ContentHolder
     {
@@ -10,7 +11,12 @@
         {
             this.comments = new HashSet<Comment>();
         }
-        
+
+        [Required]
+        public string AuthorId { get; set; }
+
+        public virtual User Author { get; set; }
+
         public virtual ICollection<Comment> Comments
         {
             get { return this.comments; }

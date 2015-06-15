@@ -16,9 +16,9 @@ namespace Bloggable.Web.Config
     using Bloggable.Data.Contracts;
     using Bloggable.Data.Models;
     using Bloggable.Data.Repositories.Base;
-    using Bloggable.Web.Config.Identity;
 
     using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin;
 
     using SimpleInjector;
@@ -44,12 +44,12 @@ namespace Bloggable.Web.Config
         private static void InitializeContainer(Container container)
         {
             container.RegisterPerWebRequest<DbContext, BloggableDbContext>();
-            container.Register<IUserStore<User>, BloggableUserStore>();
+            container.RegisterPerWebRequest<IUserStore<User>>(() => new UserStore<User>(container.GetInstance<DbContext>()));
             container.RegisterPerWebRequest(() => container.IsVerifying()
                 ? new OwinContext(new Dictionary<string, object>()).Authentication
-                : HttpContext.Current.GetOwinContext().Authentication); 
-            container.RegisterOpenGeneric(typeof(IRepository<>), typeof(EfRepository<>));
+                : HttpContext.Current.GetOwinContext().Authentication);
             container.RegisterOpenGeneric(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
+            container.RegisterOpenGeneric(typeof(IRepository<>), typeof(EfRepository<>));
         }
     }
 }
