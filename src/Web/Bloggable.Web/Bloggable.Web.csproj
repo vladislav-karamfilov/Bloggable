@@ -273,10 +273,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Bloggable.Web.Config\Bloggable.Web.Config.csproj">
-      <Project>{D1E7D236-32EF-45D7-883F-CEFE78620690}</Project>
-      <Name>Bloggable.Web.Config</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Data\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">
       <Project>{3A53475F-62D8-44D9-9AC0-219B7FAD7D5F}</Project>
       <Name>Bloggable.Data.Contracts</Name>
@@ -288,6 +284,10 @@
     <ProjectReference Include="..\..\Data\Bloggable.Data\Bloggable.Data.csproj">
       <Project>{880E85A2-3E14-49D8-9B9C-FA95405891F4}</Project>
       <Name>Bloggable.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bloggable.Web.Config\Bloggable.Web.Config.csproj">
+      <Project>{d1e7d236-32ef-45d7-883f-cefe78620690}</Project>
+      <Name>Bloggable.Web.Config</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

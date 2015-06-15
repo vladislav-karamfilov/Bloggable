@@ -159,15 +159,15 @@
     <Compile Include="SimpleInjectorInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">
+    <ProjectReference Include="..\..\Data\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">
       <Project>{3A53475F-62D8-44D9-9AC0-219B7FAD7D5F}</Project>
       <Name>Bloggable.Data.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data\Bloggable.Data.Models\Bloggable.Data.Models.csproj">
+    <ProjectReference Include="..\..\Data\Bloggable.Data.Models\Bloggable.Data.Models.csproj">
       <Project>{9e658ba8-6e16-47f0-952f-a9546d871118}</Project>
       <Name>Bloggable.Data.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data\Bloggable.Data\Bloggable.Data.csproj">
+    <ProjectReference Include="..\..\Data\Bloggable.Data\Bloggable.Data.csproj">
       <Project>{880E85A2-3E14-49D8-9B9C-FA95405891F4}</Project>
       <Name>Bloggable.Data</Name>
     </ProjectReference>
