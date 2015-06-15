@@ -17,10 +17,8 @@ namespace Bloggable.Web
     using Bloggable.Data.Models;
     using Bloggable.Data.Repositories.Base;
     using Bloggable.Web.Config.Identity;
-    using Bloggable.Web.Models;
 
     using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin;
 
     using SimpleInjector;
@@ -46,7 +44,6 @@ namespace Bloggable.Web
         private static void InitializeContainer(Container container)
         {
             container.RegisterPerWebRequest<DbContext, BloggableDbContext>();
-            container.RegisterPerWebRequest<IdentityDbContext<User>, BloggableDbContext>();
             container.Register<IUserStore<User>, BloggableUserStore>();
             container.RegisterPerWebRequest(() => container.IsVerifying()
                 ? new OwinContext(new Dictionary<string, object>()).Authentication

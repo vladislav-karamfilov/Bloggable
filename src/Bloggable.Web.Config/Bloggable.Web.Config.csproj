@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Identity\AuthConfig.cs" />
     <Compile Include="Identity\BloggableUserStore.cs" />
     <Compile Include="Identity\EmailService.cs" />
     <Compile Include="Identity\SmsService.cs" />

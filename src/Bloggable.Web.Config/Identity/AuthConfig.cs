@@ -1,10 +1,9 @@
-﻿namespace Bloggable.Web
+﻿namespace Bloggable.Web.Config.Identity
 {
     using System;
 
     using Bloggable.Data;
     using Bloggable.Data.Models;
-    using Bloggable.Web.Config.Identity;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
@@ -13,10 +12,9 @@
 
     using Owin;
 
-    public partial class Startup
+    public class AuthConfig
     {
-        // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
-        public void ConfigureAuth(IAppBuilder app)
+        public static void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(BloggableDbContext.Create);
@@ -38,7 +36,7 @@
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });            
+            });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
