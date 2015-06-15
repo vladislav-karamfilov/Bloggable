@@ -1,6 +1,12 @@
 ﻿namespace Bloggable.Web.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.ServiceModel.Syndication;
     using System.Web.Mvc;
+
+    using Bloggable.Data;
+    using Bloggable.Web.Infrastructure.ActionResults;
 
     public class HomeController : Controller
     {
