@@ -2,11 +2,10 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Comment
-    {
-        [Key]
-        public int Id { get; set; }
+    using Bloggable.Data.Contracts;
 
+    public class Comment : IdentifiableDeletableEntity<int>
+    {
         [Required]
         //// TODO: Add validation for length
         public string Content { get; set; }
