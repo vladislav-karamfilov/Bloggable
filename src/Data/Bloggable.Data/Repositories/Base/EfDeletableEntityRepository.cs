@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Data.Repositories.Base
 {
+    using System;
     using System.Data.Entity;
     using System.Linq;
 
@@ -21,6 +22,14 @@
         public IQueryable<T> AllWithDeleted()
         {
             return base.All();
+        }
+
+        public override void Delete(T entity)
+        {
+            entity.IsDeleted = true;
+            entity.DeletedOn = DateTime.Now;
+            
+            this.Update(entity);
         }
     }
 }

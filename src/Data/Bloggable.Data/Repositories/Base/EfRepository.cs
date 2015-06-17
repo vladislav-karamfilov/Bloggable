@@ -2,7 +2,6 @@
 {
     using System;
     using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
     using System.Linq;
 
     using Bloggable.Data.Contracts;
@@ -36,7 +35,7 @@
 
         public virtual void Add(T entity)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
+            var entry = this.Context.Entry(entity);
             if (entry.State != EntityState.Detached)
             {
                 entry.State = EntityState.Added;
@@ -49,7 +48,7 @@
 
         public virtual void Update(T entity)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
+            var entry = this.Context.Entry(entity);
             if (entry.State == EntityState.Detached)
             {
                 this.DbSet.Attach(entity);
@@ -60,7 +59,7 @@
 
         public virtual void Delete(T entity)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
+            var entry = this.Context.Entry(entity);
             if (entry.State != EntityState.Deleted)
             {
                 entry.State = EntityState.Deleted;
@@ -69,16 +68,6 @@
             {
                 this.DbSet.Attach(entity);
                 this.DbSet.Remove(entity);
-            }
-        }
-
-        public virtual void Delete(int id)
-        {
-            var entity = this.GetById(id);
-
-            if (entity != null)
-            {
-                this.Delete(entity);
             }
         }
 
