@@ -1,7 +1,6 @@
 ﻿namespace Bloggable.Web.Config.Identity
 {
     using System;
-    using System.Data.Entity;
 
     using Bloggable.Data.Models;
 
