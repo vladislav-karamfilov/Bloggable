@@ -1,15 +1,20 @@
 ﻿namespace Bloggable.Web.Controllers
 {
-    using System;
     using System.Linq;
-    using System.ServiceModel.Syndication;
     using System.Web.Mvc;
 
-    using Bloggable.Data;
-    using Bloggable.Web.Infrastructure.ActionResults;
+    using Bloggable.Data.Contracts;
+    using Bloggable.Data.Models;
 
     public class HomeController : Controller
     {
+        private readonly IDeletableEntityRepository<Post> posts;
+
+        public HomeController(IDeletableEntityRepository<Post> posts)
+        {
+            this.posts = posts;
+        }
+
         public ActionResult Index()
         {
             return this.View();
@@ -27,6 +32,11 @@
             this.ViewBag.Message = "Your contact page.";
 
             return this.View();
+        }
+
+        public ActionResult AllPosts()
+        {
+            return this.Json(this.posts.All().Select(x => new { x.Author.UserName, x.Title, x.SubTitle, x.Content }).ToList(), JsonRequestBehavior.AllowGet);
         }
     }
 }

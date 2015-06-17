@@ -107,6 +107,10 @@
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SimpleInjector, Version=2.8.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.2.8.0\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -175,6 +179,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\TestController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -194,7 +200,6 @@
     <Content Include="Content\fonts\Font-Awesome\fontawesome-webfont.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\Glyphicons\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
     <Content Include="Content\css\site.css" />
     <Content Include="Content\fonts\Glyphicons\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\Glyphicons\glyphicons-halflings-regular.woff" />
@@ -206,7 +211,9 @@
     <Content Include="Content\fonts\Font-Awesome\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\Font-Awesome\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\Font-Awesome\FontAwesome.otf" />
+    <Content Include="Areas\Administration\Views\web.config" />
     <None Include="Scripts\jQuery\jquery-2.1.4.intellisense.js" />
+    <Content Include="Global.asax" />
     <Content Include="Scripts\Boostrap\bootstrap.js" />
     <Content Include="Scripts\Boostrap\bootstrap.min.js" />
     <Content Include="Scripts\jQuery\jquery.unobtrusive-ajax.js" />
@@ -296,7 +303,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Administration\Views\Shared\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

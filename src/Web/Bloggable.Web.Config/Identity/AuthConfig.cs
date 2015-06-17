@@ -1,23 +1,24 @@
 ﻿namespace Bloggable.Web.Config.Identity
 {
     using System;
+    using System.Data.Entity;
 
-    using Bloggable.Data;
     using Bloggable.Data.Models;
 
     using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
     using Microsoft.Owin.Security.Cookies;
 
     using Owin;
-    
+
     public class AuthConfig
     {
-        public static void ConfigureAuth(IAppBuilder app)
+        public static void ConfigureAuth(IAppBuilder app, IServiceProvider serviceProvider)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(BloggableDbContext.Create);
+            app.CreatePerOwinContext(() => (IdentityDbContext<User>)serviceProvider.GetService(typeof(IdentityDbContext<User>)));
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 

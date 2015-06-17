@@ -2,6 +2,15 @@
 
 namespace Bloggable.Web
 {
+    using System.Data.Entity;
+    using System.Reflection;
+    using System.Web.Mvc;
+    using System.Web.Optimization;
+    using System.Web.Routing;
+
+    using Bloggable.Data;
+    using Bloggable.Data.Migrations;
+    using Bloggable.Web.Config;
     using Bloggable.Web.Config.Identity;
 
     using Owin;
@@ -10,7 +19,8 @@ namespace Bloggable.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            AuthConfig.ConfigureAuth(app);
+            var container = SimpleInjectorConfig.RegisterServices(Assembly.GetExecutingAssembly());
+            AuthConfig.ConfigureAuth(app, container);
         }
     }
 }

@@ -13,8 +13,8 @@
 
     public class BloggableDbContext : IdentityDbContext<User>, IBloggableDbContext
     {
-        public BloggableDbContext()
-            : base("DefaultConnection", false)
+        public BloggableDbContext(string nameOrConnectionString)
+            : base(nameOrConnectionString, false)
         {
         }
 
@@ -33,11 +33,6 @@
         public virtual IDbSet<Feedback> Feedback { get; set; }
 
         public virtual IDbSet<Referral> Referrals { get; set; }
-
-        public static BloggableDbContext Create()
-        {
-            return new BloggableDbContext();
-        }
 
         public override int SaveChanges()
         {

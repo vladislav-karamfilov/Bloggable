@@ -157,9 +157,13 @@
     <Compile Include="Identity\SmsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteConfig.cs" />
-    <Compile Include="SimpleInjectorInitializer.cs" />
+    <Compile Include="SimpleInjectorConfig.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
+      <Project>{636BFF57-5803-43AE-8A27-3AFCBC52BABF}</Project>
+      <Name>Bloggable.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">
       <Project>{3A53475F-62D8-44D9-9AC0-219B7FAD7D5F}</Project>
       <Name>Bloggable.Data.Contracts</Name>

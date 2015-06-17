@@ -14,7 +14,7 @@
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BloggableDbContext, DefaultMigrationConfiguration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BloggableDbContext, DefaultMigrationConfiguration>(true));
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
