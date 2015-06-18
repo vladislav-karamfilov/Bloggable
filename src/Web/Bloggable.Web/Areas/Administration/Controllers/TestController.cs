@@ -2,7 +2,9 @@
 {
     using System.Web.Mvc;
 
-    public class TestController : Controller
+    using Bloggable.Web.Controllers;
+
+    public class TestController : AdministrationController
     {
         public ActionResult Index()
         {

@@ -3,8 +3,11 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using Bloggable.Data;
     using Bloggable.Data.Contracts;
     using Bloggable.Data.Models;
+
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public class HomeController : Controller
     {
@@ -17,6 +20,9 @@
 
         public ActionResult Index()
         {
+            var context = DependencyResolver.Current.GetService<BloggableDbContext>();
+            var context1 = DependencyResolver.Current.GetService<IdentityDbContext<User>>();
+
             return this.View();
         }
 

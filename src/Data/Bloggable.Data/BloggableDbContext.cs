@@ -2,7 +2,10 @@
 {
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Data.Entity.ModelConfiguration.Conventions;
+    using System.Data.Entity.Validation;
+    using System.Diagnostics;
     using System.Linq;
 
     using Bloggable.Data.Contracts;
@@ -34,11 +37,17 @@
 
         public virtual IDbSet<Referral> Referrals { get; set; }
 
+        public virtual IDbSet<AdministrationLog> AdministrationLogs { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
 
+#if DEBUG
+            return this.SaveChangesWithTracingDbExceptions();
+#else
             return base.SaveChanges();
+#endif
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -70,6 +79,37 @@
                 {
                     entity.ModifiedOn = DateTime.Now;
                 }
+            }
+        }
+
+        private int SaveChangesWithTracingDbExceptions()
+        {
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                Exception currentException = ex;
+                while (currentException != null)
+                {
+                    Trace.TraceInformation(currentException.Message);
+                    currentException = currentException.InnerException;
+                }
+
+                throw;
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {1}{0} Error: {2}", Environment.NewLine, validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
+
+                throw;
             }
         }
     }

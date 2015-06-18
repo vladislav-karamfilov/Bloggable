@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministrationLog.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="ContentHolder.cs" />
     <Compile Include="Feedback.cs" />

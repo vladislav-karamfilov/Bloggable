@@ -15,7 +15,7 @@ namespace Bloggable.Web.Config
             container.RegisterPackages(new[] { Assembly.GetExecutingAssembly() });
 
             container.RegisterMvcControllers(mvcControllersAssembly);
-
+            
             container.Verify();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));

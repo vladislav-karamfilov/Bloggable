@@ -52,7 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\AppSettingConstants.cs" />
+    <Compile Include="Constants\AssemblyConstants.cs" />
     <Compile Include="Constants\ContentTypeConstants.cs" />
+    <Compile Include="Constants\RoleConstants.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />
     <Compile Include="Mapping\IHaveCustomMappings.cs" />
