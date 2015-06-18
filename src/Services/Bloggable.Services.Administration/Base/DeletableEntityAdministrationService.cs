@@ -15,40 +15,40 @@
             this.entities = entities;
         }
 
-        public IEnumerable<TDeletableEntity> Read()
+        public virtual IEnumerable<TDeletableEntity> Read()
         {
             return this.entities.All();
         }
 
-        public IEnumerable<TDeletableEntity> ReadWithDeleted()
+        public virtual IEnumerable<TDeletableEntity> ReadWithDeleted()
         {
             return this.entities.AllWithDeleted();
         }
 
-        public TDeletableEntity Get(object id)
+        public virtual TDeletableEntity Get(object id)
         {
             return this.entities.GetById(id);
         }
 
-        public void Create(TDeletableEntity entity)
+        public virtual void Create(TDeletableEntity entity)
         {
             this.entities.Add(entity);
             this.entities.SaveChanges();
         }
 
-        public void Update(TDeletableEntity entity)
+        public virtual void Update(TDeletableEntity entity)
         {
             this.entities.Update(entity);
             this.entities.SaveChanges();
         }
 
-        public void Delete(object id)
+        public virtual void Delete(object id)
         {
             this.entities.Delete(id);
             this.entities.SaveChanges();
         }
 
-        public void HardDelete(object id)
+        public virtual void HardDelete(object id)
         {
             this.entities.HardDelete(id);
             this.entities.SaveChanges();

@@ -5,39 +5,39 @@
     using Bloggable.Data.Contracts;
     using Bloggable.Services.Administration.Contracts;
 
-    public class AuditInfoAdministrationService<TAuditInfo> : IAdministrationService<TAuditInfo>
-        where TAuditInfo : class, IAuditInfo
+    public class AdministrationService<TEntity> : IAdministrationService<TEntity>
+        where TEntity : class, IEntity
     {
-        private readonly IRepository<TAuditInfo> entities;
+        private readonly IRepository<TEntity> entities;
 
-        public AuditInfoAdministrationService(IRepository<TAuditInfo> entities)
+        public AdministrationService(IRepository<TEntity> entities)
         {
             this.entities = entities;
         }
 
-        public IEnumerable<TAuditInfo> Read()
+        public virtual IEnumerable<TEntity> Read()
         {
             return this.entities.All();
         }
 
-        public TAuditInfo Get(object id)
+        public virtual TEntity Get(object id)
         {
             return this.entities.GetById(id);
         }
 
-        public void Create(TAuditInfo entity)
+        public virtual void Create(TEntity entity)
         {
             this.entities.Add(entity);
             this.entities.SaveChanges();
         }
 
-        public void Update(TAuditInfo entity)
+        public virtual void Update(TEntity entity)
         {
             this.entities.Update(entity);
             this.entities.SaveChanges();
         }
 
-        public void Delete(object id)
+        public virtual void Delete(object id)
         {
             this.entities.Delete(id);
             this.entities.SaveChanges();

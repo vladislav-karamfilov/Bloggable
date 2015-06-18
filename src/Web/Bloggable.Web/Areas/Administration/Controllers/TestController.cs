@@ -8,9 +8,9 @@
 
     public class TestController : AdministrationController
     {
-        private readonly AuditInfoAdministrationService<Post> postsAdministrationService;
+        private readonly AdministrationService<Post> postsAdministrationService;
 
-        public TestController(AuditInfoAdministrationService<Post> postsAdministrationService)
+        public TestController(AdministrationService<Post> postsAdministrationService)
         {
             this.postsAdministrationService = postsAdministrationService;
         }
@@ -18,7 +18,7 @@
         [HttpGet]
         public ActionResult Index()
         {
-            this.postsAdministrationService.Delete(2);
+            this.postsAdministrationService.Delete(3);
             return this.Content("deleted");
         }
     }

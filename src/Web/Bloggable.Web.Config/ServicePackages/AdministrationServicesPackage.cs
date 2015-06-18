@@ -12,7 +12,7 @@
         public void RegisterServices(Container container)
         {
             container.RegisterOpenGeneric(typeof(IDeletableEntityAdministrationService<>), typeof(DeletableEntityAdministrationService<>));
-            container.RegisterOpenGeneric(typeof(IAdministrationService<>), typeof(AuditInfoAdministrationService<>));
+            container.RegisterOpenGeneric(typeof(IAdministrationService<>), typeof(AdministrationService<>));
         }
     }
 }
