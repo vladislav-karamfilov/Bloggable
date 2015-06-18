@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Web.Config.ServiceRegistrationPackages
+﻿namespace Bloggable.Web.Config.ServicePackages
 {
     using Bloggable.Web.Infrastructure.Filters.Contracts;
 

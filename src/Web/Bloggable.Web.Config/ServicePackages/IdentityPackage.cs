@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Web.Config.ServiceRegistrationPackages
+﻿namespace Bloggable.Web.Config.ServicePackages
 {
     using System.Collections.Generic;
     using System.Web;

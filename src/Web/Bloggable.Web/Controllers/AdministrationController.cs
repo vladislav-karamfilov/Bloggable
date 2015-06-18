@@ -3,7 +3,7 @@
     using System.Web.Mvc;
 
     using Bloggable.Common.Constants;
-    using Bloggable.Web.Infrastructure.Attributes.Filters;
+    using Bloggable.Web.Infrastructure.Attributes;
 
     [Authorize(Roles = RoleConstants.Administrator)]
     [AdministrationLog]

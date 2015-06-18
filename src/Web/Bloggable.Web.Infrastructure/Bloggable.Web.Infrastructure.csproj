@@ -91,7 +91,7 @@
     <Compile Include="ActionResults\AlertDecoratorResult.cs" />
     <Compile Include="ActionResults\ChallengeResult.cs" />
     <Compile Include="ActionResults\RssResult.cs" />
-    <Compile Include="Attributes\Filters\Attributes.cs" />
+    <Compile Include="Attributes\Attributes.cs" />
     <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
     <Compile Include="Extensions\ActionResultExtensions.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />

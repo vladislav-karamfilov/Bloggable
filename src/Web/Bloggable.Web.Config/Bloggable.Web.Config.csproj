@@ -161,9 +161,9 @@
     <Compile Include="Identity\SmsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteConfig.cs" />
-    <Compile Include="ServiceRegistrationPackages\DataPackage.cs" />
-    <Compile Include="ServiceRegistrationPackages\ActionFiltersPackage.cs" />
-    <Compile Include="ServiceRegistrationPackages\IdentityPackage.cs" />
+    <Compile Include="ServicePackages\DataPackage.cs" />
+    <Compile Include="ServicePackages\ActionFiltersPackage.cs" />
+    <Compile Include="ServicePackages\IdentityPackage.cs" />
     <Compile Include="SimpleInjectorConfig.cs" />
     <Compile Include="ViewEngineConfig.cs" />
   </ItemGroup>

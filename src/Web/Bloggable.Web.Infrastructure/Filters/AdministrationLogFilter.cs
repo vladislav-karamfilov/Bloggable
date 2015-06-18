@@ -4,7 +4,7 @@
 
     using Bloggable.Data.Contracts;
     using Bloggable.Data.Models;
-    using Bloggable.Web.Infrastructure.Attributes.Filters;
+    using Bloggable.Web.Infrastructure.Attributes;
     using Bloggable.Web.Infrastructure.Filters.Contracts;
 
     using Microsoft.AspNet.Identity;

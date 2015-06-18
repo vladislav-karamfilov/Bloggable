@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Web.Infrastructure.Attributes.Filters
+﻿namespace Bloggable.Web.Infrastructure.Attributes
 {
     using System;
 
