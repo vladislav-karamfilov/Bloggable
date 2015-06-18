@@ -2,7 +2,7 @@
 {
     using System;
 
-    public interface IDeletableEntity
+    public interface IDeletableEntity : IEntity
     {
         bool IsDeleted { get; set; }
 
