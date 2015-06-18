@@ -4,16 +4,16 @@
 
     using Bloggable.Data.Contracts;
 
-    public interface IAdministrationService<T>
-        where T : IEntity
+    public interface IAdministrationService<TEntity>
+        where TEntity : IEntity
     {
-        IEnumerable<T> Read();
+        IEnumerable<TEntity> Read();
 
-        T Get(object id);
+        TEntity Get(object id);
 
-        void Create(T entity);
+        void Create(TEntity entity);
 
-        void Update(T entity);
+        void Update(TEntity entity);
 
         void Delete(object id);
     }

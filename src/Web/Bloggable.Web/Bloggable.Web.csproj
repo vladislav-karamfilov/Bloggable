@@ -288,6 +288,10 @@
       <Project>{880E85A2-3E14-49D8-9B9C-FA95405891F4}</Project>
       <Name>Bloggable.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\Bloggable.Services.Administration\Bloggable.Services.Administration.csproj">
+      <Project>{2251F6BD-AA72-4AF4-9E91-609356BED088}</Project>
+      <Name>Bloggable.Services.Administration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bloggable.Web.Config\Bloggable.Web.Config.csproj">
       <Project>{d1e7d236-32ef-45d7-883f-cefe78620690}</Project>
       <Name>Bloggable.Web.Config</Name>

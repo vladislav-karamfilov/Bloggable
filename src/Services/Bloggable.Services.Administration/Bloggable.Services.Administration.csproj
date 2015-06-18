@@ -40,7 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\AuditInfoAdministrationService.cs" />
+    <Compile Include="Base\DeletableEntityAdministrationService.cs" />
     <Compile Include="Contracts\IAdministrationService.cs" />
+    <Compile Include="Contracts\IDeletableEntityAdministrationService.cs" />
     <Compile Include="PostsAdministrationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
