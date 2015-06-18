@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Infrastructure.ActionResults
 {
+    using System;
     using System.Collections.Generic;
     using System.ServiceModel.Syndication;
     using System.Web;
@@ -18,8 +19,8 @@
             this.feed = feed;
         }
 
-        public RssResult(string title, string description, IEnumerable<SyndicationItem> feedItems)
-            : this(new SyndicationFeed(title, description, HttpContext.Current.Request.Url) { Items = feedItems })
+        public RssResult(string title, string description, IEnumerable<SyndicationItem> feedItems, Uri alternateLink = null)
+            : this(new SyndicationFeed(title, description, alternateLink ?? HttpContext.Current.Request.Url) { Items = feedItems })
         {
         }
 

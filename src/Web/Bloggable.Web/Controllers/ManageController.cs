@@ -267,7 +267,7 @@
                     var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId());
                     if (user != null)
                     {
-                        await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        await this.SignInManager.SignInAsync(user, false, false);
                     }
 
                     return this.RedirectToAction("Index", new { Message = ManageMessageId.SetPasswordSuccess });
