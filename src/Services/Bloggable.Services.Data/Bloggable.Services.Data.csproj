@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3F5F18E-0181-4AC6-A7AD-9882663EBEB9}</ProjectGuid>
+    <ProjectGuid>{34769DF1-1CCC-45DB-A378-3F869885B0DC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bloggable.Services.Common</RootNamespace>
-    <AssemblyName>Bloggable.Services.Common</AssemblyName>
+    <RootNamespace>Bloggable.Services.Data</RootNamespace>
+    <AssemblyName>Bloggable.Services.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -40,8 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IService.cs" />
+    <Compile Include="Contracts\IPostsDataService.cs" />
+    <Compile Include="PostsDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">
+      <Project>{3A53475F-62D8-44D9-9AC0-219B7FAD7D5F}</Project>
+      <Name>Bloggable.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Bloggable.Data.Models\Bloggable.Data.Models.csproj">
+      <Project>{9E658BA8-6E16-47F0-952F-A9546D871118}</Project>
+      <Name>Bloggable.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bloggable.Services.Common\Bloggable.Services.Common.csproj">
+      <Project>{d3f5f18e-0181-4ac6-a7ad-9882663ebeb9}</Project>
+      <Name>Bloggable.Services.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

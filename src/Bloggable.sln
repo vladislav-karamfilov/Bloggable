@@ -40,6 +40,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{519918
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggable.Web.Infrastructure", "Web\Bloggable.Web.Infrastructure\Bloggable.Web.Infrastructure.csproj", "{20D8D7B7-04BA-406C-A552-CB25FC7E63B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggable.Services.Data", "Services\Bloggable.Services.Data\Bloggable.Services.Data.csproj", "{34769DF1-1CCC-45DB-A378-3F869885B0DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{20D8D7B7-04BA-406C-A552-CB25FC7E63B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20D8D7B7-04BA-406C-A552-CB25FC7E63B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20D8D7B7-04BA-406C-A552-CB25FC7E63B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34769DF1-1CCC-45DB-A378-3F869885B0DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34769DF1-1CCC-45DB-A378-3F869885B0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34769DF1-1CCC-45DB-A378-3F869885B0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34769DF1-1CCC-45DB-A378-3F869885B0DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,5 +106,6 @@ Global
 		{1CE2EBC4-0DCF-4BE4-91B2-20610065E472} = {AF975F33-26B2-4A92-AA57-66E58B9456C6}
 		{D1E7D236-32EF-45D7-883F-CEFE78620690} = {AF975F33-26B2-4A92-AA57-66E58B9456C6}
 		{20D8D7B7-04BA-406C-A552-CB25FC7E63B9} = {AF975F33-26B2-4A92-AA57-66E58B9456C6}
+		{34769DF1-1CCC-45DB-A378-3F869885B0DC} = {93AA184B-11B7-4074-9106-8EE3F47F69BD}
 	EndGlobalSection
 EndGlobal
