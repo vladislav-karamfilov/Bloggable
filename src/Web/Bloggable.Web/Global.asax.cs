@@ -19,6 +19,7 @@
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ViewEngineConfig.RegisterViewEngines(ViewEngines.Engines);
 
             MvcHandler.DisableMvcResponseHeader = true;
         }

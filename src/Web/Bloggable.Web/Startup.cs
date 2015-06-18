@@ -21,7 +21,9 @@ namespace Bloggable.Web
         {
             var container = SimpleInjectorConfig.RegisterServices(Assembly.GetExecutingAssembly());
 
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters, new[] { new ActionFilterDispatcher(container.GetAllInstances) });
+            FilterConfig.RegisterGlobalFilters(
+                GlobalFilters.Filters,
+                new object[] { new ActionFilterDispatcher(container.GetAllInstances), });
 
             AuthConfig.ConfigureAuth(app, container);
         }

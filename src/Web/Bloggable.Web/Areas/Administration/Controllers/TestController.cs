@@ -6,8 +6,10 @@
 
     public class TestController : AdministrationController
     {
+        [HttpGet]
         public ActionResult Index()
         {
+            return this.View("asd");
             return this.Content("Hello from the administration area!");
         }
     }

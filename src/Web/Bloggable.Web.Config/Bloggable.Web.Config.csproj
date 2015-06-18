@@ -165,6 +165,7 @@
     <Compile Include="ServiceRegistrationPackages\ActionFiltersPackage.cs" />
     <Compile Include="ServiceRegistrationPackages\IdentityPackage.cs" />
     <Compile Include="SimpleInjectorConfig.cs" />
+    <Compile Include="ViewEngineConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
