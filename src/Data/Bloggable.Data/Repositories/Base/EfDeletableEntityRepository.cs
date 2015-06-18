@@ -24,11 +24,21 @@
             return base.All();
         }
 
+        public void HardDelete(T entity)
+        {
+            base.Delete(entity);
+        }
+
+        public void HardDelete(object id)
+        {
+            base.Delete(id);
+        }
+
         public override void Delete(T entity)
         {
             entity.IsDeleted = true;
             entity.DeletedOn = DateTime.Now;
-            
+
             this.Update(entity);
         }
     }
