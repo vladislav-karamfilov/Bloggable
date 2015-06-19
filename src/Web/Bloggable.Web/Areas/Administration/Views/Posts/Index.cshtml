@@ -1,5 +1,28 @@
-﻿@{
+﻿@using Bloggable.Data.Models
+@using Bloggable.Web.Areas.Administration.Controllers
+@using Bloggable.Web.Infrastructure.HtmlHelpers
+
+@{
     ViewBag.Title = "Posts administration (with comments)";
 }
 
-<h2>title</h2>
+<h2 class="text-center bottom-buffer">@ViewBag.Title</h2>
+
+@(Html.KendoGrid<Post, PostsController>(
+    m => m.Id,
+    c => c.Read(null),
+    null,
+    null,
+    c => c.Destroy(null, null),
+    cols =>
+    {
+        cols.Bound(m => m.Id).Hidden(true);
+        cols.Bound(m => m.Title);
+        cols.Bound(m => m.SubTitle).Hidden(true);
+        cols.Bound(m => m.Content);
+        cols.Bound(m => m.CreatedOn).Hidden();
+        cols.Bound(m => m.ModifiedOn).Hidden();
+        //cols.Command(c => c.Edit());
+        cols.Command(c => c.Destroy().Text(" "));
+    }
+))

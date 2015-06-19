@@ -44,7 +44,7 @@
     <Compile Include="Cache\CacheItemsProviderService.cs" />
     <Compile Include="Cache\Contracts\ICacheItemsProviderService.cs" />
     <Compile Include="Cache\Contracts\ICacheService.cs" />
-    <Compile Include="Cache\MemoryCacheService.cs" />
+    <Compile Include="Cache\HttpMemoryCacheService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

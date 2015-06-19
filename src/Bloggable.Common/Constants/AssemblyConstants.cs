@@ -2,6 +2,6 @@
 {
     public class AssemblyConstants
     {
-        public const string WebInfrastructure = "Bloggable.Web.Infrastructure";
+        public const string WebModels = "Bloggable.Web.Models";
     }
 }

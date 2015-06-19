@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Web.Controllers
+﻿namespace Bloggable.Web.Areas.Administration.Controllers.Base
 {
     using System.Web.Mvc;
 
@@ -7,7 +7,7 @@
 
     [Authorize(Roles = RoleConstants.Administrator)]
     [AdministrationLog]
-    public class AdministrationController : Controller
+    public abstract class AdministrationController : Controller
     {
     }
 }

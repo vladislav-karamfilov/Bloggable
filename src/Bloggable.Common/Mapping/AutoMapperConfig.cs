@@ -9,39 +9,32 @@
 
     public class AutoMapperConfig
     {
-        private readonly IEnumerable<Assembly> assemblies;
-
-        public AutoMapperConfig(IEnumerable<Assembly> assemblies)
+        public static void RegisterMappings(IEnumerable<Assembly> assemblies)
         {
-            this.assemblies = assemblies;
+            var types = assemblies.SelectMany(a => a.GetExportedTypes()).ToList();
+
+            RegisterStandardFromMappings(types);
+
+            RegisterStandardToMappings(types);
+
+            RegisterCustomMappings(types);
         }
 
-        public void Execute()
-        {
-            var types = this.assemblies.SelectMany(a => a.GetExportedTypes()).ToList();
-
-            LoadStandardFromMappings(types);
-
-            LoadStandardToMappings(types);
-
-            LoadCustomMappings(types);
-        }
-
-        private static void LoadStandardFromMappings(IEnumerable<Type> types)
+        private static void RegisterStandardFromMappings(IEnumerable<Type> types)
         {
             var maps = GetFromMaps(types);
 
             CreateMappings(maps);
         }
 
-        private static void LoadStandardToMappings(IEnumerable<Type> types)
+        private static void RegisterStandardToMappings(IEnumerable<Type> types)
         {
             var maps = GetToMaps(types);
 
             CreateMappings(maps);
         }
 
-        private static void LoadCustomMappings(IEnumerable<Type> types)
+        private static void RegisterCustomMappings(IEnumerable<Type> types)
         {
             var maps = from t in types
                        from i in t.GetInterfaces()

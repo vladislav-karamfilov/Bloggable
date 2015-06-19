@@ -34,3 +34,19 @@ textarea {
     right: 0;
     padding: 0 3em;
 }
+
+.top-buffer {
+    margin-top: 10px;
+}
+
+.bottom-buffer {
+    margin-bottom: 10px;
+}
+
+.left-buffer {
+    margin-left: 10px;
+}
+
+.right-buffer {
+    margin-right: 10px;
+}

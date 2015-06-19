@@ -83,6 +83,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\AdministrationViewModel.cs" />
+    <Compile Include="Administration\Posts\ViewModels\PostGridViewModel.cs" />
     <Compile Include="Manage\ViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="Manage\ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="Manage\ViewModels\ConfigureTwoFactorViewModel.cs" />
@@ -107,7 +109,23 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Administration\Comments\" />
+    <Folder Include="Administration\Posts\InputModels\" />
     <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
+      <Project>{636BFF57-5803-43AE-8A27-3AFCBC52BABF}</Project>
+      <Name>Bloggable.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">
+      <Project>{3A53475F-62D8-44D9-9AC0-219B7FAD7D5F}</Project>
+      <Name>Bloggable.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Bloggable.Data.Models\Bloggable.Data.Models.csproj">
+      <Project>{9E658BA8-6E16-47F0-952F-A9546D871118}</Project>
+      <Name>Bloggable.Data.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
