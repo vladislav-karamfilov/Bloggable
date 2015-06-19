@@ -44,6 +44,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggable.Services.Data", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggable.Services.Administration", "Services\Bloggable.Services.Administration\Bloggable.Services.Administration.csproj", "{2251F6BD-AA72-4AF4-9E91-609356BED088}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kendo", "Kendo", "{EA39C236-028F-4304-BEB4-7545E8DCCEB4}"
+	ProjectSection(SolutionItems) = preProject
+		External Libraries\Kendo\Kendo.Mvc.dll = External Libraries\Kendo\Kendo.Mvc.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,5 +119,6 @@ Global
 		{20D8D7B7-04BA-406C-A552-CB25FC7E63B9} = {AF975F33-26B2-4A92-AA57-66E58B9456C6}
 		{34769DF1-1CCC-45DB-A378-3F869885B0DC} = {93AA184B-11B7-4074-9106-8EE3F47F69BD}
 		{2251F6BD-AA72-4AF4-9E91-609356BED088} = {93AA184B-11B7-4074-9106-8EE3F47F69BD}
+		{EA39C236-028F-4304-BEB4-7545E8DCCEB4} = {C8D88358-B033-4AAB-B9A6-4B739A805D68}
 	EndGlobalSection
 EndGlobal

@@ -15,27 +15,36 @@
         private static void RegisterScriptBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                "~/Scripts/jQuery/jquery-{version}.js",
-                "~/Scripts/jQuery/jquery.unobtrusive-ajax.js"));
+                "~/Scripts/jquery/jquery-{version}.js",
+                "~/Scripts/jquery/jquery.unobtrusive-ajax.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                "~/Scripts/jQuery-Validate/jquery.validate*"));
+                "~/Scripts/jquery-Validate/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                "~/Scripts/Modernizr/modernizr-*"));
+                "~/Scripts/modernizr/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/Boostrap/bootstrap.js",
-                "~/Scripts/Respond/respond.js"));
+                "~/Scripts/boostrap/bootstrap.js",
+                "~/Scripts/respond/respond.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+                "~/Scripts/kendo/kendo.all.min.js",
+                "~/Scripts/kendo/kendo.aspnetmvc.min.js",
+                "~/Scripts/kendo/cultures/kendo.culture.en-GB.min.js"));
         }
 
         private static void RegisterStyleBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/css/Bootstrap/Themes/Superhero/bootstrap.css",
+                "~/Content/css/bootstrap/themes/superhero/bootstrap.css",
                 "~/Content/css/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+                "~/Content/kendo/kendo.common-material.min.css",
+                "~/Content/kendo/kendo.materialblack.min.css"));
         }
     }
 }

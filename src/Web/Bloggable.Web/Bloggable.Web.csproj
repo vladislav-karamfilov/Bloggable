@@ -54,6 +54,9 @@
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\..\External Libraries\Kendo\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -192,13 +195,62 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\Bootstrap\bootstrap.css" />
-    <Content Include="Content\css\Bootstrap\bootstrap.min.css" />
-    <Content Include="Content\css\Bootstrap\Themes\Superhero\bootstrap.css" />
-    <Content Include="Content\css\Bootstrap\Themes\Superhero\bootstrap.min.css" />
-    <Content Include="Content\css\Font-Awesome\font-awesome.css" />
-    <Content Include="Content\css\Font-Awesome\font-awesome.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap\themes\superhero\bootstrap.css" />
+    <Content Include="Content\css\bootstrap\themes\superhero\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome\font-awesome.css" />
+    <Content Include="Content\css\font-awesome\font-awesome.min.css" />
     <Content Include="Content\fonts\Font-Awesome\fontawesome-webfont.svg" />
+    <Content Include="Content\kendo\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="Content\kendo\images\back.png" />
+    <Content Include="Content\kendo\images\kendoui.svg" />
+    <Content Include="Content\kendo\images\wp8_icons.png" />
+    <Content Include="Content\kendo\images\wp8_inverseicons.png" />
+    <Content Include="Content\kendo\kendo.common-material.min.css" />
+    <Content Include="Content\kendo\kendo.materialblack.min.css" />
+    <Content Include="Content\kendo\MaterialBlack\editor.png" />
+    <Content Include="Content\kendo\MaterialBlack\imagebrowser.png" />
+    <Content Include="Content\kendo\MaterialBlack\indeterminate.gif" />
+    <Content Include="Content\kendo\MaterialBlack\loading-image.gif" />
+    <Content Include="Content\kendo\MaterialBlack\loading.gif" />
+    <Content Include="Content\kendo\MaterialBlack\loading_2x.gif" />
+    <Content Include="Content\kendo\MaterialBlack\slider-h.gif" />
+    <Content Include="Content\kendo\MaterialBlack\slider-v.gif" />
+    <Content Include="Content\kendo\MaterialBlack\sprite.png" />
+    <Content Include="Content\kendo\MaterialBlack\sprite_2x.png" />
+    <Content Include="Content\kendo\MaterialBlack\sprite_kpi.png" />
+    <Content Include="Content\kendo\MaterialBlack\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\textures\brushed-metal.png" />
+    <Content Include="Content\kendo\textures\dots1.png" />
+    <Content Include="Content\kendo\textures\dots10.png" />
+    <Content Include="Content\kendo\textures\dots11.png" />
+    <Content Include="Content\kendo\textures\dots12.png" />
+    <Content Include="Content\kendo\textures\dots13.png" />
+    <Content Include="Content\kendo\textures\dots2.png" />
+    <Content Include="Content\kendo\textures\dots3.png" />
+    <Content Include="Content\kendo\textures\dots4.png" />
+    <Content Include="Content\kendo\textures\dots5.png" />
+    <Content Include="Content\kendo\textures\dots6.png" />
+    <Content Include="Content\kendo\textures\dots7.png" />
+    <Content Include="Content\kendo\textures\dots8.png" />
+    <Content Include="Content\kendo\textures\dots9.png" />
+    <Content Include="Content\kendo\textures\glass-lighter.png" />
+    <Content Include="Content\kendo\textures\glass.png" />
+    <Content Include="Content\kendo\textures\highlight.png" />
+    <Content Include="Content\kendo\textures\hsv-gradient.png" />
+    <Content Include="Content\kendo\textures\hue.png" />
+    <Content Include="Content\kendo\textures\leather1.png" />
+    <Content Include="Content\kendo\textures\leather2.png" />
+    <Content Include="Content\kendo\textures\noise.png" />
+    <Content Include="Content\kendo\textures\stripe1.png" />
+    <Content Include="Content\kendo\textures\stripe2.png" />
+    <Content Include="Content\kendo\textures\stripe3.png" />
+    <Content Include="Content\kendo\textures\stripe4.png" />
+    <Content Include="Content\kendo\textures\stripe5.png" />
+    <Content Include="Content\kendo\textures\stripe6.png" />
+    <Content Include="Content\kendo\textures\transparency.png" />
+    <Content Include="Content\kendo\textures\transtexture.png" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\Glyphicons\glyphicons-halflings-regular.svg" />
     <Content Include="Content\css\site.css" />
@@ -206,7 +258,7 @@
     <Content Include="Content\fonts\Glyphicons\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\Glyphicons\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\Glyphicons\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\css\Bootstrap\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap.css.map" />
     <Content Include="Content\fonts\Font-Awesome\fontawesome-webfont.eot" />
     <Content Include="Content\fonts\Font-Awesome\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\Font-Awesome\fontawesome-webfont.woff" />
@@ -214,26 +266,46 @@
     <Content Include="Content\fonts\Font-Awesome\FontAwesome.otf" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\Posts\Index.cshtml" />
-    <None Include="Scripts\jQuery\jquery-2.1.4.intellisense.js" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="Content\kendo\images\kendoui.ttf" />
+    <Content Include="Content\kendo\images\kendoui.woff" />
+    <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+    <None Include="Scripts\jquery\jquery-2.1.4.intellisense.js" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Boostrap\bootstrap.js" />
-    <Content Include="Scripts\Boostrap\bootstrap.min.js" />
-    <Content Include="Scripts\jQuery\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jQuery\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jQuery\jquery-2.1.4.js" />
-    <Content Include="Scripts\jQuery\jquery-2.1.4.min.js" />
-    <Content Include="Scripts\jQuery\jquery-2.1.4.min.map" />
-    <None Include="Scripts\jQuery-Validate\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jQuery-Validate\jquery.validate.js" />
-    <Content Include="Scripts\jQuery-Validate\jquery.validate.min.js" />
-    <Content Include="Scripts\jQuery-Validate\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jQuery-Validate\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Modernizr\modernizr-2.8.3.js" />
+    <Content Include="Scripts\boostrap\bootstrap.js" />
+    <Content Include="Scripts\boostrap\bootstrap.min.js" />
+    <Content Include="Scripts\jquery\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery\jquery-2.1.4.min.map" />
+    <None Include="Scripts\jquery-Validate\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-Validate\jquery.validate.js" />
+    <Content Include="Scripts\jquery-Validate\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery-Validate\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery-Validate\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kendo\cultures\kendo.culture.en-GB.min.js" />
+    <Content Include="Scripts\kendo\cultures\kendo.culture.en.min.js" />
+    <Content Include="Scripts\kendo\kendo.all.min.js" />
+    <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\modernizr\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
-    <Content Include="Scripts\Respond\respond.js" />
-    <Content Include="Scripts\Respond\respond.matchmedia.addListener.js" />
-    <Content Include="Scripts\Respond\respond.matchmedia.addListener.min.js" />
-    <Content Include="Scripts\Respond\respond.min.js" />
+    <Content Include="Scripts\respond\respond.js" />
+    <Content Include="Scripts\respond\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -271,6 +343,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Alerts.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Alert.cshtml" />
+    <Content Include="Scripts\kendo\kendo.all.min.js.map" />
+    <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
@@ -309,9 +383,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Administration\Views\Shared\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
