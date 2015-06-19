@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\CacheItemsProviderService.cs" />
+    <Compile Include="Cache\Contracts\ICacheItemsProviderService.cs" />
+    <Compile Include="Cache\Contracts\ICacheService.cs" />
+    <Compile Include="Cache\MemoryCacheService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

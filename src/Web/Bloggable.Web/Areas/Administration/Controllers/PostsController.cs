@@ -6,11 +6,11 @@
     using Bloggable.Services.Administration.Base;
     using Bloggable.Web.Controllers;
 
-    public class TestController : AdministrationController
+    public class PostsController : AdministrationController
     {
-        private readonly AdministrationService<Post> postsAdministrationService;
+        private readonly DeletableEntityAdministrationService<Post> postsAdministrationService;
 
-        public TestController(AdministrationService<Post> postsAdministrationService)
+        public PostsController(DeletableEntityAdministrationService<Post> postsAdministrationService)
         {
             this.postsAdministrationService = postsAdministrationService;
         }
@@ -18,8 +18,7 @@
         [HttpGet]
         public ActionResult Index()
         {
-            this.postsAdministrationService.Delete(3);
-            return this.Content("deleted");
+            return this.View();
         }
     }
 }
