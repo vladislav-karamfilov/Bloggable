@@ -301,6 +301,7 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\PostGridViewModel.cshtml" />
     <None Include="Scripts\jquery\jquery-2.1.4.intellisense.js" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\administration.js" />
     <Content Include="Scripts\boostrap\bootstrap.js" />
     <Content Include="Scripts\boostrap\bootstrap.min.js" />
     <Content Include="Scripts\jquery\jquery.unobtrusive-ajax.js" />

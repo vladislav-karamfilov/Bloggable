@@ -108,6 +108,7 @@
     <Compile Include="Filters\AdministrationLogFilter.cs" />
     <Compile Include="Filters\ActionFilterDispatcher.cs" />
     <Compile Include="Filters\Contracts\IActionFilter.cs" />
+    <Compile Include="HtmlHelpers\BootstrapHelpers.cs" />
     <Compile Include="HtmlHelpers\InputHelpers.cs" />
     <Compile Include="HtmlHelpers\KendoGridHelpers.cs" />
     <Compile Include="Models\Alert.cs" />
