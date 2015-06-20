@@ -1,6 +1,6 @@
 ﻿namespace Bloggable.Services.Administration.Base
 {
-    using System.Collections.Generic;
+    using System.Linq;
 
     using Bloggable.Data.Contracts;
     using Bloggable.Data.Contracts.Repositories;
@@ -19,7 +19,7 @@
             this.entities = entities;
         }
 
-        public virtual IEnumerable<TDeletableEntity> ReadWithDeleted()
+        public virtual IQueryable<TDeletableEntity> ReadWithDeleted()
         {
             return this.entities.AllWithDeleted();
         }

@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\AdministrationViewModel.cs" />
+    <Compile Include="Administration\Comments\ViewModels\CommentGridViewModel.cs" />
     <Compile Include="Administration\Posts\ViewModels\PostGridViewModel.cs" />
     <Compile Include="Manage\ViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="Manage\ViewModels\ChangePasswordViewModel.cs" />
@@ -117,8 +118,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Administration\Comments\" />
-    <Folder Include="Administration\Posts\InputModels\" />
     <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>

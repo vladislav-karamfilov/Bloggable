@@ -1,0 +1,18 @@
+﻿@using Bloggable.Web.Models.Administration.Comments.ViewModels
+
+@(Html.KendoGrid<CommentGridViewModel>(
+    m => m.Id,
+    read => read.Action("ReadComments", "Comments", new { postId = "#=Id#" }),
+    null,
+    null,
+    destroy => destroy.Action("Destroy", "Comments"),
+    "comments-grid-#=Id#",
+    cols =>
+    {
+        cols.Bound(col => col.Content);
+        cols.Bound(col => col.AuthorUserName);
+        cols.Bound(col => col.IsDeleted);
+        cols.Command(command => command.Destroy());
+    }
+)
+.ToClientTemplate())

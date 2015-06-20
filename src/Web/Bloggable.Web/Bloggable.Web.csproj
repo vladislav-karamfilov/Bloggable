@@ -195,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Administration\Controllers\PostsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\AdministrationController.cs" />
@@ -299,6 +300,7 @@
     <Content Include="Areas\Administration\Views\Posts\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Posts\Update.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\PostGridViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_Comments.cshtml" />
     <None Include="Scripts\jquery\jquery-2.1.4.intellisense.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\administration.js" />

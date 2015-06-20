@@ -1,6 +1,5 @@
-﻿@using Bloggable.Data.Models
-@using Bloggable.Web.Areas.Administration.Controllers
-@using Bloggable.Web.Infrastructure.HtmlHelpers
+﻿@using Bloggable.Web.Areas.Administration.Controllers
+@using Bloggable.Web.Models.Administration.Posts.ViewModels
 
 @{
     ViewBag.Title = "Posts administration (with comments)";
@@ -8,7 +7,7 @@
 
 <h2 class="text-center bottom-buffer">@ViewBag.Title</h2>
 
-@(Html.KendoGrid<Post, PostsController>(
+@(Html.KendoGrid<PostGridViewModel, PostsController>(
     m => m.Id,
     c => c.Read(null),
     null,
@@ -27,7 +26,12 @@
         cols.Command(command => command.Destroy());
     },
     toolbar => toolbar.Custom().Text("Create new post").Action<PostsController>(c => c.Create())
-))
+)
+.ClientDetailTemplateId("comments-grid"))
+
+<script id="comments-grid" type="text/kendo-template">
+    @Html.Partial("_Comments")
+</script>
 
 <script>
     function editPost(ev) {
