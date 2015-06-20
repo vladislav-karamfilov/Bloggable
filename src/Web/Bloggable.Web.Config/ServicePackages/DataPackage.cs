@@ -5,6 +5,7 @@
     using Bloggable.Common.Constants;
     using Bloggable.Data;
     using Bloggable.Data.Contracts;
+    using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Repositories.Base;
 
     using SimpleInjector;

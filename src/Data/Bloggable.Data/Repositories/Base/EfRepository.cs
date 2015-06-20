@@ -5,6 +5,7 @@
     using System.Linq;
 
     using Bloggable.Data.Contracts;
+    using Bloggable.Data.Contracts.Repositories;
 
     public class EfRepository<T> : IRepository<T> where T : class
     {

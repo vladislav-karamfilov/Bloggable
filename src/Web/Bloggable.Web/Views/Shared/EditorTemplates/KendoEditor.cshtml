@@ -1,0 +1,43 @@
+﻿@model string
+
+@{
+    object width;
+    if (!ViewData.ModelMetadata.AdditionalValues.TryGetValue("Width", out width))
+    {
+        width = "100%";
+    }
+
+    object height;
+    if (!ViewData.ModelMetadata.AdditionalValues.TryGetValue("Height", out height))
+    {
+        height = "300px";
+    }
+
+    var htmlAttributes = new { style = string.Format("width: {0}; height: {1}", width, height) };
+}
+
+@(Html.Kendo().EditorFor(m => m)
+    .Encode(false)
+    .Resizable()
+    .Tools(tools => tools
+        .Clear()
+        .Bold().Italic().Underline().Strikethrough()
+        .JustifyLeft().JustifyCenter().JustifyRight().JustifyFull()
+        .InsertUnorderedList().InsertOrderedList()
+        .Outdent().Indent()
+        .CreateLink().Unlink()
+        .InsertImage()
+        .InsertFile()
+        .SubScript()
+        .SuperScript()
+        .TableEditing()
+        .ViewHtml()
+        .Formatting()
+        .CleanFormatting()
+        .FontName()
+        .FontSize()
+        .FontColor().BackColor()
+        .Print()
+    )
+    .HtmlAttributes(htmlAttributes)
+)

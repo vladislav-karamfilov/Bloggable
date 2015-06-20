@@ -1,13 +1,13 @@
 ﻿namespace Bloggable.Services.Administration.Contracts
 {
-    using System.Collections.Generic;
+    using System.Linq;
 
     using Bloggable.Data.Contracts;
 
     public interface IAdministrationService<TEntity>
         where TEntity : IEntity
     {
-        IEnumerable<TEntity> Read();
+        IQueryable<TEntity> Read();
 
         TEntity Get(object id);
 
@@ -16,5 +16,7 @@
         void Update(TEntity entity);
 
         void Delete(object id);
+
+        void Delete(TEntity entity);
     }
 }

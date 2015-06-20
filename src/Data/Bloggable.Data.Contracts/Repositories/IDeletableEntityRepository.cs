@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Data.Contracts
+﻿namespace Bloggable.Data.Contracts.Repositories
 {
     using System.Linq;
 

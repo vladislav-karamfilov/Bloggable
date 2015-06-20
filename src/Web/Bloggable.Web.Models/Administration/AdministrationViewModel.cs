@@ -3,7 +3,7 @@
     using System;
     using System.Web.Mvc;
 
-    public abstract class AdministrationViewModel
+    public abstract class AdministrationGridViewModel
     {
         [HiddenInput(DisplayValue = false)]
         public DateTime CreatedOn { get; set; }

@@ -12,6 +12,8 @@
             this.comments = new HashSet<Comment>();
         }
 
+        public string Summary { get; set; }
+
         [Required]
         public string AuthorId { get; set; }
 

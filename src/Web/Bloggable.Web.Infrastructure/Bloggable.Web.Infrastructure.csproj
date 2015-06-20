@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlTags, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HtmlTags.3.0.0.186\lib\4.0\HtmlTags.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Kendo.Mvc">
       <HintPath>..\..\External Libraries\Kendo\Kendo.Mvc.dll</HintPath>
     </Reference>
@@ -94,14 +98,17 @@
     <Compile Include="ActionResults\AlertDecoratorResult.cs" />
     <Compile Include="ActionResults\ChallengeResult.cs" />
     <Compile Include="ActionResults\RssResult.cs" />
-    <Compile Include="Attributes\Attributes.cs" />
+    <Compile Include="Attributes\AdministrationLogAttribute.cs" />
+    <Compile Include="Attributes\PlaceholderAttribute.cs" />
     <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
     <Compile Include="Extensions\ActionResultExtensions.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
+    <Compile Include="Extensions\IPrincipalExtensions.cs" />
     <Compile Include="Extensions\TempDataDictionaryExtensions.cs" />
     <Compile Include="Filters\AdministrationLogFilter.cs" />
     <Compile Include="Filters\ActionFilterDispatcher.cs" />
     <Compile Include="Filters\Contracts\IActionFilter.cs" />
+    <Compile Include="HtmlHelpers\InputHelpers.cs" />
     <Compile Include="HtmlHelpers\KendoGridHelpers.cs" />
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\AlertType.cs" />
@@ -111,6 +118,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

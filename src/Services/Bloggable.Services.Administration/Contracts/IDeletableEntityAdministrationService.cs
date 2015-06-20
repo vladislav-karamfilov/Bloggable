@@ -10,5 +10,7 @@
         IEnumerable<TDeletableEntity> ReadWithDeleted();
 
         void HardDelete(object id);
+
+        void HardDelete(TDeletableEntity entity);
     }
 }

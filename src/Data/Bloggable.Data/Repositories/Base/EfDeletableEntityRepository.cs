@@ -5,6 +5,7 @@
     using System.Linq;
 
     using Bloggable.Data.Contracts;
+    using Bloggable.Data.Contracts.Repositories;
 
     public class EfDeletableEntityRepository<T> : EfRepository<T>, IDeletableEntityRepository<T>
         where T : class, IDeletableEntity

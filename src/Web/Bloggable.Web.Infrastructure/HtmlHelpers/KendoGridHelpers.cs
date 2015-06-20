@@ -16,8 +16,9 @@
                 Expression<Action<TController>> createAction = null,
                 Expression<Action<TController>> updateAction = null,
                 Expression<Action<TController>> destroyAction = null,
-                Action<GridColumnFactory<T>> columns = null,
                 string gridId = null,
+                Action<GridColumnFactory<T>> columns = null,
+                Action<GridToolBarCommandFactory<T>> toolbar = null,
                 string editorTemplateName = null,
                 string clientDetailTemplateId = null,
                 string clientRowTemplate = null,
@@ -35,13 +36,7 @@
                 .Filterable(x => x.Enabled(true))
                 .Reorderable(x => x.Columns(true))
                 .Resizable(x => x.Columns(true))
-                .ToolBar(toolbar =>
-                {
-                    if (createAction != null)
-                    {
-                        toolbar.Create().Text("Create");
-                    }
-                })
+                .ToolBar(toolbar ?? GetDefaultToolbar<T, TController>(createAction))
                 .Editable(editable =>
                 {
                     editable.Mode(GridEditMode.PopUp);
@@ -90,6 +85,19 @@
                     cols.Command(c => c.Destroy());
                 }
             };
+        }
+
+        private static Action<GridToolBarCommandFactory<T>> GetDefaultToolbar<T, TController>(
+                Expression<Action<TController>> createAction)
+            where T : class
+            where TController : Controller
+        {
+            if (createAction != null)
+            {
+                return toolbar => toolbar.Create().Text("Create");
+            }
+
+            return null;
         }
 
         private static void SetDataSource<T, TController>(

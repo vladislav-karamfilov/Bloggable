@@ -14,15 +14,30 @@
     null,
     null,
     c => c.Destroy(null, null),
+    null,
     cols =>
     {
         cols.Bound(m => m.Id).Hidden(true);
         cols.Bound(m => m.Title);
         cols.Bound(m => m.SubTitle).Hidden(true);
-        cols.Bound(m => m.Content);
+        cols.Bound(m => m.Summary);
         cols.Bound(m => m.CreatedOn).Hidden();
         cols.Bound(m => m.ModifiedOn).Hidden();
-        //cols.Command(c => c.Edit());
-        cols.Command(c => c.Destroy().Text(" "));
-    }
+        cols.Command(m => m.Custom("Edit post").Click("editPost"));
+        cols.Command(command => command.Destroy());
+    },
+    toolbar => toolbar.Custom().Text("Create new post").Action<PostsController>(c => c.Create())
 ))
+
+<script>
+    function editPost(ev) {
+        ev.preventDefault();
+
+        var dataItem = this.dataItem($(ev.currentTarget).closest('tr'));
+        var id = dataItem.get('Id');
+
+        var editUrl = '@(Url.Action<PostsController>(c => c.Update((int?)null)))' + '/' + id;
+
+        window.location = editUrl;
+    }
+</script>

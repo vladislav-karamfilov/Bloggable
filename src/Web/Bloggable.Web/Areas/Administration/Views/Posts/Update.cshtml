@@ -1,0 +1,21 @@
+﻿@using Bloggable.Web.Areas.Administration.Controllers
+@using Bloggable.Web.Models.Administration.Posts.ViewModels
+
+@model PostGridViewModel
+
+@{
+    ViewBag.Title = "Edit post";
+}
+
+<h2 class="text-center bottom-buffer">@ViewBag.Title</h2>
+
+<div class="container">
+    @using (Html.BeginForm<PostsController>(c => c.Update((PostGridViewModel)null), FormMethod.Post, null, new { role = "form", @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.EditorForModel()
+
+        @Html.Submit("Edit").Attr("class", "btn btn-primary")
+    }
+</div>

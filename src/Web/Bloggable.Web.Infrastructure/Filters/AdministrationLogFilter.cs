@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    using Bloggable.Data.Contracts;
+    using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
     using Bloggable.Web.Infrastructure.Attributes;
     using Bloggable.Web.Infrastructure.Filters.Contracts;
@@ -30,7 +30,7 @@
                 Url = filterContext.HttpContext.Request.RawUrl,
                 UserId = filterContext.HttpContext.User.Identity.GetUserId(),
                 RequestType = filterContext.HttpContext.Request.RequestType,
-                PostParams = filterContext.HttpContext.Request.Form.ToString(),
+                PostParams = filterContext.HttpContext.Request.Unvalidated.Form.ToString()
             };
 
             this.administrationLogs.Add(administrationLog);

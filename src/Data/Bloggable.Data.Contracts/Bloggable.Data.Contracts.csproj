@@ -59,11 +59,11 @@
     <Compile Include="DeletableEntity.cs" />
     <Compile Include="IAuditInfo.cs" />
     <Compile Include="IDeletableEntity.cs" />
-    <Compile Include="IDeletableEntityRepository.cs" />
+    <Compile Include="Repositories\IDeletableEntityRepository.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="IIdentifiable.cs" />
     <Compile Include="IOrderable.cs" />
-    <Compile Include="IRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

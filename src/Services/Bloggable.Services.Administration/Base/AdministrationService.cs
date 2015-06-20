@@ -1,8 +1,9 @@
 ﻿namespace Bloggable.Services.Administration.Base
 {
-    using System.Collections.Generic;
+    using System.Linq;
 
     using Bloggable.Data.Contracts;
+    using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Services.Administration.Contracts;
 
     public class AdministrationService<TEntity> : IAdministrationService<TEntity>
@@ -15,7 +16,7 @@
             this.entities = entities;
         }
 
-        public virtual IEnumerable<TEntity> Read()
+        public virtual IQueryable<TEntity> Read()
         {
             return this.entities.All();
         }
@@ -40,6 +41,12 @@
         public virtual void Delete(object id)
         {
             this.entities.Delete(id);
+            this.entities.SaveChanges();
+        }
+
+        public void Delete(TEntity entity)
+        {
+            this.entities.Delete(entity);
             this.entities.SaveChanges();
         }
     }

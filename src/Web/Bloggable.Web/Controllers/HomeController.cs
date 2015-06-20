@@ -5,6 +5,7 @@
 
     using Bloggable.Data;
     using Bloggable.Data.Contracts;
+    using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
 
     using Microsoft.AspNet.Identity.EntityFramework;
