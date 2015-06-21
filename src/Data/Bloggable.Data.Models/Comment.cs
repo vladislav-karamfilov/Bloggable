@@ -2,12 +2,14 @@
 {
     using System.ComponentModel.DataAnnotations;
 
+    using Bloggable.Common.Constants;
     using Bloggable.Data.Contracts;
 
     public class Comment : IdentifiableDeletableEntity<int>
     {
         [Required]
-        //// TODO: Add validation for length
+        [MinLength(CommentValidationConstants.ContentMinLength)]
+        [MaxLength(CommentValidationConstants.ContentMaxLength)]
         public string Content { get; set; }
 
         public int PostId { get; set; }

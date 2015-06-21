@@ -2,7 +2,9 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
+    using Bloggable.Common.Constants;
     using Bloggable.Data.Contracts;
 
     public class Tag : IdentifiableAuditInfo<int>
@@ -17,6 +19,9 @@
         }
 
         [Required]
+        [Index(IsUnique = true)]
+        [MinLength(TagValidationConstants.TagNameMinLength)]
+        [MaxLength(TagValidationConstants.TagNameMaxLength)]
         public string Name { get; set; }
 
         public virtual ICollection<Post> Posts

@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+    using Bloggable.Common.Constants;
+
     public class Post : ContentHolder
     {
         private ICollection<Comment> comments;
@@ -12,8 +14,10 @@
             this.comments = new HashSet<Comment>();
         }
 
+        [MaxLength(ContentHolderValidationConstants.SummaryMaxLength)]
         public string Summary { get; set; }
 
+        [MaxLength(ContentHolderValidationConstants.UrlMaxLength)]
         public string ImageOrVideoUrl { get; set; }
 
         [Required]

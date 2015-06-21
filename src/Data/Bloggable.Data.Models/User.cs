@@ -7,6 +7,7 @@
     using System.Security.Claims;
     using System.Threading.Tasks;
 
+    using Bloggable.Common.Constants;
     using Bloggable.Data.Contracts;
     using Bloggable.Data.Contracts.DataAnnotations;
 
@@ -27,6 +28,8 @@
 
         [Required]
         [IsUnicode(false)]
+        [MinLength(UserValidationConstants.EmailMinLength)]
+        [MaxLength(UserValidationConstants.EmailMaxLength)]
         public override string Email { get; set; }
 
         public virtual ICollection<Post> Posts

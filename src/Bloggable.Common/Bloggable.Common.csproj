@@ -52,11 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\AdministrationLogValidationConstants.cs" />
     <Compile Include="Constants\AppSettingConstants.cs" />
     <Compile Include="Constants\AssemblyConstants.cs" />
     <Compile Include="Constants\CacheConstants.cs" />
+    <Compile Include="Constants\CommentValidationConstants.cs" />
+    <Compile Include="Constants\ContentHolderValidationConstants.cs" />
     <Compile Include="Constants\ContentTypeConstants.cs" />
+    <Compile Include="Constants\ReferralValidationConstants.cs" />
+    <Compile Include="Constants\SearchTermValidationConstants.cs" />
+    <Compile Include="Constants\TagValidationConstants.cs" />
     <Compile Include="Constants\RoleConstants.cs" />
+    <Compile Include="Constants\UserValidationConstants.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />

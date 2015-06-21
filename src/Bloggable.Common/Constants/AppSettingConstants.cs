@@ -13,5 +13,7 @@
         public const string BlogKeywordsSetting = "Blog keywords";
 
         public const string BlogAuthor = "Blog author";
+
+        public const int SettingValueMaxLength = 1000;
     }
 }
