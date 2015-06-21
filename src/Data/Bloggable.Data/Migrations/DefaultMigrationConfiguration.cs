@@ -18,6 +18,7 @@
 
         protected override void Seed(BloggableDbContext context)
         {
+            this.SeedSystemSettings(context);
             this.SeedRoles(context);
 
             if (context.Users.Any())
@@ -30,12 +31,28 @@
             context.SaveChanges();
         }
 
+        private void SeedSystemSettings(IBloggableDbContext context)
+        {
+            context.Settings.AddOrUpdate(s => s.Id, new Setting { Id = AppSettingConstants.BlogNameSetting, Value = "VBlog" });
+            context.Settings.AddOrUpdate(
+                s => s.Id,
+                new Setting
+                {
+                    Id = AppSettingConstants.BlogDescriptionSetting,
+                    Value = "Vladislav Karamfilov's blog for programming, science and others"
+                });
+            context.Settings.AddOrUpdate(
+                s => s.Id,
+                new Setting
+                {
+                    Id = AppSettingConstants.BlogKeywordsSetting,
+                    Value = "blog, programming, science, .NET, C#, ASP.NET MVC, Node.js"
+                });
+        }
+
         private void SeedRoles(BloggableDbContext context)
         {
-            if (!context.Roles.Any())
-            {
-                context.Roles.AddOrUpdate(new IdentityRole(RoleConstants.Administrator));
-            }
+            context.Roles.AddOrUpdate(r => r.Name, new IdentityRole(RoleConstants.Administrator));
         }
 
         private void SeedPosts(BloggableDbContext context)

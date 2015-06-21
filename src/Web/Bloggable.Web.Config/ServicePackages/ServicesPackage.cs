@@ -11,7 +11,7 @@
     {
         public void RegisterServices(Container container)
         {
-            // TODO: Register services bindings!
+            // TODO: Register with LINQ!
             var webRequestLifestyle = new WebRequestLifestyle();
             container.Register<ICacheService, HttpRuntimeCacheService>(webRequestLifestyle);
             container.Register<ICacheItemsProviderService, CacheItemsProviderService>(webRequestLifestyle);

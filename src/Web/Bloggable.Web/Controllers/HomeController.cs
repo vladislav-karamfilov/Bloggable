@@ -1,16 +1,16 @@
 ﻿namespace Bloggable.Web.Controllers
 {
+    using System.Data.Entity;
     using System.Linq;
     using System.Web.Mvc;
 
     using Bloggable.Data;
-    using Bloggable.Data.Contracts;
     using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
 
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IDeletableEntityRepository<Post> posts;
 
@@ -22,7 +22,8 @@
         public ActionResult Index()
         {
             var context = DependencyResolver.Current.GetService<BloggableDbContext>();
-            var context1 = DependencyResolver.Current.GetService<IdentityDbContext<User>>();
+            var context1 = DependencyResolver.Current.GetService<DbContext>();
+            var context2 = DependencyResolver.Current.GetService<IdentityDbContext<User>>();
 
             return this.View();
         }
