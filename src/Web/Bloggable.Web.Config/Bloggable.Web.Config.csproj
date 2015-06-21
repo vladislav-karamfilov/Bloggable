@@ -165,6 +165,7 @@
     <Compile Include="ServicePackages\DataPackage.cs" />
     <Compile Include="ServicePackages\ActionFiltersPackage.cs" />
     <Compile Include="ServicePackages\IdentityPackage.cs" />
+    <Compile Include="ServicePackages\ServicesPackage.cs" />
     <Compile Include="SimpleInjectorConfig.cs" />
     <Compile Include="ViewEngineConfig.cs" />
   </ItemGroup>
@@ -188,6 +189,10 @@
     <ProjectReference Include="..\..\Services\Bloggable.Services.Administration\Bloggable.Services.Administration.csproj">
       <Project>{2251F6BD-AA72-4AF4-9E91-609356BED088}</Project>
       <Name>Bloggable.Services.Administration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Bloggable.Services.Common\Bloggable.Services.Common.csproj">
+      <Project>{D3F5F18E-0181-4AC6-A7AD-9882663EBEB9}</Project>
+      <Name>Bloggable.Services.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bloggable.Web.Infrastructure\Bloggable.Web.Infrastructure.csproj">
       <Project>{20D8D7B7-04BA-406C-A552-CB25FC7E63B9}</Project>

@@ -69,6 +69,7 @@
     <Compile Include="Rating.cs" />
     <Compile Include="Referral.cs" />
     <Compile Include="SearchTerm.cs" />
+    <Compile Include="Setting.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

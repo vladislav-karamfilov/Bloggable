@@ -6,7 +6,7 @@
 
     using Bloggable.Services.Common.Cache.Contracts;
 
-    public class HttpMemoryCacheService : ICacheService
+    public class HttpRuntimeCacheService : ICacheService
     {
         public T Get<T>(string cacheId, Func<T> getItemCallback, int cacheSeconds) where T : class
         {

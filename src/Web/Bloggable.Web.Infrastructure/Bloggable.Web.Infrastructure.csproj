@@ -100,14 +100,17 @@
     <Compile Include="ActionResults\RssResult.cs" />
     <Compile Include="Attributes\AdministrationLogAttribute.cs" />
     <Compile Include="Attributes\PlaceholderAttribute.cs" />
+    <Compile Include="Attributes\PopulateSystemSettingsAttribute.cs" />
     <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
     <Compile Include="Extensions\ActionResultExtensions.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\IPrincipalExtensions.cs" />
     <Compile Include="Extensions\TempDataDictionaryExtensions.cs" />
+    <Compile Include="Extensions\ViewDataDictionaryExtensions.cs" />
     <Compile Include="Filters\AdministrationLogFilter.cs" />
     <Compile Include="Filters\ActionFilterDispatcher.cs" />
     <Compile Include="Filters\Contracts\IActionFilter.cs" />
+    <Compile Include="Filters\PopulateSystemSettingsFilter.cs" />
     <Compile Include="HtmlHelpers\BootstrapHelpers.cs" />
     <Compile Include="HtmlHelpers\InputHelpers.cs" />
     <Compile Include="HtmlHelpers\KendoGridHelpers.cs" />
@@ -134,6 +137,10 @@
     <ProjectReference Include="..\..\Data\Bloggable.Data.Models\Bloggable.Data.Models.csproj">
       <Project>{9E658BA8-6E16-47F0-952F-A9546D871118}</Project>
       <Name>Bloggable.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Bloggable.Services.Common\Bloggable.Services.Common.csproj">
+      <Project>{D3F5F18E-0181-4AC6-A7AD-9882663EBEB9}</Project>
+      <Name>Bloggable.Services.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

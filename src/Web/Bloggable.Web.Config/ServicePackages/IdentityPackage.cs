@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Web;
 
-    using Bloggable.Data;
     using Bloggable.Data.Models;
 
     using Microsoft.AspNet.Identity;
@@ -18,8 +17,6 @@
     {
         public void RegisterServices(Container container)
         {
-            container.RegisterPerWebRequest<IdentityDbContext<User>>(container.GetInstance<BloggableDbContext>);
-            
             container.RegisterPerWebRequest<IUserStore<User>>(() => new UserStore<User>(container.GetInstance<IdentityDbContext<User>>()));
             container.RegisterPerWebRequest(() => container.IsVerifying()
                 ? new OwinContext(new Dictionary<string, object>()).Authentication

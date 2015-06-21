@@ -1,14 +1,43 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@using Bloggable.Common.Constants
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <title>@ViewBag.Title - @ViewData.GetSystemSetting(AppSettingConstants.BlogNameSetting)</title>
+
     @Styles.Render("~/Content/css")
     @RenderSection("styles", required: false)
-    
+
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+
+    @{
+        var blogDescription = ViewData.GetSystemSetting(AppSettingConstants.BlogDescriptionSetting);
+        if (!string.IsNullOrWhiteSpace(blogDescription))
+        {
+            <meta name="description" content="@blogDescription" />
+        }
+
+        var blogKeywords = ViewData.GetSystemSetting(AppSettingConstants.BlogKeywordsSetting);
+        if (!string.IsNullOrWhiteSpace(blogKeywords))
+        {
+            <meta name="keywords" content="@blogKeywords" />
+        }
+
+        var blogAuthor = ViewData.GetSystemSetting(AppSettingConstants.BlogAuthor);
+        if (!string.IsNullOrWhiteSpace(blogAuthor))
+        {
+            <meta name="author" content="@blogAuthor" />
+        }
+    }
+
+    @RenderSection("meta", required: false)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -36,7 +65,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - @ViewData.GetSystemSetting(AppSettingConstants.BlogNameSetting)</p>
         </footer>
     </div>
 

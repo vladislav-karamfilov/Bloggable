@@ -37,6 +37,8 @@
 
         public virtual IDbSet<Referral> Referrals { get; set; }
 
+        public virtual IDbSet<Setting> Settings { get; set; }
+
         public virtual IDbSet<AdministrationLog> AdministrationLogs { get; set; }
 
         public override int SaveChanges()

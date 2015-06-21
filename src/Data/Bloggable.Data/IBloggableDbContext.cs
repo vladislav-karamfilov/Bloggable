@@ -23,5 +23,9 @@
         IDbSet<Feedback> Feedback { get; }
 
         IDbSet<Referral> Referrals { get; }
+
+        IDbSet<Setting> Settings { get; }
+
+        IDbSet<AdministrationLog> AdministrationLogs { get; }
     }
 }
