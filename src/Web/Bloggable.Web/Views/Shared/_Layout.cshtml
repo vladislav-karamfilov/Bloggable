@@ -1,4 +1,5 @@
 ﻿@using Bloggable.Common.Constants
+@using Bloggable.Web.Controllers
 
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -17,7 +18,12 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
 
-    @{
+    @if (IsSectionDefined("meta"))
+    {
+        @RenderSection("meta", required: false)
+    }
+    else
+    {
         var blogDescription = ViewData.GetSystemSetting(AppSettingConstants.BlogDescriptionSetting);
         if (!string.IsNullOrWhiteSpace(blogDescription))
         {
@@ -36,8 +42,6 @@
             <meta name="author" content="@blogAuthor" />
         }
     }
-
-    @RenderSection("meta", required: false)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -48,7 +52,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @(Html.ActionLink<HomeController>(
+                    ViewData.GetSystemSetting(
+                    AppSettingConstants.BlogNameSetting),
+                    c => c.Index(),
+                    null,
+                    new { @class = "navbar-brand" }))
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
