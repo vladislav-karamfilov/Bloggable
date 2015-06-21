@@ -88,7 +88,7 @@
 
         private static Action<GridColumnFactory<T>> GetDefaultColumns<T>(
                 Action<CrudOperationBuilder> updateOperation,
-            Action<CrudOperationBuilder> destroyOperation)
+                Action<CrudOperationBuilder> destroyOperation)
             where T : class
         {
             return cols =>

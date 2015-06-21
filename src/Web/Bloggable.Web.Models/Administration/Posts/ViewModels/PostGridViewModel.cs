@@ -23,6 +23,8 @@
         [UIHint("KendoEditor")]
         public string Summary { get; set; }
 
+        public string ImageOrVideoUrl { get; set; }
+
         [Required]
         [AllowHtml]
         [AdditionalMetadata("Height", "400px")]
@@ -38,6 +40,8 @@
 
         [HiddenInput(DisplayValue = false)]
         public string AuthorId { get; set; }
+
+        public string Tags { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {

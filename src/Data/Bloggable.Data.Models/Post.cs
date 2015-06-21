@@ -14,6 +14,8 @@
 
         public string Summary { get; set; }
 
+        public string ImageOrVideoUrl { get; set; }
+
         [Required]
         public string AuthorId { get; set; }
 

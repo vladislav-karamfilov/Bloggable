@@ -24,30 +24,21 @@
             if (context.Users.Any())
             {
                 this.SeedPosts(context);
-
-                //// TODO: Seed comments and pages.
             }
 
             context.SaveChanges();
         }
 
-        private void SeedSystemSettings(IBloggableDbContext context)
+        private void SeedSystemSettings(BloggableDbContext context)
         {
-            context.Settings.AddOrUpdate(s => s.Id, new Setting { Id = AppSettingConstants.BlogNameSetting, Value = "VBlog" });
-            context.Settings.AddOrUpdate(
-                s => s.Id,
-                new Setting
-                {
-                    Id = AppSettingConstants.BlogDescriptionSetting,
-                    Value = "Vladislav Karamfilov's blog for programming, science and others"
-                });
-            context.Settings.AddOrUpdate(
-                s => s.Id,
-                new Setting
-                {
-                    Id = AppSettingConstants.BlogKeywordsSetting,
-                    Value = "blog, programming, science, .NET, C#, ASP.NET MVC, Node.js"
-                });
+            if (!context.Settings.Any())
+            {
+                context.Settings.AddOrUpdate(
+                    s => s.Id,
+                    new Setting { Id = AppSettingConstants.BlogNameSetting, Value = "Blog name" },
+                    new Setting { Id = AppSettingConstants.BlogDescriptionSetting, Value = "Blog description" },
+                    new Setting { Id = AppSettingConstants.BlogKeywordsSetting, Value = "Blog keywords" });
+            }
         }
 
         private void SeedRoles(BloggableDbContext context)

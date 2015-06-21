@@ -2,7 +2,7 @@
 @using Bloggable.Web.Models.Administration.Posts.ViewModels
 
 @{
-    ViewBag.Title = "Posts administration (with comments)";
+    ViewBag.Title = "Posts (with comments) administration";
 }
 
 <h2 class="text-center bottom-buffer">@ViewBag.Title</h2>
@@ -20,8 +20,8 @@
         cols.Bound(m => m.Title);
         cols.Bound(m => m.SubTitle).Hidden(true);
         cols.Bound(m => m.Summary);
-        cols.Bound(m => m.CreatedOn).Hidden();
-        cols.Bound(m => m.ModifiedOn).Hidden();
+        cols.Bound(m => m.CreatedOn).Hidden(true);
+        cols.Bound(m => m.ModifiedOn).Hidden(true);
         cols.Command(m => m.Custom("Edit post").Click("editPost"));
         cols.Command(command => command.Destroy());
     },

@@ -94,6 +94,7 @@
     <Compile Include="Administration\AdministrationViewModel.cs" />
     <Compile Include="Administration\Comments\ViewModels\CommentGridViewModel.cs" />
     <Compile Include="Administration\Posts\ViewModels\PostGridViewModel.cs" />
+    <Compile Include="Administration\Settings\ViewModels\SettingGridViewModel.cs" />
     <Compile Include="Manage\ViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="Manage\ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="Manage\ViewModels\ConfigureTwoFactorViewModel.cs" />

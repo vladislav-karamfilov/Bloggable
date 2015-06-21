@@ -1,0 +1,34 @@
+﻿@using Bloggable.Web.Areas.Administration.Controllers
+@using Bloggable.Web.Models.Administration.Settings.ViewModels
+
+@{
+    ViewBag.Title = "System settings administration";
+}
+
+<h2 class="text-center bottom-buffer">@ViewBag.Title</h2>
+
+@(Html.KendoGrid<SettingGridViewModel, SettingsController>(
+    m => m.Id,
+    c => c.Read(null),
+    c => c.Create(null, null),
+    c => c.Update(null, null),
+    c => c.Destroy(null, null),
+    "settings-grid",
+    cols =>
+    {
+        cols.Bound(col => col.Id);
+        cols.Bound(col => col.Value);
+        cols.Bound(m => m.CreatedOn).Hidden(true);
+        cols.Bound(m => m.ModifiedOn).Hidden(true);
+        cols.Command(command => command.Edit());
+        cols.Command(command => command.Destroy());
+    }
+).Events(ev => ev.Edit("onSettingEdit")))
+
+<script>
+    function onSettingEdit(ev) {
+        if (!ev.model.isNew()) {
+            $('#Id').prop('disabled', 'disabled');
+        }
+    }
+</script>

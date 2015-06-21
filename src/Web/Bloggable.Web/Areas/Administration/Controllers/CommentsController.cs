@@ -6,20 +6,21 @@
 
     using AutoMapper.QueryableExtensions;
 
-    using Bloggable.Data.Models;
     using Bloggable.Services.Administration.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
-    using Bloggable.Web.Models.Administration.Comments.ViewModels;
 
     using Kendo.Mvc.UI;
 
-    public class CommentsController : KendoGridAdministrationController<Comment, CommentGridViewModel>
+    using EntityModel = Bloggable.Data.Models.Comment;
+    using ViewModel = Bloggable.Web.Models.Administration.Comments.ViewModels.CommentGridViewModel;
+
+    public class CommentsController : KendoGridAdministrationController<EntityModel, ViewModel>
     {
-        private readonly IDeletableEntityAdministrationService<Comment> administrationService;
+        private readonly IDeletableEntityAdministrationService<EntityModel> administrationService;
 
         private int? postId;
 
-        public CommentsController(IDeletableEntityAdministrationService<Comment> administrationService)
+        public CommentsController(IDeletableEntityAdministrationService<EntityModel> administrationService)
             : base(administrationService)
         {
             this.administrationService = administrationService;
@@ -33,15 +34,15 @@
         }
 
         [HttpPost]
-        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, CommentGridViewModel model)
+        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             this.DestroyEntity(model.Id);
             return this.GridOperation(request, model);
         }
 
-        protected override IEnumerable<CommentGridViewModel> GetData()
+        protected override IEnumerable<ViewModel> GetData()
         {
-            return this.administrationService.ReadWithDeleted().Where(c => c.PostId == this.postId).Project().To<CommentGridViewModel>();
+            return this.administrationService.ReadWithDeleted().Where(c => c.PostId == this.postId).Project().To<ViewModel>();
         }
     }
 }

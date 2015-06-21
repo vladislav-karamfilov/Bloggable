@@ -36,17 +36,21 @@ textarea {
 }
 
 .top-buffer {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .bottom-buffer {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .left-buffer {
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .right-buffer {
-    margin-right: 10px;
+    margin-right: 15px;
+}
+
+#logoutForm {
+    margin-bottom: 0;
 }

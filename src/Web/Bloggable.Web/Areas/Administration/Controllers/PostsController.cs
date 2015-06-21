@@ -5,21 +5,22 @@
 
     using AutoMapper;
 
-    using Bloggable.Data.Models;
     using Bloggable.Services.Administration.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
     using Bloggable.Web.Infrastructure.Extensions;
-    using Bloggable.Web.Models.Administration.Posts.ViewModels;
 
     using Kendo.Mvc.UI;
 
     using Microsoft.AspNet.Identity;
 
-    public class PostsController : KendoGridAdministrationController<Post, PostGridViewModel>
-    {
-        private readonly IDeletableEntityAdministrationService<Post> administrationService;
+    using EntityModel = Bloggable.Data.Models.Post;
+    using ViewModel = Bloggable.Web.Models.Administration.Posts.ViewModels.PostGridViewModel;
 
-        public PostsController(IDeletableEntityAdministrationService<Post> administrationService)
+    public class PostsController : KendoGridAdministrationController<EntityModel, ViewModel>
+    {
+        private readonly IDeletableEntityAdministrationService<EntityModel> administrationService;
+
+        public PostsController(IDeletableEntityAdministrationService<EntityModel> administrationService)
             : base(administrationService)
         {
             this.administrationService = administrationService;
@@ -34,12 +35,12 @@
         [HttpGet]
         public ActionResult Create()
         {
-            return this.View(new PostGridViewModel());
+            return this.View(new ViewModel());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Exclude = "AuthorId, Id")]PostGridViewModel model)
+        public ActionResult Create([Bind(Exclude = "AuthorId, Id")]ViewModel model)
         {
             model.AuthorId = this.User.Identity.GetUserId();
             var entity = this.CreateEntity(model);
@@ -59,7 +60,7 @@
 
             if (entity != null)
             {
-                var model = Mapper.Map<PostGridViewModel>(entity);
+                var model = Mapper.Map<ViewModel>(entity);
                 return this.View(model);
             }
 
@@ -68,7 +69,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(PostGridViewModel model)
+        public ActionResult Update(ViewModel model)
         {
             var updatedEntity = this.UpdateEntity(model.Id, model);
 
@@ -81,7 +82,7 @@
         }
 
         [HttpPost]
-        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, PostGridViewModel model)
+        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
             this.DestroyEntity(model.Id);
             return this.GridOperation(request, model);
