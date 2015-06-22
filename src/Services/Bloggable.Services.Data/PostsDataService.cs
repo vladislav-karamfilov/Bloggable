@@ -2,7 +2,6 @@
 {
     using System.Linq;
 
-    using Bloggable.Data.Contracts;
     using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
     using Bloggable.Services.Data.Contracts;

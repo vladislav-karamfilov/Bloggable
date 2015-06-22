@@ -159,12 +159,14 @@
     <Compile Include="Identity\AuthConfig.cs" />
     <Compile Include="Identity\EmailService.cs" />
     <Compile Include="Identity\SmsService.cs" />
+    <Compile Include="ModelBinderConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteConfig.cs" />
     <Compile Include="ServicePackages\AdministrationServicesPackage.cs" />
     <Compile Include="ServicePackages\DataPackage.cs" />
     <Compile Include="ServicePackages\ActionFiltersPackage.cs" />
     <Compile Include="ServicePackages\IdentityPackage.cs" />
+    <Compile Include="ServicePackages\ModelBindersPackage.cs" />
     <Compile Include="ServicePackages\ServicesPackage.cs" />
     <Compile Include="SimpleInjectorConfig.cs" />
     <Compile Include="ViewEngineConfig.cs" />
@@ -193,6 +195,10 @@
     <ProjectReference Include="..\..\Services\Bloggable.Services.Common\Bloggable.Services.Common.csproj">
       <Project>{D3F5F18E-0181-4AC6-A7AD-9882663EBEB9}</Project>
       <Name>Bloggable.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Bloggable.Services.Data\Bloggable.Services.Data.csproj">
+      <Project>{34769DF1-1CCC-45DB-A378-3F869885B0DC}</Project>
+      <Name>Bloggable.Services.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bloggable.Web.Infrastructure\Bloggable.Web.Infrastructure.csproj">
       <Project>{20D8D7B7-04BA-406C-A552-CB25FC7E63B9}</Project>

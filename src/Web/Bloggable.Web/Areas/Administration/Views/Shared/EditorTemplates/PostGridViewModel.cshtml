@@ -47,6 +47,16 @@
 
 <div class="row form-group">
     <div class="col-md-2">
+        @Html.BootstrapLabelFor(m => m.MergedTags)
+    </div>
+    <div class="col-md-10">
+        @Html.EditorFor(m => m.MergedTags)
+        @Html.ValidationMessageFor(m => m.MergedTags)
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-2">
         @Html.BootstrapLabelFor(m => m.MetaDescription)
     </div>
     <div class="col-md-10">

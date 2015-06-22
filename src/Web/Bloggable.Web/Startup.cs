@@ -26,6 +26,8 @@ namespace Bloggable.Web
                 new object[] { new ActionFilterDispatcher(container.GetAllInstances), });
 
             AuthConfig.ConfigureAuth(app, container);
+
+            ModelBinderConfig.RegisterModelBinders(container);
         }
     }
 }

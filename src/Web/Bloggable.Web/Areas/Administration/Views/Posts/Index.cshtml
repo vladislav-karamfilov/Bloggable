@@ -20,6 +20,7 @@
         cols.Bound(m => m.Title);
         cols.Bound(m => m.SubTitle).Hidden(true);
         cols.Bound(m => m.Summary);
+        cols.Bound(m => m.MergedTags);
         cols.Bound(m => m.CreatedOn).Hidden(true);
         cols.Bound(m => m.ModifiedOn).Hidden(true);
         cols.Command(m => m.Custom("Edit post").Click("editPost"));

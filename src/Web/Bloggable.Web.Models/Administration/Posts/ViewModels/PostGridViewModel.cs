@@ -8,7 +8,7 @@
     using Bloggable.Common.Mapping;
     using Bloggable.Data.Models;
 
-    public class PostGridViewModel : AdministrationGridViewModel, IMapFrom<Post>, IMapTo<Post>, IHaveCustomMappings
+    public class PostGridViewModel : TaggableAdministrationGridViewModel, IMapFrom<Post>, IMapTo<Post>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
@@ -41,11 +41,9 @@
         [HiddenInput(DisplayValue = false)]
         public string AuthorId { get; set; }
 
-        public string Tags { get; set; }
-
         public void CreateMappings(IConfiguration configuration)
         {
-            configuration.CreateMap<PostGridViewModel, Post>().ForMember(m => m.CreatedOn, opt => opt.Ignore());
+            configuration.CreateMap<PostGridViewModel, Post>().ForMember(e => e.CreatedOn, opt => opt.Ignore());
         }
     }
 }

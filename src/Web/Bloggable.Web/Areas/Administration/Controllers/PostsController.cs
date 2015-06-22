@@ -71,7 +71,7 @@
         [ValidateAntiForgeryToken]
         public ActionResult Update(ViewModel model)
         {
-            var updatedEntity = this.UpdateEntity(model.Id, model);
+            var updatedEntity = this.FindAndUpdateEntity(model.Id, model);
 
             if (updatedEntity != null)
             {

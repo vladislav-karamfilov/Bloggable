@@ -33,7 +33,7 @@
         [HttpPost]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
-            this.UpdateEntity(model.Id, model);
+            this.FindAndUpdateEntity(model.Id, model);
             return this.GridOperation(request, model);
         }
 

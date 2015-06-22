@@ -9,7 +9,7 @@
 
     public class AutoMapperConfig
     {
-        public static void RegisterMappings(IEnumerable<Assembly> assemblies)
+        public static void RegisterMappings(params Assembly[] assemblies)
         {
             var types = assemblies.SelectMany(a => a.GetExportedTypes()).ToList();
 

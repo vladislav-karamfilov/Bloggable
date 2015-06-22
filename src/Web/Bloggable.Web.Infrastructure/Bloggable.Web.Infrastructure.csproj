@@ -114,8 +114,14 @@
     <Compile Include="HtmlHelpers\BootstrapHelpers.cs" />
     <Compile Include="HtmlHelpers\InputHelpers.cs" />
     <Compile Include="HtmlHelpers\KendoGridHelpers.cs" />
+    <Compile Include="ModelBinders\EntityModelBinder.cs" />
+    <Compile Include="ModelBinders\EntityModelBinderProvider.cs" />
+    <Compile Include="ModelBinders\TaggableModelModelBinder.cs" />
+    <Compile Include="ModelBinders\TaggableModelModelBinderProvider.cs" />
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\AlertType.cs" />
+    <Compile Include="Models\ITaggableModel.cs" />
+    <Compile Include="Models\TagModel.cs" />
     <Compile Include="Modules\RemoveServerHeaderModule.cs" />
     <Compile Include="Modules\AddXfoHeaderModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +147,10 @@
     <ProjectReference Include="..\..\Services\Bloggable.Services.Common\Bloggable.Services.Common.csproj">
       <Project>{D3F5F18E-0181-4AC6-A7AD-9882663EBEB9}</Project>
       <Name>Bloggable.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Bloggable.Services.Data\Bloggable.Services.Data.csproj">
+      <Project>{34769DF1-1CCC-45DB-A378-3F869885B0DC}</Project>
+      <Name>Bloggable.Services.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

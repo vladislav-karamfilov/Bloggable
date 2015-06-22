@@ -53,6 +53,10 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
@@ -95,6 +99,7 @@
     <Compile Include="Administration\Comments\ViewModels\CommentGridViewModel.cs" />
     <Compile Include="Administration\Posts\ViewModels\PostGridViewModel.cs" />
     <Compile Include="Administration\Settings\ViewModels\SettingGridViewModel.cs" />
+    <Compile Include="Administration\TaggableAdministrationGridViewModel.cs" />
     <Compile Include="Manage\ViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="Manage\ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="Manage\ViewModels\ConfigureTwoFactorViewModel.cs" />
@@ -116,6 +121,7 @@
     <Compile Include="Account\ViewModels\VerifyPhoneNumberViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +139,10 @@
     <ProjectReference Include="..\..\Data\Bloggable.Data.Models\Bloggable.Data.Models.csproj">
       <Project>{9E658BA8-6E16-47F0-952F-A9546D871118}</Project>
       <Name>Bloggable.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bloggable.Web.Infrastructure\Bloggable.Web.Infrastructure.csproj">
+      <Project>{20D8D7B7-04BA-406C-A552-CB25FC7E63B9}</Project>
+      <Name>Bloggable.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

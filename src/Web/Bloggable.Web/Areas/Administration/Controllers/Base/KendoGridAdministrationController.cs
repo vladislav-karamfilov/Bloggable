@@ -2,16 +2,20 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using System.Web.Script.Serialization;
 
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
 
+    using Bloggable.Common.Constants;
     using Bloggable.Data.Contracts;
     using Bloggable.Services.Administration.Contracts;
     using Bloggable.Web.Models.Administration;
 
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
+
+    using Newtonsoft.Json;
 
     public abstract class KendoGridAdministrationController<TEntity, TViewModel> : AdministrationController
         where TEntity : class, IAuditInfo
@@ -28,7 +32,9 @@
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
             var data = this.GetData();
-            return this.Json(data.ToDataSourceResult(request));
+            var serializationSettings = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
+            var json = JsonConvert.SerializeObject(data.ToDataSourceResult(request), Formatting.None, serializationSettings);
+            return this.Content(json, ContentTypeConstants.Json);
         }
 
         protected virtual IEnumerable<TViewModel> GetData()
@@ -50,7 +56,7 @@
             return entity;
         }
 
-        protected virtual TEntity UpdateEntity(object id, TViewModel model)
+        protected virtual TEntity FindAndUpdateEntity(object id, TViewModel model)
         {
             TEntity entity = null;
 
