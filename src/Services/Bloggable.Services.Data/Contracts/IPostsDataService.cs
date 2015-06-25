@@ -8,5 +8,7 @@
     public interface IPostsDataService : IService
     {
         IQueryable<Post> ByTag(string tag);
+
+        IQueryable<Post> GetPage(int page, int pageSize);
     }
 }
