@@ -12,19 +12,12 @@
 
     public class HomeController : BaseController
     {
-        private readonly IDeletableEntityRepository<Post> posts;
-
-        public HomeController(IDeletableEntityRepository<Post> posts)
+        public HomeController()
         {
-            this.posts = posts;
         }
 
         public ActionResult Index()
         {
-            var context = DependencyResolver.Current.GetService<BloggableDbContext>();
-            var context1 = DependencyResolver.Current.GetService<DbContext>();
-            var context2 = DependencyResolver.Current.GetService<IdentityDbContext<User>>();
-
             return this.View();
         }
 
@@ -40,11 +33,6 @@
             this.ViewBag.Message = "Your contact page.";
 
             return this.View();
-        }
-
-        public ActionResult AllPosts()
-        {
-            return this.Json(this.posts.All().Select(x => new { x.Author.UserName, x.Title, x.SubTitle, x.Content }).ToList(), JsonRequestBehavior.AllowGet);
         }
     }
 }
