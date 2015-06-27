@@ -61,7 +61,8 @@
                             MetaDescription = "Lorem Ipsum meta descriptiopn" + i,
                             Title = "Blog post " + i,
                             SubTitle = i % 2 == 0 ? "Blog sub title " + i : null,
-                            MetaKeywords = "blog, post, seed, " + i
+                            MetaKeywords = "blog, post, seed, " + i,
+                            Summary = "Lorem Ipsum summary " + i
                         });
                 }
             }

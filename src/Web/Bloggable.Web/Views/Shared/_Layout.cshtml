@@ -55,7 +55,7 @@
                 @(Html.ActionLink<HomeController>(
                     ViewData.GetSystemSetting(
                     AppSettingConstants.BlogNameSetting),
-                    c => c.Index(),
+                    c => c.Index(null),
                     null,
                     new { @class = "navbar-brand" }))
             </div>
