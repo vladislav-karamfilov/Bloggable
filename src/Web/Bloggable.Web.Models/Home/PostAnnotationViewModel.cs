@@ -3,13 +3,12 @@
     using System;
     using System.Collections.Generic;
 
-    using AutoMapper;
-
+    using Bloggable.Common.Extensions;
     using Bloggable.Common.Mapping;
     using Bloggable.Data.Models;
     using Bloggable.Web.Models.Common;
 
-    public class PostAnnotationViewModel : IMapFrom<Post>, IHaveCustomMappings
+    public class PostAnnotationViewModel : IMapFrom<Post>
     {
         private IEnumerable<TagViewModel> tags;
 
@@ -27,21 +26,15 @@
 
         public DateTime CreatedOn { get; set; }
 
-        //public string Url
-        //{
-        //    get { return this.urlGenerator }
-        //}
+        public string UrlTitle
+        {
+            get { return this.Title.ToUrl(); }
+        }
 
         public IEnumerable<TagViewModel> Tags
         {
             get { return this.tags ?? new TagViewModel[0]; }
             set { this.tags = value; }
-        }
-
-        public void CreateMappings(IConfiguration configuration)
-        {
-           // configuration.CreateMap<Post, PostAnnotationViewModel>()
-             //   .ConstructUsingServiceLocator()
         }
     }
 }

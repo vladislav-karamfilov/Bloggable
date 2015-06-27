@@ -1,18 +1,10 @@
-﻿namespace Bloggable.Services.Common.BlogPostUrlGenerator
+﻿namespace Bloggable.Common.Extensions
 {
-    using System;
     using System.Text;
 
-    using Bloggable.Services.Common.BlogPostUrlGenerator.Contracts;
-
-    public class BlogPostUrlGenerator : IBlogPostUrlGenerator
+    public static class StringExtensions
     {
-        public string GenerateUrl(int id, string title, DateTime createdOn)
-        {
-            return string.Format("/Blog/{0:0000}/{1:00}/{2}/{3}", createdOn.Year, createdOn.Month, this.ToUrl(title), id);
-        }
-
-        private string ToUrl(string uglyString)
+        public static string ToUrl(this string uglyString)
         {
             var resultString = new StringBuilder(uglyString.Length);
             var isLastCharacterDash = false;

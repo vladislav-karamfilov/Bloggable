@@ -1,0 +1,5 @@
+﻿@using Bloggable.Web.Controllers
+
+@model Bloggable.Web.Models.Common.TagViewModel
+
+@(Html.ActionLink<PostsController>(Model.Name, c => c.ByTag(Model.Id, Model.UrlName), null, new { @class = "label label-success right-buffer" }))

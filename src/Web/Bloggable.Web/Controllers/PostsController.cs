@@ -14,7 +14,12 @@
             this.postsData = postsData;
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int year, int month, string urlTitle, int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult ByTag(int id, string urlName)
         {
             throw new NotImplementedException();
         }
