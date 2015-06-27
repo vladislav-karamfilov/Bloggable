@@ -121,7 +121,6 @@
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\AlertType.cs" />
     <Compile Include="Models\ITaggableModel.cs" />
-    <Compile Include="Models\TagModel.cs" />
     <Compile Include="Modules\RemoveServerHeaderModule.cs" />
     <Compile Include="Modules\AddXfoHeaderModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

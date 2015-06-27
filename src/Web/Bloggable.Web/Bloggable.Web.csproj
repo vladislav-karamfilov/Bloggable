@@ -14,7 +14,7 @@
     <RootNamespace>Bloggable.Web</RootNamespace>
     <AssemblyName>Bloggable.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <MvcBuildViews>true</MvcBuildViews>
+    <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -118,6 +118,18 @@
       <HintPath>..\..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SimpleInjector, Version=2.8.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SimpleInjector.2.8.0\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
@@ -200,6 +212,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\KendoGridAdministrationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,6 +223,7 @@
     <Content Include="Content\css\administration.css" />
     <Content Include="Content\css\bootstrap\bootstrap.css" />
     <Content Include="Content\css\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap\themes\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\css\bootstrap\themes\superhero\bootstrap.css" />
     <Content Include="Content\css\bootstrap\themes\superhero\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome\font-awesome.css" />
@@ -264,6 +278,7 @@
     <Content Include="Content\kendo\textures\stripe6.png" />
     <Content Include="Content\kendo\textures\transparency.png" />
     <Content Include="Content\kendo\textures\transtexture.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\Glyphicons\glyphicons-halflings-regular.svg" />
     <Content Include="Content\css\site.css" />
@@ -300,6 +315,10 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\PostGridViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Comments.cshtml" />
     <Content Include="Areas\Administration\Views\Settings\Index.cshtml" />
+    <Content Include="Content\css\bootstrap\themes\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\css\bootstrap\themes\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\css\bootstrap\themes\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\css\bootstrap\themes\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery\jquery-2.1.4.intellisense.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\administration.js" />
@@ -366,6 +385,8 @@
     <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js.map" />
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\KendoEditor.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TagViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\PostAnnotationViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
@@ -387,6 +408,14 @@
     <ProjectReference Include="..\..\Services\Bloggable.Services.Administration\Bloggable.Services.Administration.csproj">
       <Project>{2251F6BD-AA72-4AF4-9E91-609356BED088}</Project>
       <Name>Bloggable.Services.Administration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Bloggable.Services.Common\Bloggable.Services.Common.csproj">
+      <Project>{D3F5F18E-0181-4AC6-A7AD-9882663EBEB9}</Project>
+      <Name>Bloggable.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Bloggable.Services.Data\Bloggable.Services.Data.csproj">
+      <Project>{34769DF1-1CCC-45DB-A378-3F869885B0DC}</Project>
+      <Name>Bloggable.Services.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bloggable.Web.Config\Bloggable.Web.Config.csproj">
       <Project>{d1e7d236-32ef-45d7-883f-cefe78620690}</Project>

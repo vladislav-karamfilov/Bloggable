@@ -1,31 +1,39 @@
 ﻿namespace Bloggable.Web.Controllers
 {
-    using System.Data.Entity;
     using System.Linq;
     using System.Web.Mvc;
 
-    using Bloggable.Data;
-    using Bloggable.Data.Contracts.Repositories;
-    using Bloggable.Data.Models;
+    using AutoMapper.QueryableExtensions;
 
-    using Microsoft.AspNet.Identity.EntityFramework;
+    using Bloggable.Services.Data;
+    using Bloggable.Services.Data.Contracts;
+    using Bloggable.Web.Models.Home;
+
+    using PagedList;
 
     public class HomeController : BaseController
     {
-        private readonly IDeletableEntityRepository<Post> posts;
+        private const int PageSize = 10;
 
-        public HomeController(IDeletableEntityRepository<Post> posts)
+        private readonly IPostsDataService postsData;
+
+        public HomeController(IPostsDataService postsData)
         {
-            this.posts = posts;
+            this.postsData = postsData;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var context = DependencyResolver.Current.GetService<BloggableDbContext>();
-            var context1 = DependencyResolver.Current.GetService<DbContext>();
-            var context2 = DependencyResolver.Current.GetService<IdentityDbContext<User>>();
+            var currentPage = page > 0 ? page.Value : 1;
 
-            return this.View();
+            var posts = this.postsData
+                .All()
+                .OrderByDescending(p => p.CreatedOn)
+                .Project()
+                .To<PostAnnotationViewModel>()
+                .ToPagedList(currentPage, PageSize);
+
+            return this.View(posts);
         }
 
         public ActionResult About()
@@ -40,11 +48,6 @@
             this.ViewBag.Message = "Your contact page.";
 
             return this.View();
-        }
-
-        public ActionResult AllPosts()
-        {
-            return this.Json(this.posts.All().Select(x => new { x.Author.UserName, x.Title, x.SubTitle, x.Content }).ToList(), JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Linq.Expressions;
 
     using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
@@ -14,6 +15,18 @@
         public PostsDataService(IDeletableEntityRepository<Post> posts)
         {
             this.posts = posts;
+        }
+
+        public IQueryable<Post> All(Expression<Func<Post, bool>> filter = null, bool includeDeleted = false)
+        {
+            var allPosts = includeDeleted ? this.posts.AllWithDeleted() : this.posts.All();
+            
+            if (filter != null)
+            {
+                allPosts = allPosts.Where(filter);
+            }
+
+            return allPosts;
         }
 
         public IQueryable<Post> ByTag(string tag)

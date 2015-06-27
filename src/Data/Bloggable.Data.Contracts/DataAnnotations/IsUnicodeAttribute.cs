@@ -13,10 +13,7 @@
 
         public bool IsUnicode
         {
-            get
-            {
-                return this.isUnicode;
-            }
+            get { return this.isUnicode; }
         }
     }
 }

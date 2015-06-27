@@ -53,6 +53,10 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
@@ -96,6 +100,8 @@
     <Compile Include="Administration\Posts\ViewModels\PostGridViewModel.cs" />
     <Compile Include="Administration\Settings\ViewModels\SettingGridViewModel.cs" />
     <Compile Include="Administration\TaggableAdministrationGridViewModel.cs" />
+    <Compile Include="Common\TagViewModel.cs" />
+    <Compile Include="Home\PostAnnotationViewModel.cs" />
     <Compile Include="Manage\ViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="Manage\ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="Manage\ViewModels\ConfigureTwoFactorViewModel.cs" />
@@ -120,9 +126,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
       <Project>{636BFF57-5803-43AE-8A27-3AFCBC52BABF}</Project>
