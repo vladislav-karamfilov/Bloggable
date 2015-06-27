@@ -14,15 +14,17 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public class User : IdentityUser, IAuditInfo, IDeletableEntity
+    public class User : IdentityUser, IIdentifiable<string>, IAuditInfo, IDeletableEntity
     {
         private ICollection<Post> posts;
         private ICollection<Comment> comments;
+        private ICollection<Rating> ratings;
 
         public User()
         {
             this.posts = new HashSet<Post>();
             this.comments = new HashSet<Comment>();
+            this.ratings = new HashSet<Rating>();
             this.CreatedOn = DateTime.Now;
         }
 
@@ -42,6 +44,12 @@
         {
             get { return this.comments; }
             set { this.comments = value; }
+        }
+
+        public virtual ICollection<Rating> Ratings
+        {
+            get { return this.ratings; }
+            set { this.ratings = value; }
         }
 
         #region IAuditInfo Members

@@ -1,5 +1,7 @@
 ﻿namespace Bloggable.Services.Data
 {
+    using System.Linq;
+
     using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
     using Bloggable.Services.Data.Contracts;
@@ -20,6 +22,15 @@
             this.comments.Add(newComment);
 
             this.comments.SaveChanges();
+        }
+
+        public IQueryable<Comment> ByPost(int postId, bool includeDeleted = false)
+        {
+            var commentsByPost = includeDeleted ? this.comments.AllWithDeleted() : this.comments.All();
+
+            commentsByPost = commentsByPost.Where(c => c.PostId == postId);
+
+            return commentsByPost;
         }
     }
 }

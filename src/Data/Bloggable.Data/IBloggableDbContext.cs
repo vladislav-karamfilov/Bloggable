@@ -4,9 +4,13 @@
 
     using Bloggable.Data.Models;
 
+    using Microsoft.AspNet.Identity.EntityFramework;
+
     public interface IBloggableDbContext
     {
         IDbSet<User> Users { get; }
+
+        IDbSet<IdentityRole> Roles { get; }
 
         IDbSet<Post> Posts { get; }
 

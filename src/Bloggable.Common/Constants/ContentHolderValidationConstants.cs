@@ -12,6 +12,8 @@
 
         public const int SummaryMaxLength = 3000;
 
+        public const int UrlMinLength = 3;
+
         public const int UrlMaxLength = 2048;
 
         public const int MetaDescriptionMinLength = 5;

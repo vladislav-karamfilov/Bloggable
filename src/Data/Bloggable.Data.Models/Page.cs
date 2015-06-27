@@ -6,6 +6,8 @@
 
     public class Page : ContentHolder
     {
+        [Required]
+        [MinLength(ContentHolderValidationConstants.UrlMinLength)]
         [MaxLength(ContentHolderValidationConstants.UrlMaxLength)]
         public string Permalink { get; set; }
     }

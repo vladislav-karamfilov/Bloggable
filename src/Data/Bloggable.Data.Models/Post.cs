@@ -17,6 +17,7 @@
         [MaxLength(ContentHolderValidationConstants.SummaryMaxLength)]
         public string Summary { get; set; }
 
+        [MinLength(ContentHolderValidationConstants.UrlMinLength)]
         [MaxLength(ContentHolderValidationConstants.UrlMaxLength)]
         public string ImageOrVideoUrl { get; set; }
 
