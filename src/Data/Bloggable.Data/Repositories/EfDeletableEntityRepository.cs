@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Data.Repositories.Base
+﻿namespace Bloggable.Data.Repositories
 {
     using System;
     using System.Data.Entity;

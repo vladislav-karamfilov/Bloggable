@@ -31,5 +31,7 @@
         IDbSet<Setting> Settings { get; }
 
         IDbSet<AdministrationLog> AdministrationLogs { get; }
+
+        int SaveChanges();
     }
 }
