@@ -22,7 +22,7 @@
 
         public void OnActionExecuted(PopulateSystemSettingsAttribute attribute, ActionExecutedContext filterContext)
         {
-            if (!filterContext.HttpContext.Request.IsAjaxRequest() && filterContext.Result is ViewResult)
+            if (!filterContext.HttpContext.Request.IsAjaxRequest() && filterContext.Result is ViewResultBase)
             {
                 filterContext.Controller.ViewData[AppSettingConstants.SystemSettingsViewDataKey] =
                     this.cacheItemsProvider.GetSettings(3 * CacheConstants.DefaultCacheSeconds);

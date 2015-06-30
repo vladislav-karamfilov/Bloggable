@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Services.Data
 {
+    using System;
     using System.Linq;
 
     using Bloggable.Data.Contracts.Repositories;
@@ -22,6 +23,18 @@
             this.comments.Add(newComment);
 
             this.comments.SaveChanges();
+        }
+
+        public void UpdateComment(int commentId, string newContent)
+        {
+            var comment = this.comments.GetById(commentId);
+
+            if (comment == null)
+            {
+                throw new ArgumentOutOfRangeException("commentId", "There is no such comment.");
+            }
+
+            comment.Content = newContent;
         }
 
         public IQueryable<Comment> ByPost(int postId, bool includeDeleted = false)

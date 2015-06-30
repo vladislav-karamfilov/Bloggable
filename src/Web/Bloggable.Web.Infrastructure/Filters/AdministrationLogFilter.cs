@@ -2,8 +2,8 @@
 {
     using System.Web.Mvc;
 
-    using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
+    using Bloggable.Services.Administration.Contracts;
     using Bloggable.Web.Infrastructure.Attributes;
     using Bloggable.Web.Infrastructure.Filters.Contracts;
 
@@ -11,9 +11,9 @@
 
     public class AdministrationLogFilter : IActionFilter<AdministrationLogAttribute>
     {
-        private readonly IRepository<AdministrationLog> administrationLogs;
+        private readonly IAdministrationService<AdministrationLog> administrationLogs;
 
-        public AdministrationLogFilter(IRepository<AdministrationLog> administrationLogs)
+        public AdministrationLogFilter(IAdministrationService<AdministrationLog> administrationLogs)
         {
             this.administrationLogs = administrationLogs;
         }
@@ -33,8 +33,7 @@
                 PostParams = filterContext.HttpContext.Request.Unvalidated.Form.ToString()
             };
 
-            this.administrationLogs.Add(administrationLog);
-            this.administrationLogs.SaveChanges();
+            this.administrationLogs.Create(administrationLog);
         }
     }
 }

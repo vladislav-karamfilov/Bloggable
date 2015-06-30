@@ -41,11 +41,11 @@
 
             //// TODO: Register with LINQ!
 
-            //container.Register<ICacheService, HttpRuntimeCacheService>(webRequestLifestyle);
-            //container.Register<ICacheItemsProviderService, CacheItemsProviderService>(webRequestLifestyle);
-            //container.Register<ITagsDataService, TagsDataService>(webRequestLifestyle);
-            //container.Register<IPostsDataService, PostsDataService>(webRequestLifestyle);
-            //container.Register<ICommentsDataService, CommentsDataService>(webRequestLifestyle);
+            ////container.Register<ICacheService, HttpRuntimeCacheService>(webRequestLifestyle);
+            ////container.Register<ICacheItemsProviderService, CacheItemsProviderService>(webRequestLifestyle);
+            ////container.Register<ITagsDataService, TagsDataService>(webRequestLifestyle);
+            ////container.Register<IPostsDataService, PostsDataService>(webRequestLifestyle);
+            ////container.Register<ICommentsDataService, CommentsDataService>(webRequestLifestyle);
         }
     }
 }

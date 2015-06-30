@@ -18,6 +18,7 @@
         public Tag GetByNameOrCreate(string name)
         {
             var tag = this.tags.All().FirstOrDefault(t => t.Name == name);
+            
             if (tag == null)
             {
                 tag = new Tag { Name = name };

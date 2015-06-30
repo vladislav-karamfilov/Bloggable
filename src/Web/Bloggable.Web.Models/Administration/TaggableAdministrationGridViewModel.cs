@@ -29,6 +29,7 @@
 
                 return this.mergedTags;
             }
+
             set
             {
                 this.mergedTags = value;

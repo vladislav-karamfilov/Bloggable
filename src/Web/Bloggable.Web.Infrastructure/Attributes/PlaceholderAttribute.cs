@@ -5,6 +5,8 @@
 
     public class PlaceholderAttribute : Attribute, IMetadataAware
     {
+        public const string AdditionalValueKey = "_placeholder";
+
         private readonly string placeholder;
 
         public PlaceholderAttribute(string placeholder)
@@ -12,14 +14,9 @@
             this.placeholder = placeholder;
         }
 
-        void IMetadataAware.OnMetadataCreated(ModelMetadata metadata)
-        {
-            this.OnMetadataCreated(metadata);
-        }
-
         public void OnMetadataCreated(ModelMetadata metadata)
         {
-            metadata.AdditionalValues["placeholder"] = this.placeholder;
+            metadata.AdditionalValues[AdditionalValueKey] = this.placeholder;
         }
     }
 }

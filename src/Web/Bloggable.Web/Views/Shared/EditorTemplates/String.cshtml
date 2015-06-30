@@ -1,10 +1,11 @@
-﻿@model string
+﻿@using Bloggable.Web.Infrastructure.Attributes
+@model string
 
 @{
     var placeholder = string.Empty;
-    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey("placeholder"))
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(PlaceholderAttribute.AdditionalValueKey))
     {
-        placeholder = ViewData.ModelMetadata.AdditionalValues["placeholder"] as string;
+        placeholder = ViewData.ModelMetadata.AdditionalValues[PlaceholderAttribute.AdditionalValueKey] as string;
     }
 
     var htmlAttributes = new

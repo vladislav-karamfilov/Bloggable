@@ -13,6 +13,6 @@
 
         IQueryable<Post> ByTag(string tag);
 
-        IQueryable<Post> GetPage(int page, int pageSize);
+        IQueryable<Post> GetPagePosts(int page, int pageSize, Expression<Func<Post, object>> orderKeySelector, bool ascending = true, bool includeDeleted = false);
     }
 }
