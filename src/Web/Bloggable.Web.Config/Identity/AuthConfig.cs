@@ -14,10 +14,10 @@
 
     public class AuthConfig
     {
-        public static void ConfigureAuth(IAppBuilder app, IServiceProvider serviceProvider)
+        public static void ConfigureAuth(IAppBuilder app, Func<IdentityDbContext<User>> identityDbContextFactory)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(() => (IdentityDbContext<User>)serviceProvider.GetService(typeof(IdentityDbContext<User>)));
+            app.CreatePerOwinContext(identityDbContextFactory);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 

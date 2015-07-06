@@ -7,19 +7,20 @@
 
     public class TaggableModelModelBinderProvider : IModelBinderProvider
     {
-        private readonly IServiceProvider serviceProvider;
+        private readonly Func<TaggableModelModelBinder> taggableModelModelBinderFactory;
 
-        public TaggableModelModelBinderProvider(IServiceProvider serviceProvider)
+        public TaggableModelModelBinderProvider(Func<TaggableModelModelBinder> taggableModelModelBinderFactory)
         {
-            this.serviceProvider = serviceProvider;
+            this.taggableModelModelBinderFactory = taggableModelModelBinderFactory;
         }
 
         public IModelBinder GetBinder(Type modelType)
         {
             IModelBinder modelBinder = null;
+
             if (typeof(ITaggableModel).IsAssignableFrom(modelType))
             {
-                modelBinder = this.serviceProvider.GetService(typeof(TaggableModelModelBinder)) as IModelBinder;
+                modelBinder = this.taggableModelModelBinderFactory();
             }
 
             return modelBinder;

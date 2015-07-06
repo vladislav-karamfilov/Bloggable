@@ -1,5 +1,7 @@
 ﻿@using Bloggable.Common.Constants
+@using Bloggable.Web.Areas.Administration.Controllers
 @using Bloggable.Web.Controllers
+@using PostsController = Bloggable.Web.Areas.Administration.Controllers.PostsController
 
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -61,9 +63,16 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@(Html.ActionLink<HomeController>("Home", c => c.Index(null)))</li>
+                    <li>@(Html.ActionLink<HomeController>("About", c => c.About()))</li>
+                    <li>@(Html.ActionLink<HomeController>("Contact", c => c.Contact()))</li>
+
+                    @if (User.IsAdmin())
+                    {
+                        <li>@(Html.ActionLink<PostsController>("Posts administration", c => c.Index()))</li>
+                        <li>@(Html.ActionLink<SettingsController>("Settings administration", c => c.Index()))</li>
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
