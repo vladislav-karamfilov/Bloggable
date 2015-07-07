@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Web.Models.Common
+﻿namespace Bloggable.Web.Models.Common.ViewModels
 {
     using Bloggable.Common.Extensions;
     using Bloggable.Common.Mapping;

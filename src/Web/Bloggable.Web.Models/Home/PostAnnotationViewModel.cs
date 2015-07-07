@@ -7,6 +7,7 @@
     using Bloggable.Common.Mapping;
     using Bloggable.Data.Models;
     using Bloggable.Web.Models.Common;
+    using Bloggable.Web.Models.Common.ViewModels;
 
     public class PostAnnotationViewModel : IMapFrom<Post>
     {
