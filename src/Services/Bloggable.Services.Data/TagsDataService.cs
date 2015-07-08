@@ -18,7 +18,7 @@
         public Tag GetByNameOrCreate(string name)
         {
             var tag = this.tags.All().FirstOrDefault(t => t.Name == name);
-            
+
             if (tag == null)
             {
                 tag = new Tag { Name = name };
@@ -27,6 +27,12 @@
             }
 
             return tag;
+        }
+
+        public IQueryable<Tag> GetMostPopularTags(int count)
+        {
+            var mostPopularTags = this.tags.All().OrderByDescending(t => t.Posts.Count(p => !p.IsDeleted)).Take(count);
+            return mostPopularTags;
         }
     }
 }
