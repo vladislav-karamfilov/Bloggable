@@ -37,6 +37,16 @@
 
 <div class="row form-group">
     <div class="col-md-2">
+        @Html.BootstrapLabelFor(m => m.ImageOrVideoUrl)
+    </div>
+    <div class="col-md-10">
+        @Html.EditorFor(m => m.ImageOrVideoUrl)
+        @Html.ValidationMessageFor(m => m.ImageOrVideoUrl)
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-2">
         @Html.BootstrapLabelFor(m => m.Content)
     </div>
     <div class="col-md-10">
