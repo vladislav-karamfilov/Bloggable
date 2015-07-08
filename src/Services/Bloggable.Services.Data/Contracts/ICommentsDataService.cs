@@ -9,7 +9,7 @@
     {
         void AddCommentForPost(int postId, string content, string authorId);
 
-        void UpdateComment(int commentId, string newContent);
+        void UpdateComment(object commentId, string newContent);
 
         IQueryable<Comment> ByPost(int postId, bool includeDeleted = false);
     }

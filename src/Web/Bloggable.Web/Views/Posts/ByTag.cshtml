@@ -1,0 +1,19 @@
+﻿@using Bloggable.Web.Controllers
+
+@model Bloggable.Web.Models.Posts.ViewModels.PostsByTagViewModel
+
+@{
+    ViewBag.Title = string.Format("Posts with tag '{0}'", Model.TagName);
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="page-header">
+                Posts with tag - @(Html.ActionLink<PostsController>(Model.TagName, c => c.ByTag(Model.TagId, Model.TagUrlName)))
+            </h1>
+
+            @Html.DisplayFor(m => m.Posts)
+        </div>
+    </div>
+</div>

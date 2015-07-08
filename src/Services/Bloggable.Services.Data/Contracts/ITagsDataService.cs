@@ -7,6 +7,8 @@
 
     public interface ITagsDataService : IService
     {
+        Tag GetById(object id);
+
         Tag GetByNameOrCreate(string name);
 
         IQueryable<Tag> GetMostPopularTags(int count);

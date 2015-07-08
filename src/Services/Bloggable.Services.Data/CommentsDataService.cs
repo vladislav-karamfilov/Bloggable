@@ -25,7 +25,7 @@
             this.comments.SaveChanges();
         }
 
-        public void UpdateComment(int commentId, string newContent)
+        public void UpdateComment(object commentId, string newContent)
         {
             var comment = this.comments.GetById(commentId);
 
@@ -35,6 +35,8 @@
             }
 
             comment.Content = newContent;
+            
+            this.comments.SaveChanges();
         }
 
         public IQueryable<Comment> ByPost(int postId, bool includeDeleted = false)

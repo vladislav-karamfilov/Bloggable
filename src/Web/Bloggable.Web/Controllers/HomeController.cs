@@ -5,7 +5,6 @@
 
     using AutoMapper.QueryableExtensions;
 
-    using Bloggable.Services.Data;
     using Bloggable.Services.Data.Contracts;
     using Bloggable.Web.Models.Home;
 

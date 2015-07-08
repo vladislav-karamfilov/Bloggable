@@ -15,6 +15,11 @@
             this.tags = tags;
         }
 
+        public Tag GetById(object id)
+        {
+            return this.tags.GetById(id);
+        }
+
         public Tag GetByNameOrCreate(string name)
         {
             var tag = this.tags.All().FirstOrDefault(t => t.Name == name);

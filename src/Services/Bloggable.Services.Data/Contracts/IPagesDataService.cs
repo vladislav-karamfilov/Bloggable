@@ -5,6 +5,6 @@
 
     public interface IPagesDataService : IService
     {
-        Page GetById(int id);
+        Page GetById(object id);
     }
 }

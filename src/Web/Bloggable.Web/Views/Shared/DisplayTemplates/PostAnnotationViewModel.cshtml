@@ -23,20 +23,22 @@
     <span class="fa fa-calendar-o"></span>
     Posted on @Model.CreatedOn.ToString("HH:mm dd/MM/yyyy")
 </p>
-<hr />
 
 @if (!string.IsNullOrWhiteSpace(Model.ImageOrVideoUrl))
 {
     <img class="img-responsive" src="@Model.ImageOrVideoUrl" alt="@Model.Title image/video" />
-    <hr />
 }
 
 <p>@Html.Raw(Model.Summary)</p>
 
-<div class="clearfix bottom-buffer">
-    @Html.DisplayFor(m => m.Tags)
-</div>
+@if (Model.Tags.Any())
+{
+    <div class="clearfix bottom-buffer">
+        Tags: @Html.DisplayFor(m => m.Tags)
+    </div>
+}
 
 <a class="btn btn-primary" href="/Posts/@Model.CreatedOn.Year/@Model.CreatedOn.Month/@Model.UrlTitle/@Model.Id">
     Read More <span class="glyphicon glyphicon-chevron-right"></span>
 </a>
+<hr />

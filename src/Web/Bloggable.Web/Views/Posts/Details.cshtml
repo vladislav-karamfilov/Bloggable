@@ -1,4 +1,5 @@
 ﻿@using Bloggable.Web.Controllers
+
 @model Bloggable.Web.Models.Posts.ViewModels.PostDetailsViewModel
 
 @{
@@ -37,7 +38,7 @@
             <hr>
 
             <div class="clearfix">
-                @Html.DisplayFor(m => m.Tags)
+                Tags: @Html.DisplayFor(m => m.Tags)
             </div>
         </div>
 

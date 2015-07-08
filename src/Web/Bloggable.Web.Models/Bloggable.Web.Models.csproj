@@ -116,6 +116,7 @@
     <Compile Include="Manage\ViewModels\ManageLoginsViewModel.cs" />
     <Compile Include="Manage\Models\ManageMessageId.cs" />
     <Compile Include="Posts\ViewModels\PostDetailsViewModel.cs" />
+    <Compile Include="Posts\ViewModels\PostsByTagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Account\ViewModels\RegisterViewModel.cs" />
     <Compile Include="Account\ViewModels\ResetPasswordViewModel.cs" />

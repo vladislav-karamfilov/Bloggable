@@ -16,12 +16,12 @@ namespace Bloggable.Services.Data
             this.pages = pages;
         }
 
-        public Page GetById(int id)
+        public Page GetById(object id)
         {
             var page = this.pages
                 .All()
                 .Include(p => p.Tags)
-                .FirstOrDefault(p => p.Id == id);
+                .FirstOrDefault(p => p.Id == (int)id);
 
             return page;
         }

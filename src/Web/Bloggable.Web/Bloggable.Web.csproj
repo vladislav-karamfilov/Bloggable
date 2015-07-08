@@ -387,9 +387,10 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\KendoEditor.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\TagViewModel.cshtml" />
-    <Content Include="Views\Home\DisplayTemplates\PostAnnotationViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\PostAnnotationViewModel.cshtml" />
     <Content Include="Views\Posts\Details.cshtml" />
     <Content Include="Views\Tags\_MostPopularTags.cshtml" />
+    <Content Include="Views\Posts\ByTag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
