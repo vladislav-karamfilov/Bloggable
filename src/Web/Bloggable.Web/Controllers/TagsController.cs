@@ -19,6 +19,7 @@
             this.tagsData = tagsData;
         }
 
+        [ChildActionOnly]
         [OutputCache(Duration = CacheConstants.DefaultCacheSeconds)]
         public ActionResult MostPopularTagsPartial()
         {
