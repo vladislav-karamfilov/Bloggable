@@ -1,4 +1,6 @@
-﻿namespace Bloggable.Data
+﻿using System;
+
+namespace Bloggable.Data
 {
     using System.Data.Entity;
 
@@ -6,7 +8,7 @@
 
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public interface IBloggableDbContext
+    public interface IBloggableDbContext : IDisposable
     {
         IDbSet<User> Users { get; }
 
