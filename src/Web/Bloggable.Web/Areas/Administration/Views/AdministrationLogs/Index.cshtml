@@ -1,0 +1,28 @@
+﻿@using Bloggable.Web.Areas.Administration.Controllers
+@using Bloggable.Web.Models.Administration.AdministrationLogs.ViewModels
+@{
+    ViewBag.Title = "Administration logs administration";
+}
+
+<h2 class="text-center bottom-buffer">@ViewBag.Title</h2>
+
+@(Html.KendoGrid<AdministrationLogGridViewModel, AdministrationLogsController>(
+    m => m.Id,
+    c => c.Read(null),
+    null,
+    null,
+    c => c.Destroy(null, null),
+    "administration-logs-grid",
+    cols =>
+    {
+        cols.Bound(col => col.Id);
+        cols.Bound(col => col.UserName);
+        cols.Bound(col => col.IpAddress);
+        cols.Bound(col => col.Url);
+        cols.Bound(col => col.RequestType).Hidden();
+        cols.Bound(col => col.PostParams);
+        cols.Bound(m => m.CreatedOn).Hidden(true);
+        cols.Bound(m => m.ModifiedOn).Hidden(true);
+        cols.Command(command => command.Destroy());
+    }
+))

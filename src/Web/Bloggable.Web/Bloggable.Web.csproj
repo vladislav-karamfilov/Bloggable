@@ -203,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdministrationLogsController.cs" />
     <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Administration\Controllers\PostsController.cs" />
     <Compile Include="Areas\Administration\Controllers\SettingsController.cs" />
@@ -229,6 +230,7 @@
     <Content Include="Content\css\bootstrap\themes\superhero\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome\font-awesome.css" />
     <Content Include="Content\css\font-awesome\font-awesome.min.css" />
+    <Content Include="Content\First-Blog-Post.jpg" />
     <Content Include="Content\fonts\Font-Awesome\fontawesome-webfont.svg" />
     <Content Include="Content\kendo\fonts\DejaVu\LICENSE.txt" />
     <Content Include="Content\kendo\images\back.png" />
@@ -320,6 +322,7 @@
     <Content Include="Content\css\bootstrap\themes\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\css\bootstrap\themes\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\css\bootstrap\themes\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Administration\Views\AdministrationLogs\Index.cshtml" />
     <None Include="Scripts\jquery\jquery-2.1.4.intellisense.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\administration.js" />

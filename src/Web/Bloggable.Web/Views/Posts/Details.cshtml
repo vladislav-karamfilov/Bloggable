@@ -9,23 +9,35 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
-            <h1>@Model.Title</h1>
+            <hgroup>
+                <h1>
+                    @(Html.ActionLink<PostsController>(
+                        Model.Title, 
+                        c => c.Details(Model.CreatedOn.Year, Model.CreatedOn.Month, Model.UrlTitle, Model.Id)))
+                </h1>
 
-            <p class="lead">
-                by @Model.AuthorUserName
-            </p>
-            <hr>
+                @if (!string.IsNullOrWhiteSpace(Model.SubTitle))
+                {
+                    <h2>@Model.SubTitle</h2>
+                }
+            </hgroup>
 
-            <p>
-                <span class="glyphicon glyphicon-time"></span>
-                Posted on @Model.CreatedOn.ToString("HH:mm dd/MM/yyyy")
-            </p>
-            <hr>
+            <hr/>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    by @Model.AuthorUserName
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <span class="glyphicon glyphicon-time"></span>
+                    Posted on @Model.CreatedOn.ToString("HH:mm dd/MM/yyyy")
+                </div>
+            </div>
+            <hr/>
 
             @if (!string.IsNullOrWhiteSpace(Model.ImageOrVideoUrl))
             {
-                <img class="img-responsive" src="@Model.ImageOrVideoUrl" alt="@Model.Title image/video" />
-                <hr />
+                <img class="img-responsive" src="@Model.ImageOrVideoUrl" alt="@Model.Title image/video"/>
+                <hr/>
             }
 
             <!-- Post Content -->
