@@ -13,9 +13,16 @@
                 Home Page
             </h1>
 
-            @Html.DisplayFor(m => m)
+            @if (Model.Count > 0)
+            {
+                @Html.DisplayFor(m => m)
 
-            @Html.PagedListPager(Model, page => string.Format("/?page={0}", page))
+                @Html.PagedListPager(Model, page => string.Format("/?page={0}", page))
+            }
+            else
+            {
+                <p>No posts yet...</p>
+            }
         </div>
     </div>
 </div>
