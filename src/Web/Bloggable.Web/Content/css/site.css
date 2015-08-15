@@ -54,3 +54,7 @@ textarea {
 #logoutForm {
     margin-bottom: 0;
 }
+
+.login-remember-me-container input[type="checkbox"] {
+    margin-left: 0;
+}
