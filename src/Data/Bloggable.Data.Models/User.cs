@@ -30,6 +30,7 @@
 
         [Required]
         [IsUnicode(false)]
+        [EmailAddress]
         [MinLength(UserValidationConstants.EmailMinLength)]
         [MaxLength(UserValidationConstants.EmailMaxLength)]
         public override string Email { get; set; }
