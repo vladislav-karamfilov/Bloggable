@@ -10,9 +10,6 @@
 
         public string Name { get; set; }
 
-        public string UrlName
-        {
-            get { return this.Name.ToUrl(); }
-        }
+        public string UrlName => this.Name.ToUrl();
     }
 }

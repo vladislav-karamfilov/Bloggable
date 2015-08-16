@@ -1,0 +1,11 @@
+﻿@using Bloggable.Web.Controllers
+@using PagedList.Mvc
+
+@model Bloggable.Web.Models.Comments.ViewModels.PostCommentsPageViewModel
+
+@Html.DisplayFor(m => m.Comments)
+
+@Html.PagedListPager(
+    Model.Comments,
+    page => Url.Action<CommentsController>(c => c.Read(Model.PostId, page)),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "post-comments-container" }))

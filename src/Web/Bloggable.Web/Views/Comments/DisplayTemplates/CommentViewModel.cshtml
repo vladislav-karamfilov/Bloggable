@@ -1,0 +1,15 @@
+﻿@model Bloggable.Web.Models.Comments.ViewModels.CommentViewModel
+
+<div class="media">
+    @* TODO: Add link to user's profile page. *@
+    <a class="pull-left" href="#">
+        @* TODO: Get user's avatar with server call to a specific action (send wanted size as parameter) *@
+        <img class="media-object" src="@Url.Content("~/Content/images/default/user-avatar.png")" alt="@Model.Author avatar">
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading">
+            <small>@Model.CreatedOn.ToString("HH:mm:ss dd/MM/yyyy")</small>
+        </h4>
+        @Model.Content
+    </div>
+</div>

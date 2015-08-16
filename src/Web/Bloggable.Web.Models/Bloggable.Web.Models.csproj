@@ -73,6 +73,9 @@
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -116,7 +119,8 @@
     <Compile Include="Comments\InputModels\BaseCommentInputModel.cs" />
     <Compile Include="Comments\InputModels\CreateCommentInputModel.cs" />
     <Compile Include="Comments\InputModels\UpdateCommentInputModel.cs" />
-    <Compile Include="Common\ViewModels\CommentViewModel.cs" />
+    <Compile Include="Comments\ViewModels\CommentViewModel.cs" />
+    <Compile Include="Comments\ViewModels\PostCommentsPageViewModel.cs" />
     <Compile Include="Common\ViewModels\TagViewModel.cs" />
     <Compile Include="Home\PostAnnotationViewModel.cs" />
     <Compile Include="Manage\ViewModels\AddPhoneNumberViewModel.cs" />
@@ -145,9 +149,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Comments\ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
       <Project>{636BFF57-5803-43AE-8A27-3AFCBC52BABF}</Project>

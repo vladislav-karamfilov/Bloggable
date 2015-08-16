@@ -5,6 +5,7 @@
 
     using AutoMapper.QueryableExtensions;
 
+    using Bloggable.Common.Constants;
     using Bloggable.Services.Data.Contracts;
     using Bloggable.Web.Models.Home;
 
@@ -12,8 +13,6 @@
 
     public class HomeController : BaseController
     {
-        private const int PageSize = 10;
-
         private readonly IPostsDataService postsData;
 
         public HomeController(IPostsDataService postsData)
@@ -30,7 +29,7 @@
                 .OrderByDescending(p => p.CreatedOn)
                 .Project()
                 .To<PostAnnotationViewModel>()
-                .ToPagedList(currentPage, PageSize);
+                .ToPagedList(currentPage, GlobalConstants.DefaultPageSize);
 
             return this.View(posts);
         }

@@ -237,6 +237,7 @@
     <Content Include="Content\css\font-awesome\font-awesome.css" />
     <Content Include="Content\css\font-awesome\font-awesome.min.css" />
     <Content Include="Content\fonts\Font-Awesome\fontawesome-webfont.svg" />
+    <Content Include="Content\images\default\user-avatar.png" />
     <Content Include="Content\kendo\fonts\DejaVu\LICENSE.txt" />
     <Content Include="Content\kendo\images\back.png" />
     <Content Include="Content\kendo\images\kendoui.svg" />
@@ -409,6 +410,8 @@
     <Content Include="Views\Tags\_MostPopularTags.cshtml" />
     <Content Include="Views\Blog\PostsByTag.cshtml" />
     <Content Include="Views\Blog\_CreateComment.cshtml" />
+    <Content Include="Views\Comments\_PostComments.cshtml" />
+    <Content Include="Views\Comments\DisplayTemplates\CommentViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">

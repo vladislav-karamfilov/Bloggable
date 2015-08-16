@@ -59,6 +59,7 @@
     <Compile Include="Constants\CommentValidationConstants.cs" />
     <Compile Include="Constants\ContentHolderValidationConstants.cs" />
     <Compile Include="Constants\ContentTypeConstants.cs" />
+    <Compile Include="Constants\GlobalConstants.cs" />
     <Compile Include="Constants\ReferralValidationConstants.cs" />
     <Compile Include="Constants\SearchTermValidationConstants.cs" />
     <Compile Include="Constants\TagValidationConstants.cs" />

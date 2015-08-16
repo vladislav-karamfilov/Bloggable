@@ -31,7 +31,7 @@
 
             if (comment == null)
             {
-                throw new ArgumentOutOfRangeException("commentId", "There is no such comment.");
+                throw new ArgumentOutOfRangeException(nameof(commentId), "There is no such comment.");
             }
 
             comment.Content = newContent;
@@ -46,6 +46,15 @@
             commentsByPost = commentsByPost.Where(c => c.PostId == postId);
 
             return commentsByPost;
+        }
+
+        public object GetAuthorId(object commentId, bool includeDeleted = false)
+        {
+            var allComments = includeDeleted ? this.comments.AllWithDeleted() : this.comments.All();
+
+            var authorId = allComments.Where(c => c.Id == (int) commentId).Select(c => c.AuthorId).FirstOrDefault();
+
+            return authorId;
         }
     }
 }
