@@ -64,8 +64,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@(Html.ActionLink<HomeController>("Home", c => c.Index(null)))</li>
-                    <li>@(Html.ActionLink<HomeController>("About", c => c.About()))</li>
-                    <li>@(Html.ActionLink<HomeController>("Contact", c => c.Contact()))</li>
 
                     @if (User.IsAdmin())
                     {

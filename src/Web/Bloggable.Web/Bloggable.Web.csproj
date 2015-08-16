@@ -211,6 +211,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\AdministrationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\KendoGridAdministrationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -375,8 +376,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -406,9 +405,10 @@
     <Content Include="Views\Shared\EditorTemplates\KendoEditor.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\TagViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PostAnnotationViewModel.cshtml" />
-    <Content Include="Views\Blog\Details.cshtml" />
+    <Content Include="Views\Blog\PostDetails.cshtml" />
     <Content Include="Views\Tags\_MostPopularTags.cshtml" />
     <Content Include="Views\Blog\PostsByTag.cshtml" />
+    <Content Include="Views\Blog\_CreateComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
