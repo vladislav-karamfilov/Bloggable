@@ -113,7 +113,7 @@
     <Compile Include="Administration\Posts\ViewModels\PostGridViewModel.cs" />
     <Compile Include="Administration\Settings\ViewModels\SettingGridViewModel.cs" />
     <Compile Include="Administration\TaggableAdministrationGridViewModel.cs" />
-    <Compile Include="Comments\InputModels\BaseCommentModel.cs" />
+    <Compile Include="Comments\InputModels\BaseCommentInputModel.cs" />
     <Compile Include="Comments\InputModels\CreateCommentInputModel.cs" />
     <Compile Include="Comments\InputModels\UpdateCommentInputModel.cs" />
     <Compile Include="Common\ViewModels\CommentViewModel.cs" />
