@@ -12,7 +12,7 @@
             routes.MapRoute(
                 name: "Blog post",
                 url: "Blog/{year}/{month}/{urlTitle}/{id}",
-                defaults: new { controller = "Blog", action = "Details" },
+                defaults: new { controller = "Blog", action = "PostDetails" },
                 namespaces: new[] { "Bloggable.Web.Controllers" });
 
             routes.MapRoute(

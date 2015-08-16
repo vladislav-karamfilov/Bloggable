@@ -24,7 +24,7 @@
             this.tagsData = tagsData;
         }
 
-        public ActionResult Details(int year, int month, string urlTitle, int id)
+        public ActionResult PostDetails(int year, int month, string urlTitle, int id)
         {
             var post = this.postsData.All(p => p.Id == id).Project().To<PostDetailsViewModel>().FirstOrDefault();
 
