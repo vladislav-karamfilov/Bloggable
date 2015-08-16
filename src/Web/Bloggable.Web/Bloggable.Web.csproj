@@ -214,7 +214,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\KendoGridAdministrationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PostsController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -406,9 +406,9 @@
     <Content Include="Views\Shared\EditorTemplates\KendoEditor.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\TagViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PostAnnotationViewModel.cshtml" />
-    <Content Include="Views\Posts\Details.cshtml" />
+    <Content Include="Views\Blog\Details.cshtml" />
     <Content Include="Views\Tags\_MostPopularTags.cshtml" />
-    <Content Include="Views\Posts\ByTag.cshtml" />
+    <Content Include="Views\Blog\PostsByTag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">

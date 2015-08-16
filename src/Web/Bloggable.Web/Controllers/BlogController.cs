@@ -13,12 +13,12 @@
     using Bloggable.Web.Models.Home;
     using Bloggable.Web.Models.Posts.ViewModels;
 
-    public class PostsController : BaseController
+    public class BlogController : BaseController
     {
         private readonly IPostsDataService postsData;
         private readonly ITagsDataService tagsData;
 
-        public PostsController(IPostsDataService postsData, ITagsDataService tagsData)
+        public BlogController(IPostsDataService postsData, ITagsDataService tagsData)
         {
             this.postsData = postsData;
             this.tagsData = tagsData;
@@ -36,7 +36,7 @@
             return this.View(post);
         }
 
-        public ActionResult ByTag(int id, string urlName)
+        public ActionResult PostsByTag(int id, string urlName)
         {
             var tag = this.tagsData.GetById(id);
 

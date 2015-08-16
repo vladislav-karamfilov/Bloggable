@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-8">
             <h1 class="page-header">
-                Posts with tag - @(Html.ActionLink<PostsController>(Model.TagName, c => c.ByTag(Model.TagId, Model.TagUrlName)))
+                Posts with tag - @(Html.ActionLink<BlogController>(Model.TagName, c => c.PostsByTag(Model.TagId, Model.TagUrlName)))
             </h1>
 
             @Html.DisplayFor(m => m.Posts)

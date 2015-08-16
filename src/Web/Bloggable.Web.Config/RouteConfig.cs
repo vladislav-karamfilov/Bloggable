@@ -11,14 +11,14 @@
 
             routes.MapRoute(
                 name: "Blog post",
-                url: "Posts/{year}/{month}/{urlTitle}/{id}",
-                defaults: new { controller = "Posts", action = "Details" },
+                url: "Blog/{year}/{month}/{urlTitle}/{id}",
+                defaults: new { controller = "Blog", action = "Details" },
                 namespaces: new[] { "Bloggable.Web.Controllers" });
 
             routes.MapRoute(
                 name: "Blog posts by tag",
-                url: "Posts/ByTag/{id}/{urlName}",
-                defaults: new { controller = "Posts", action = "ByTag" },
+                url: "Blog/PostsByTag/{id}/{urlName}",
+                defaults: new { controller = "Blog", action = "PostsByTag" },
                 namespaces: new[] { "Bloggable.Web.Controllers" });
 
             routes.MapRoute(
