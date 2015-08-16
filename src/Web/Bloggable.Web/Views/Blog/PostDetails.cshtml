@@ -58,7 +58,7 @@
             @if (User.IsLoggedIn())
             {
                 <div class="top-buffer">
-                    @Html.Partial("_CreateComment", new CreateCommentInputModel())
+                    @Html.Partial("_CreateComment", new CreateCommentInputModel { PostId = Model.Id })
                 </div>
             }
         </div>
