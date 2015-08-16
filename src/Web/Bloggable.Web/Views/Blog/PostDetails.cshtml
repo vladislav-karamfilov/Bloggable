@@ -1,4 +1,5 @@
 ﻿@using Bloggable.Web.Controllers
+@using Bloggable.Web.Models.Comments.InputModels
 
 @model Bloggable.Web.Models.Posts.ViewModels.PostDetailsViewModel
 
@@ -12,8 +13,8 @@
             <hgroup>
                 <h1>
                     @(Html.ActionLink<BlogController>(
-                        Model.Title, 
-                        c => c.Details(Model.CreatedOn.Year, Model.CreatedOn.Month, Model.UrlTitle, Model.Id)))
+                        Model.Title,
+                        c => c.PostDetails(Model.CreatedOn.Year, Model.CreatedOn.Month, Model.UrlTitle, Model.Id)))
                 </h1>
 
                 @if (!string.IsNullOrWhiteSpace(Model.SubTitle))
@@ -21,8 +22,8 @@
                     <h2>@Model.SubTitle</h2>
                 }
             </hgroup>
+            <hr />
 
-            <hr/>
             <div class="row">
                 <div class="col-md-6 col-xs-12">
                     by @Model.AuthorUserName
@@ -32,12 +33,12 @@
                     Posted on @Model.CreatedOn.ToString("HH:mm dd/MM/yyyy")
                 </div>
             </div>
-            <hr/>
+            <hr />
 
             @if (!string.IsNullOrWhiteSpace(Model.ImageOrVideoUrl))
             {
-                <img class="img-responsive" src="@Model.ImageOrVideoUrl" alt="@Model.Title image/video"/>
-                <hr/>
+                <img class="img-responsive" src="@Model.ImageOrVideoUrl" alt="@Model.Title image/video" />
+                <hr />
             }
 
             <!-- Post Content -->
@@ -47,11 +48,19 @@
             }
 
             @Html.Raw(Model.Content)
-            <hr>
+            <hr />
 
             <div class="clearfix">
                 Tags: @Html.DisplayFor(m => m.Tags)
             </div>
+            <hr />
+
+            @if (User.IsLoggedIn())
+            {
+                <div class="top-buffer">
+                    @Html.Partial("_CreateComment", new CreateCommentInputModel())
+                </div>
+            }
         </div>
 
         <div class="col-md-4">

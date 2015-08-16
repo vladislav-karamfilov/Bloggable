@@ -1,0 +1,25 @@
+﻿@using Bloggable.Web.Controllers
+
+@model Bloggable.Web.Models.Comments.InputModels.CreateCommentInputModel
+
+<div class="well">
+    <h4>
+        <label for="Content" class="comment-content-label">Leave a Comment:</label>
+    </h4>
+    @using (Ajax.BeginForm<CommentsController>(
+        c => c.Create(null),
+        null,
+        new AjaxOptions { HttpMethod = "POST" },
+        new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(m => m.PostId)
+
+        <div class="form-group">
+            @Html.TextAreaFor(m => m.Content, new { @class = "form-control", rows = 3 })
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    }
+</div>

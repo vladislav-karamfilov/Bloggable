@@ -113,6 +113,9 @@
     <Compile Include="Administration\Posts\ViewModels\PostGridViewModel.cs" />
     <Compile Include="Administration\Settings\ViewModels\SettingGridViewModel.cs" />
     <Compile Include="Administration\TaggableAdministrationGridViewModel.cs" />
+    <Compile Include="Comments\InputModels\BaseCommentModel.cs" />
+    <Compile Include="Comments\InputModels\CreateCommentInputModel.cs" />
+    <Compile Include="Comments\InputModels\UpdateCommentInputModel.cs" />
     <Compile Include="Common\ViewModels\CommentViewModel.cs" />
     <Compile Include="Common\ViewModels\TagViewModel.cs" />
     <Compile Include="Home\PostAnnotationViewModel.cs" />
@@ -142,7 +145,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Comments\ViewModels\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
       <Project>{636BFF57-5803-43AE-8A27-3AFCBC52BABF}</Project>

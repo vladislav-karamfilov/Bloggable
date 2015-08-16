@@ -1,7 +1,7 @@
 ﻿@using Bloggable.Common.Constants
 @using Bloggable.Web.Areas.Administration.Controllers
 @using Bloggable.Web.Controllers
-@using PostsController = Bloggable.Web.Areas.Administration.Controllers.PostsController
+@using PostsAdministrationController = Bloggable.Web.Areas.Administration.Controllers.PostsController
 
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -70,7 +70,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="admin-menu">Administration<span class="caret"></span></a>
                             <ul class="dropdown-menu" aria-labelledby="admin-menu">
-                                <li>@(Html.ActionLink<PostsController>("Posts administration", c => c.Index()))</li>
+                                <li>@(Html.ActionLink<PostsAdministrationController>("Posts administration", c => c.Index()))</li>
                                 <li>@(Html.ActionLink<SettingsController>("Settings administration", c => c.Index()))</li>
                                 <li>@(Html.ActionLink<AdministrationLogsController>("Administration logs administration", c => c.Index()))</li>
                             </ul>
