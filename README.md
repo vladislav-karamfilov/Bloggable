@@ -1,3 +1,3 @@
 # Bloggable
 
-Blog system constructed with best practices for programming
+### A blog system constructed with best practices in the world of programming.
