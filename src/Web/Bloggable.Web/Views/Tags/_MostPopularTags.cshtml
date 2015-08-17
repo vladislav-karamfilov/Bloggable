@@ -3,6 +3,6 @@
 <div class="well top-buffer">
     <h4>Most popular tags</h4>
     <div class="row container-fluid clearfix">
-        @Html.DisplayFor(m => m)
+        @(Model.Any() ? Html.DisplayFor(m => m) : Html.Raw("<em>No tags...</em>"))
     </div>
 </div>

@@ -1,20 +1,17 @@
 ﻿@using Bloggable.Web.Controllers
 
-@model Bloggable.Web.Models.Comments.InputModels.CreateCommentInputModel
+@model Bloggable.Web.Models.Comments.InputModels.UpdateCommentInputModel
 
 <div class="well">
-    <h4>
-        <label for="Content" class="comment-content-label">Leave a Comment:</label>
-    </h4>
     @using (Ajax.BeginForm<CommentsController>(
-        c => c.Create(null),
+        c => c.Update(null),
         null,
-        new AjaxOptions { HttpMethod = "POST", OnFailure = "onCommentCreationError", OnSuccess = "onCommentCreationSuccess" },
+        new AjaxOptions { HttpMethod = "POST", OnFailure = "onCommentUpdateError", OnSuccess = "onCommentUpdateSuccess" },
         new { role = "form" }))
     {
         @Html.AntiForgeryToken()
 
-        @Html.HiddenFor(m => m.PostId)
+        @Html.HiddenFor(m => m.Id)
 
         <div class="form-group">
             @Html.TextAreaFor(m => m.Content, new { @class = "form-control max-width", rows = 5 })

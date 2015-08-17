@@ -421,6 +421,7 @@
     <Content Include="Views\Blog\_CreateComment.cshtml" />
     <Content Include="Views\Comments\_PostComments.cshtml" />
     <Content Include="Views\Comments\DisplayTemplates\CommentViewModel.cshtml" />
+    <Content Include="Views\Comments\_UpdateComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">

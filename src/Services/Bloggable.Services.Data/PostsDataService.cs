@@ -40,12 +40,12 @@
         {
             if (page < 0)
             {
-                throw new ArgumentOutOfRangeException("page", "page should be non-negative number.");
+                throw new ArgumentOutOfRangeException(nameof(page), "page should be non-negative number.");
             }
 
             if (pageSize < 0)
             {
-                throw new ArgumentOutOfRangeException("pageSize", "pageSize should be non-negative number.");
+                throw new ArgumentOutOfRangeException(nameof(pageSize), "pageSize should be non-negative number.");
             }
 
             var allPosts = this.All(null, includeDeleted);

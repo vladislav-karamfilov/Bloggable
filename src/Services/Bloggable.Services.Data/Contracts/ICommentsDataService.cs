@@ -7,9 +7,11 @@
 
     public interface ICommentsDataService : IService
     {
-        void AddCommentForPost(int postId, string content, string authorId);
+        Comment GetById(int id);
 
-        void UpdateComment(object commentId, string newContent);
+        Comment AddCommentForPost(int postId, string content, string authorId);
+
+        Comment UpdateComment(object commentId, string newContent);
 
         IQueryable<Comment> ByPost(int postId, bool includeDeleted = false);
 

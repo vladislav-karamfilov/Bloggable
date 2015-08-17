@@ -16,16 +16,22 @@
             this.comments = comments;
         }
 
-        public void AddCommentForPost(int postId, string content, string authorId)
+        public Comment GetById(int id)
+        {
+            return this.comments.GetById(id);
+        }
+
+        public Comment AddCommentForPost(int postId, string content, string authorId)
         {
             var newComment = new Comment { PostId = postId, Content = content, AuthorId = authorId };
 
             this.comments.Add(newComment);
-
             this.comments.SaveChanges();
+
+            return newComment;
         }
 
-        public void UpdateComment(object commentId, string newContent)
+        public Comment UpdateComment(object commentId, string newContent)
         {
             var comment = this.comments.GetById(commentId);
 
@@ -35,8 +41,10 @@
             }
 
             comment.Content = newContent;
-            
+
             this.comments.SaveChanges();
+
+            return comment;
         }
 
         public IQueryable<Comment> ByPost(int postId, bool includeDeleted = false)

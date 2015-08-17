@@ -1,21 +1,21 @@
 ﻿namespace Bloggable.Web.Controllers
 {
-    using System;
     using System.Linq;
     using System.Web.Mvc;
 
+    using AutoMapper;
     using AutoMapper.QueryableExtensions;
 
     using Bloggable.Common.Constants;
     using Bloggable.Services.Data.Contracts;
+    using Bloggable.Web.Infrastructure.Extensions;
     using Bloggable.Web.Models.Comments.InputModels;
     using Bloggable.Web.Models.Comments.ViewModels;
-    
+
     using Microsoft.AspNet.Identity;
 
     using PagedList;
 
-    [Authorize]
     public class CommentsController : BaseController
     {
         private readonly ICommentsDataService commentsData;
@@ -24,8 +24,7 @@
         {
             this.commentsData = commentsData;
         }
-
-        [HttpGet]
+        
         public ActionResult Read(int id, int? page)
         {
             var currentPage = page > 0 ? page.Value : 1;
@@ -37,60 +36,69 @@
                 .To<CommentViewModel>()
                 .ToPagedList(currentPage, GlobalConstants.DefaultPageSize);
 
-            var model = new PostCommentsPageViewModel
+            var viewModel = new PostCommentsPageViewModel
             {
                 PostId = id,
                 Comments = postComments
             };
-
-            return this.PartialView("_PostComments", model);
+            return this.PartialView("_PostComments", viewModel);
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateCommentInputModel inputModel)
         {
             if (inputModel != null && this.ModelState.IsValid)
             {
                 var authorId = this.User.Identity.GetUserId();
+                var comment = this.commentsData.AddCommentForPost(inputModel.PostId, inputModel.Content, authorId);
 
-                this.commentsData.AddCommentForPost(inputModel.PostId, inputModel.Content, authorId);
-
-                // TODO: Extract Controller extension method JsonSuccess
-                return this.Json(new { Message = "success" });
+                var viewModel = Mapper.Map<CommentViewModel>(comment);
+                return this.PartialView("DisplayTemplates/CommentViewModel", viewModel);
             }
-
-            // TODO: Extract Controller extension method JsonError
-            return this.Json(new { Message = "error" });
+            
+            return this.JsonValidation();
         }
 
-        [HttpGet]
+        [Authorize]
         public ActionResult Update(int id)
         {
-            throw new NotImplementedException("Return partial view for comment editing.");
+            var comment = this.commentsData.GetById(id);
+            if (comment == null)
+            {
+                return this.JsonError("There is no such comment...");
+            }
+
+            if (comment.AuthorId != this.User.Identity.GetUserId())
+            {
+                return this.JsonError("Cannot edit comment that is not yours.");
+            }
+
+            var viewModel = Mapper.Map<UpdateCommentInputModel>(comment);
+            return this.PartialView("_UpdateComment", viewModel);
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Update(UpdateCommentInputModel inputModel)
         {
             if (inputModel != null && this.ModelState.IsValid)
             {
-                var authorId = this.commentsData.GetAuthorId(inputModel.CommentId) as string;
+                var authorId = this.commentsData.GetAuthorId(inputModel.Id) as string;
                 if (authorId == this.User.Identity.GetUserId())
                 {
-                    this.commentsData.UpdateComment(inputModel.CommentId, inputModel.Content);
+                    var comment = this.commentsData.UpdateComment(inputModel.Id, inputModel.Content);
 
-                    // TODO: Extract Controller extension method JsonSuccess
-                    return this.Json(new { Message = "success" });
+                    var viewModel = Mapper.Map<CommentViewModel>(comment);
+                    return this.PartialView("DisplayTemplates/CommentViewModel", viewModel);
                 }
-
-                // TODO: Extract Controller extension method JsonError
-                return this.Json(new { Message = "error" });
+                
+                return this.JsonError("Cannot edit comment that is not yours.");
             }
 
-            // TODO: Extract Controller extension method JsonError
-            return this.Json(new { Message = "error" });
+            return this.JsonValidation();
         }
     }
 }

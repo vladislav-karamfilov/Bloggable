@@ -1,6 +1,9 @@
-﻿@model Bloggable.Web.Models.Comments.ViewModels.CommentViewModel
+﻿@using Bloggable.Web.Controllers
+@using Microsoft.AspNet.Identity
 
-<div class="media">
+@model Bloggable.Web.Models.Comments.ViewModels.CommentViewModel
+
+<div class="media" id="post-comment-@Model.Id">
     @* TODO: Add link to user's profile page. *@
     <a class="pull-left" href="#">
         @* TODO: Get user's avatar with server call to a specific action (send wanted size as parameter) *@
@@ -9,9 +12,27 @@
     <div class="media-body">
         <h4 class="media-heading">
             @* TODO: Add link to user's profile page. *@
-            @Model.Author on
+            <a href="#">
+                @Model.Author
+            </a>
+            <span class="glyphicon glyphicon-time"></span>
             <small>@Model.CreatedOn.ToString("HH:mm:ss dd/MM/yyyy")</small>
+
+            @if (Model.Author == User.Identity.GetUserName())
+            {
+                <span class="left-buffer">
+                    @(Ajax.ActionLink<CommentsController>(
+                    " ",
+                    c => c.Update(Model.Id),
+                    null,
+                    new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = $"post-comment-content-{Model.Id}" },
+                    new { @class = "glyphicon glyphicon-pencil" }))
+                </span>
+            }
         </h4>
-        @Model.Content
+
+        <div id="post-comment-content-@Model.Id">
+            @Model.Content
+        </div>
     </div>
 </div>

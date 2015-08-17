@@ -30,7 +30,10 @@
 
             <div class="row">
                 <div class="col-md-6 col-xs-12">
-                    by @Model.AuthorUserName
+                    by
+                    <a href="#">
+                        @Model.AuthorUserName
+                    </a>
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <span class="glyphicon glyphicon-time"></span>
@@ -55,18 +58,25 @@
             <hr />
 
             <div class="clearfix">
-                Tags: @Html.DisplayFor(m => m.Tags)
+                @if (Model.Tags.Any())
+            {
+                    @Html.DisplayFor(m => m.Tags)
+                }
+                else
+                {
+                    <text><em>No tags...</em></text>
+                }
             </div>
             <hr />
 
             @if (User.IsLoggedIn())
             {
-                <div class="top-buffer" id="create-comment-container">
+                <div class="top-buffer">
                     @Html.Partial("_CreateComment", new CreateCommentInputModel { PostId = Model.Id })
                 </div>
             }
 
-            <div id="post-comment-creation-result-message-container" class="alert"></div>
+            <div id="post-comment-creation-result-message-container" class="alert hidden"></div>
             <div id="post-comments-container">
                 @(Html.Action<CommentsController>(c => c.Read(Model.Id, null)))
             </div>

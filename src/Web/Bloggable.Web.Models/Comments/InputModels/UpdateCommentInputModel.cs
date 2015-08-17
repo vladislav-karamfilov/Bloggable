@@ -1,7 +1,10 @@
 ﻿namespace Bloggable.Web.Models.Comments.InputModels
 {
-    public class UpdateCommentInputModel : BaseCommentInputModel
+    using Bloggable.Common.Mapping;
+    using Bloggable.Data.Models;
+
+    public class UpdateCommentInputModel : BaseCommentInputModel, IMapFrom<Comment>, IMapTo<Comment>
     {
-        public int CommentId { get; set; }
+        public int Id { get; set; }
     }
 }
