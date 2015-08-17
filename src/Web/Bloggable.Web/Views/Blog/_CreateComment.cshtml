@@ -9,7 +9,7 @@
     @using (Ajax.BeginForm<CommentsController>(
         c => c.Create(null),
         null,
-        new AjaxOptions { HttpMethod = "POST" },
+        new AjaxOptions { HttpMethod = "POST", OnFailure = "onCommentCreationError", OnSuccess = "onCommentCreationSuccess" },
         new { role = "form" }))
     {
         @Html.AntiForgeryToken()

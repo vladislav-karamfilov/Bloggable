@@ -22,7 +22,7 @@
                     <h2>@Model.SubTitle</h2>
                 }
             </hgroup>
-            <hr/>
+            <hr />
 
             <div class="row">
                 <div class="col-md-6 col-xs-12">
@@ -33,12 +33,12 @@
                     Posted on @Model.CreatedOn.ToString("HH:mm dd/MM/yyyy")
                 </div>
             </div>
-            <hr/>
+            <hr />
 
             @if (!string.IsNullOrWhiteSpace(Model.ImageOrVideoUrl))
             {
-                <img class="img-responsive" src="@Model.ImageOrVideoUrl" alt="@Model.Title image/video"/>
-                <hr/>
+                <img class="img-responsive" src="@Model.ImageOrVideoUrl" alt="@Model.Title image/video" />
+                <hr />
             }
 
             <!-- Post Content -->
@@ -48,20 +48,21 @@
             }
 
             @Html.Raw(Model.Content)
-            <hr/>
+            <hr />
 
             <div class="clearfix">
                 Tags: @Html.DisplayFor(m => m.Tags)
             </div>
-            <hr/>
+            <hr />
 
             @if (User.IsLoggedIn())
             {
                 <div class="top-buffer">
-                    @Html.Partial("_CreateComment", new CreateCommentInputModel {PostId = Model.Id})
+                    @Html.Partial("_CreateComment", new CreateCommentInputModel { PostId = Model.Id })
                 </div>
             }
 
+            <div id="post-comment-creation-result-message-container" class="alert"></div>
             <div id="post-comments-container">
                 @(Html.Action<CommentsController>(c => c.Read(Model.Id, null)))
             </div>
@@ -72,6 +73,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    function onCommentCreationError(jqXHR, textStatus, errorThrown) {
+        debugger;
+        console.log(textStatus, errorThrown);
+    }
+
+    function onCommentCreationSuccess(data) {
+        debugger;
+    }
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
