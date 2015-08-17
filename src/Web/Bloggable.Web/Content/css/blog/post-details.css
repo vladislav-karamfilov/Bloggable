@@ -1,0 +1,7 @@
+﻿#create-comment-container textarea {
+    max-width: 100%;
+}
+
+.comment-content-label {
+    font-size: 19px;
+}

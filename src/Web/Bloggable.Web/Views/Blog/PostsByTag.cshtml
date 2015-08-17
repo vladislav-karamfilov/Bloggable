@@ -3,7 +3,7 @@
 @model Bloggable.Web.Models.Posts.ViewModels.PostsByTagViewModel
 
 @{
-    ViewBag.Title = string.Format("Posts with tag '{0}'", Model.TagName);
+    ViewBag.Title = $"Posts with tag '{Model.TagName}'";
 }
 
 <div class="container">

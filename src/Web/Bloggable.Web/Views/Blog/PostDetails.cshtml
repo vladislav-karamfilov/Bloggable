@@ -7,6 +7,10 @@
     ViewBag.Title = Model.Title;
 }
 
+@section styles {
+    @Styles.Render("~/Content/css/blog/post-details.css")
+}
+
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
@@ -57,7 +61,7 @@
 
             @if (User.IsLoggedIn())
             {
-                <div class="top-buffer">
+                <div class="top-buffer" id="create-comment-container">
                     @Html.Partial("_CreateComment", new CreateCommentInputModel { PostId = Model.Id })
                 </div>
             }

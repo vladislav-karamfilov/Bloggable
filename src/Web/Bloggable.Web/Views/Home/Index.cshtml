@@ -17,7 +17,7 @@
             {
                 @Html.DisplayFor(m => m)
 
-                @Html.PagedListPager(Model, page => string.Format("/?page={0}", page))
+                @Html.PagedListPager(Model, page => $"/?page={page}")
             }
             else
             {
