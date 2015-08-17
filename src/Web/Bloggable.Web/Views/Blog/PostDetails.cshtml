@@ -89,12 +89,23 @@
 </div>
 
 <script>
-    function onCommentCreationError(jqXHR, textStatus, errorThrown) {
+    function onCommentCreateSuccess(data) {
+        // TODO: Show success notification
         debugger;
-        console.log(textStatus, errorThrown);
     }
 
-    function onCommentCreationSuccess(data) {
+    function onCommentCreateError(jqXHR, textStatus, errorThrown) {
+        // TODO: Show error notification
+        debugger;
+    }
+
+    function onCommentUpdateSuccess() {
+        // TODO: Show success notification
+        debugger;
+    }
+
+    function onCommentUpdateError(jqXHR, textStatus, errorThrown) {
+        // TODO: Show error notification
         debugger;
     }
 </script>

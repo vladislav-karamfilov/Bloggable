@@ -18,7 +18,7 @@
             <span class="glyphicon glyphicon-time"></span>
             <small>@Model.CreatedOn.ToString("HH:mm:ss dd/MM/yyyy")</small>
 
-            @if (Model.Author == User.Identity.GetUserName())
+            @if (Model.Author == User.Identity.GetUserName() || User.IsAdmin())
             {
                 <span class="left-buffer">
                     @(Ajax.ActionLink<CommentsController>(
@@ -28,6 +28,11 @@
                     new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = $"post-comment-content-{Model.Id}" },
                     new { @class = "glyphicon glyphicon-pencil" }))
                 </span>
+            }
+
+            @if (User.IsAdmin())
+            {
+                // TODO: Add option for deleting comment!
             }
         </h4>
 
