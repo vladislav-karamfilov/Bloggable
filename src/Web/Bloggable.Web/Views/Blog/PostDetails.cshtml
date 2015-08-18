@@ -95,8 +95,15 @@
     }
 
     function onCommentCreateError(jqXHR, textStatus, errorThrown) {
-        // TODO: Show error notification
-        debugger;
+        var response = Bloggable.Helpers.ErrorResponseParser.parse(jqXHR);
+
+        // TODO: Show user-friendly error notification
+        alert(response.errorMessage || 'An error has occured. Please try again later...');
+    }
+
+    function onUpdateCommentFormLoaded(data) {
+        var formId = $(data).find('form').prop('id');
+        Bloggable.Helpers.FormValidation.reAttach('#' + formId);
     }
 
     function onCommentUpdateSuccess() {
@@ -106,10 +113,11 @@
 
     function onCommentUpdateError(jqXHR, textStatus, errorThrown) {
         // TODO: Show error notification
-        debugger;
+        alert(response.errorMessage || 'An error has occured. Please try again later...');
     }
 </script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/helpers.js")
 }

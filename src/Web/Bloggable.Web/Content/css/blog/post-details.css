@@ -1,5 +1,9 @@
-﻿.max-width {
+﻿.comment-content {
     max-width: 100%;
+    -moz-resize: vertical;
+    -ms-resize: vertical;
+    -o-resize: vertical;
+    resize: vertical;
 }
 
 .comment-content-label {

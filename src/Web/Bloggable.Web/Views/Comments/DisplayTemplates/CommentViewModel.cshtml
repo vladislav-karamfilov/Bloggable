@@ -15,24 +15,25 @@
             <a href="#">
                 @Model.Author
             </a>
-            <span class="glyphicon glyphicon-time"></span>
+            <span class="glyphicon glyphicon-time" title="Commented on"></span>
             <small>@Model.CreatedOn.ToString("HH:mm:ss dd/MM/yyyy")</small>
 
             @if (Model.Author == User.Identity.GetUserName() || User.IsAdmin())
             {
-                <span class="left-buffer">
+                <span title="Edit comment">
                     @(Ajax.ActionLink<CommentsController>(
-                    " ",
-                    c => c.Update(Model.Id),
-                    null,
-                    new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = $"post-comment-content-{Model.Id}" },
-                    new { @class = "glyphicon glyphicon-pencil" }))
+                          " ",
+                          c => c.Update(Model.Id),
+                          null,
+                          new AjaxOptions
+                          {
+                              HttpMethod = "GET",
+                              InsertionMode = InsertionMode.Replace,
+                              UpdateTargetId = $"post-comment-content-{Model.Id}",
+                              OnSuccess = "onUpdateCommentFormLoaded"
+                          },
+                          new { @class = "glyphicon glyphicon-pencil" }))
                 </span>
-            }
-
-            @if (User.IsAdmin())
-            {
-                // TODO: Add option for deleting comment!
             }
         </h4>
 

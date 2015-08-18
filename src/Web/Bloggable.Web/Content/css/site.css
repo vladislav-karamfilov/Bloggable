@@ -58,3 +58,7 @@ textarea {
 .login-remember-me-container input[type="checkbox"] {
     margin-left: 0;
 }
+
+.field-validation-error {
+    color: #ff4500;
+}

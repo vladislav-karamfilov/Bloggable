@@ -14,14 +14,15 @@
             InsertionMode = InsertionMode.ReplaceWith,
             UpdateTargetId = $"post-comment-{Model.Id}"
         },
-        new { role = "form" }))
+        new { role = "form", id = $"update-comment-form-{Model.Id}" }))
     {
         @Html.AntiForgeryToken()
 
         @Html.HiddenFor(m => m.Id)
 
         <div class="form-group">
-            @Html.TextAreaFor(m => m.Content, new { @class = "form-control max-width", rows = 5 })
+            @Html.TextAreaFor(m => m.Content, new { @class = "form-control comment-content", rows = 5 })
+            @Html.ValidationMessageFor(m => m.Content)
         </div>
 
         <input type="submit" class="btn btn-primary" value="Submit" />

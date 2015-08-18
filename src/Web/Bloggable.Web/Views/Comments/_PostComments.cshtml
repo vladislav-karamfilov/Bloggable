@@ -5,7 +5,10 @@
 
 @Html.DisplayFor(m => m.Comments)
 
-@Html.PagedListPager(
-    Model.Comments,
-    page => Url.Action<CommentsController>(c => c.Read(Model.PostId, page)),
-    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "post-comments-container" }))
+@if (Model.Comments.PageCount > 1)
+{
+    @Html.PagedListPager(
+        Model.Comments,
+        page => Url.Action<CommentsController>(c => c.Read(Model.PostId, page)),
+        PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "post-comments-container" }))
+}

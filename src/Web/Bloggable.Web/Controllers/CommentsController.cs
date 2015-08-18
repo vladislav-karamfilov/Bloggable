@@ -55,6 +55,7 @@
                 var comment = this.commentsData.AddCommentForPost(inputModel.PostId, inputModel.Content, authorId);
 
                 var viewModel = Mapper.Map<CommentViewModel>(comment);
+                viewModel.Author = this.User.Identity.GetUserName();
                 return this.PartialView("DisplayTemplates/CommentViewModel", viewModel);
             }
             
