@@ -24,7 +24,7 @@
         {
             this.commentsData = commentsData;
         }
-        
+
         public ActionResult Read(int id, int? page)
         {
             var currentPage = page > 0 ? page.Value : 1;
@@ -58,7 +58,7 @@
                 viewModel.Author = this.User.Identity.GetUserName();
                 return this.PartialView("DisplayTemplates/CommentViewModel", viewModel);
             }
-            
+
             return this.JsonValidation();
         }
 
@@ -66,14 +66,13 @@
         public ActionResult Update(int id)
         {
             var comment = this.commentsData.GetById(id);
-            if (comment == null)
+            if (comment == null || (comment.AuthorId != this.User.Identity.GetUserId() && !this.User.IsAdmin()))
             {
-                return this.JsonError("There is no such comment...");
-            }
-
-            if (comment.AuthorId != this.User.Identity.GetUserId())
-            {
-                return this.JsonError("Cannot edit comment that is not yours.");
+                return this.JsonError(
+                    "There is no such comment or you don't have permissions to edit it...",
+                    null,
+                    null,
+                    JsonRequestBehavior.AllowGet);
             }
 
             var viewModel = Mapper.Map<UpdateCommentInputModel>(comment);
@@ -88,15 +87,19 @@
             if (inputModel != null && this.ModelState.IsValid)
             {
                 var authorId = this.commentsData.GetAuthorId(inputModel.Id) as string;
-                if (authorId == this.User.Identity.GetUserId())
+                if (string.IsNullOrWhiteSpace(authorId) || (authorId != this.User.Identity.GetUserId() && !this.User.IsAdmin()))
                 {
-                    var comment = this.commentsData.UpdateComment(inputModel.Id, inputModel.Content);
-
-                    var viewModel = Mapper.Map<CommentViewModel>(comment);
-                    return this.PartialView("DisplayTemplates/CommentViewModel", viewModel);
+                    return this.JsonError(
+                        "There is no such comment or you don't have permissions to edit it...",
+                        null,
+                        null,
+                        JsonRequestBehavior.AllowGet);
                 }
-                
-                return this.JsonError("Cannot edit comment that is not yours.");
+
+                var comment = this.commentsData.UpdateComment(inputModel.Id, inputModel.Content);
+
+                var viewModel = Mapper.Map<CommentViewModel>(comment);
+                return this.PartialView("DisplayTemplates/CommentViewModel", viewModel);
             }
 
             return this.JsonValidation();

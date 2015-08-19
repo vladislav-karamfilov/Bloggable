@@ -9,8 +9,13 @@
     @using (Ajax.BeginForm<CommentsController>(
         c => c.Create(null),
         null,
-        new AjaxOptions { HttpMethod = "POST", OnFailure = "onCommentCreateError", OnSuccess = "onCommentCreateSuccess" },
-        new { role = "form" }))
+        new AjaxOptions
+        {
+            HttpMethod = "POST",
+            OnSuccess = "Bloggable.CommentActions.onCreateCommentSuccess",
+            OnFailure = "Bloggable.CommentActions.onCreateCommentFailure",
+        },
+        new { role = "form", id = $"create-comment-form-{Model.PostId}" }))
     {
         @Html.AntiForgeryToken()
 

@@ -9,8 +9,8 @@
         new AjaxOptions
         {
             HttpMethod = "POST",
-            OnFailure = "onCommentUpdateError",
-            OnSuccess = "onCommentUpdateSuccess",
+            OnSuccess = "Bloggable.CommentActions.onUpdateCommentSuccess",
+            OnFailure = "Bloggable.CommentActions.onUpdateCommentFailure",
             InsertionMode = InsertionMode.ReplaceWith,
             UpdateTargetId = $"post-comment-{Model.Id}"
         },
@@ -23,6 +23,10 @@
         <div class="form-group">
             @Html.TextAreaFor(m => m.Content, new { @class = "form-control comment-content", rows = 5 })
             @Html.ValidationMessageFor(m => m.Content)
+        </div>
+
+        <div class="form-group">
+            <div class="general-error-message-container field-validation-error hidden"></div>
         </div>
 
         <input type="submit" class="btn btn-primary" value="Submit" />

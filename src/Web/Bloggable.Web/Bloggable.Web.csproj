@@ -348,12 +348,13 @@
     <None Include="Scripts\jquery\jquery-2.1.4.intellisense.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\administration.js" />
+    <Content Include="Scripts\app\post-details\comment-actions.js" />
     <Content Include="Scripts\boostrap\bootstrap.js" />
     <Content Include="Scripts\boostrap\bootstrap.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\helpers.js" />
+    <Content Include="Scripts\app\helpers.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery\jquery.unobtrusive-ajax.js" />

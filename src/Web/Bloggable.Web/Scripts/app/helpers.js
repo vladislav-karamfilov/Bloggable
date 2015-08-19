@@ -6,7 +6,7 @@ Bloggable.Helpers = (function () {
             var responseObject = JSON.parse(jqXHR.responseText);
 
             if (responseObject.errorMessages) {
-                responseObject.errorMessage = responseObject.errorMessages.join('\n');
+                responseObject.errorMessage = responseObject.errorMessages.join('<br/>');
             }
 
             return responseObject;
