@@ -30,7 +30,8 @@
                               HttpMethod = "GET",
                               InsertionMode = InsertionMode.Replace,
                               UpdateTargetId = $"post-comment-content-{Model.Id}",
-                              OnSuccess = "Bloggable.CommentActions.onUpdateCommentFormLoaded"
+                              OnSuccess = "Bloggable.CommentActions.onUpdateCommentFormLoaded",
+                              OnFailure = "Bloggable.CommentActions.onUpdateCommentFormLoadFailure"
                           },
                           new { @class = "glyphicon glyphicon-pencil" }))
                 </span>

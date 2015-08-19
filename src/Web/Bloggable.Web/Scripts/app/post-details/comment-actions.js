@@ -8,15 +8,19 @@ Bloggable.CommentActions = (function () {
     var onCreateCommentFailure = function (jqXHR) {
         var response = Bloggable.Helpers.ErrorResponseParser.parse(jqXHR);
 
-        debugger;
-        // TODO: Show user-friendly error notification
-        alert(response.errorMessage || 'An error has occured. Please try again later...');
+        var failureMessageContainer = $(this).find('.general-error-message-container');
+        failureMessageContainer.html(response.errorMessage || 'An error has occured. Please try again later...').removeClass('hidden');
     };
 
     var onUpdateCommentFormLoaded = function (data) {
         var formId = $(data).find('form').prop('id');
         Bloggable.Helpers.FormValidation.reAttach('#' + formId);
     };
+
+    var onUpdateCommentFormLoadFailure = function(jqXHR) {
+        var response = Bloggable.Helpers.ErrorResponseParser.parse(jqXHR);
+        Bloggable.Alerts.error(response.errorMessage || 'An error has occured. Please try again later...');
+    }
 
     var onUpdateCommentSuccess = function (data) {
         throw new Error('Not implemented');
@@ -33,6 +37,7 @@ Bloggable.CommentActions = (function () {
         onCreateCommentSuccess: onCreateCommentSuccess,
         onCreateCommentFailure: onCreateCommentFailure,
         onUpdateCommentFormLoaded: onUpdateCommentFormLoaded,
+        onUpdateCommentFormLoadFailure: onUpdateCommentFormLoadFailure,
         onUpdateCommentSuccess: onUpdateCommentSuccess,
         onUpdateCommentFailure: onUpdateCommentFailure
     };

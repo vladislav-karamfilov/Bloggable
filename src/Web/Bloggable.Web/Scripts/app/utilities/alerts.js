@@ -15,7 +15,6 @@ Bloggable.Alerts = (function () {
         var alertElement = $(alertElementHtml);
         $(ALERTS_CONTAINER_SELECTOR).append(alertElement);
 
-        debugger;
         setTimeout(function () {
             alertElement.fadeOut();
         }, 3000);

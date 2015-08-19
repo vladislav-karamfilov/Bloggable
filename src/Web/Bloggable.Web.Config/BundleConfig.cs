@@ -36,6 +36,7 @@
                 "~/Scripts/kendo/cultures/kendo.culture.en-GB.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/global-scripts").Include(
+                "~/Scripts/app/global.js",
                 "~/Scripts/app/utilities/alerts.js",
                 "~/Scripts/app/utilities/helpers.js"));
         }
