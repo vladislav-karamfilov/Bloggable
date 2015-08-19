@@ -1,9 +1,23 @@
-﻿@using Bloggable.Web.Infrastructure.Extensions
+﻿@using Bloggable.Common.Extensions
+@using Bloggable.Web.Infrastructure.Extensions
 
 @{
     var alerts = TempData.GetAlerts();
 }
 
-<div class="container alert-container">
-    @Html.DisplayFor(m => alerts)
-</div>
+@if (alerts.Any())
+{
+    <script>
+        $(function() {
+            @foreach (var alert in alerts)
+            {
+                <text>
+                Bloggable.Alerts.showAlert({
+                    alertClass: '@alert.Type.GetDescription()',
+                    message: '@alert.Message.Replace("'", "\\'")'
+                });
+                </text>
+            }
+        });
+    </script>
+}

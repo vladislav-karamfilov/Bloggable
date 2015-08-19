@@ -83,7 +83,7 @@
         </div>
     </div>
     <div class="container body-content">
-        @Html.Partial("_Alerts")
+        <div class="container alert-container"></div>
         @RenderBody()
         <hr />
         <footer>
@@ -91,7 +91,8 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstrap", "~/bundles/global-scripts")
+    @Html.Partial("_Alerts")
     @RenderSection("scripts", required: false)
 </body>
 </html>

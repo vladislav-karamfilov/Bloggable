@@ -34,6 +34,10 @@
                 "~/Scripts/kendo/kendo.all.min.js",
                 "~/Scripts/kendo/kendo.aspnetmvc.min.js",
                 "~/Scripts/kendo/cultures/kendo.culture.en-GB.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/global-scripts").Include(
+                "~/Scripts/app/utilities/alerts.js",
+                "~/Scripts/app/utilities/helpers.js"));
         }
 
         private static void RegisterStyleBundles(BundleCollection bundles)
