@@ -22,8 +22,8 @@ Bloggable.CommentActions = (function () {
         Bloggable.Alerts.error(response.errorMessage || 'An error has occured. Please try again later...');
     }
 
-    var onUpdateCommentSuccess = function (data) {
-        throw new Error('Not implemented');
+    var onUpdateCommentSuccess = function () {
+        Bloggable.Alerts.success('Comment successfully updated!');
     };
 
     var onUpdateCommentFailure = function (jqXHR) {
