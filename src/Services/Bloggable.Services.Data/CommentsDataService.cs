@@ -47,13 +47,22 @@
             return comment;
         }
 
-        public IQueryable<Comment> ByPost(int postId, bool includeDeleted = false)
+        public IQueryable<Comment> GetByPost(int postId, bool includeDeleted = false)
         {
             var commentsByPost = includeDeleted ? this.comments.AllWithDeleted() : this.comments.All();
 
             commentsByPost = commentsByPost.Where(c => c.PostId == postId);
 
             return commentsByPost;
+        }
+
+        public int GetCountByPost(int postId, bool includeDeleted = false)
+        {
+            var allComments = includeDeleted ? this.comments.AllWithDeleted() : this.comments.All();
+
+            var commentsCountByPost = allComments.Count(c => c.PostId == postId);
+
+            return commentsCountByPost;
         }
 
         public object GetAuthorId(object commentId, bool includeDeleted = false)

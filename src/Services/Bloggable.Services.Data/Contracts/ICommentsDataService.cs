@@ -13,7 +13,9 @@
 
         Comment UpdateComment(object commentId, string newContent);
 
-        IQueryable<Comment> ByPost(int postId, bool includeDeleted = false);
+        IQueryable<Comment> GetByPost(int postId, bool includeDeleted = false);
+
+        int GetCountByPost(int postId, bool includeDeleted = false);
 
         object GetAuthorId(object commentId, bool includeDeleted = false);
     }

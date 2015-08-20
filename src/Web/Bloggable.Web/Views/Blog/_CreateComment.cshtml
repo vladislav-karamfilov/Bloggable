@@ -14,6 +14,8 @@
             HttpMethod = "POST",
             OnSuccess = "Bloggable.CommentActions.onCreateCommentSuccess",
             OnFailure = "Bloggable.CommentActions.onCreateCommentFailure",
+            UpdateTargetId = "post-comments-container",
+            InsertionMode = InsertionMode.Replace
         },
         new { role = "form", id = $"create-comment-form-{Model.PostId}" }))
     {

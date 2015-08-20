@@ -1,8 +1,9 @@
 ﻿var Bloggable = Bloggable || {};
 
 Bloggable.CommentActions = (function () {
-    var onCreateCommentSuccess = function (data) {
-        throw new Error('Not implemented');
+    var onCreateCommentSuccess = function () {
+        $(this).find('#Content').val('');
+        Bloggable.Alerts.success('Comment successfully created!');
     };
 
     var onCreateCommentFailure = function (jqXHR) {

@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -29,12 +30,7 @@
         {
             var currentPage = page > 0 ? page.Value : 1;
 
-            var postComments = this.commentsData
-                .ByPost(id)
-                .OrderByDescending(c => c.CreatedOn)
-                .Project()
-                .To<CommentViewModel>()
-                .ToPagedList(currentPage, GlobalConstants.DefaultPageSize);
+            var postComments = this.GetPostCommentsPage(id, currentPage, GlobalConstants.DefaultPageSize);
 
             var viewModel = new PostCommentsPageViewModel
             {
@@ -52,11 +48,18 @@
             if (inputModel != null && this.ModelState.IsValid)
             {
                 var authorId = this.User.Identity.GetUserId();
-                var comment = this.commentsData.AddCommentForPost(inputModel.PostId, inputModel.Content, authorId);
+                this.commentsData.AddCommentForPost(inputModel.PostId, inputModel.Content, authorId);
 
-                var viewModel = Mapper.Map<CommentViewModel>(comment);
-                viewModel.Author = this.User.Identity.GetUserName();
-                return this.PartialView("DisplayTemplates/CommentViewModel", viewModel);
+                var postCommentsCount = this.commentsData.GetCountByPost(inputModel.PostId);
+                var lastPage = (int)Math.Ceiling((double)postCommentsCount / GlobalConstants.DefaultPageSize);
+                var commentsLastPage = this.GetPostCommentsPage(inputModel.PostId, lastPage, GlobalConstants.DefaultPageSize);
+
+                var viewModel = new PostCommentsPageViewModel
+                {
+                    PostId = inputModel.PostId,
+                    Comments = commentsLastPage
+                };
+                return this.PartialView("_PostComments", viewModel);
             }
 
             return this.JsonValidation();
@@ -103,6 +106,18 @@
             }
 
             return this.JsonValidation();
+        }
+
+        private IPagedList<CommentViewModel> GetPostCommentsPage(int postId, int page, int pageSize)
+        {
+            var commentsPage = this.commentsData
+                .GetByPost(postId)
+                .OrderBy(c => c.CreatedOn)
+                .Project()
+                .To<CommentViewModel>()
+                .ToPagedList(page, pageSize);
+
+            return commentsPage;
         }
     }
 }
