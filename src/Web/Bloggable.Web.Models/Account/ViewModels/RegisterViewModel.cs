@@ -14,11 +14,13 @@
         [RegularExpression(
             UserValidationConstants.UserNameRegEx, 
             ErrorMessage = "Invalid username. Please, use only latin characters, digits and symbols: ._")]
+        [Remote("IsAvailableUserName", "UserValidation", ErrorMessage = "{0} is already taken...")]
         [Display(Name = "Username")]
         public string UserName { get; set; }
 
         [Required]
         [EmailAddress]
+        [Remote("IsAvailableEmail", "UserValidation", ErrorMessage = "{0} is already taken...")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
