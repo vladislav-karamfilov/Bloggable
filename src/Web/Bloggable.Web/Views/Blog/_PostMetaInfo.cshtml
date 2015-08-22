@@ -1,0 +1,18 @@
+﻿@using Bloggable.Common.Constants
+
+@model Bloggable.Web.Models.Posts.ViewModels.PostDetailsViewModel
+
+@{
+    var description = string.IsNullOrWhiteSpace(Model.MetaDescription) ?
+        ViewData.GetSystemSetting(AppSettingConstants.BlogDescriptionSetting) :
+        Model.MetaDescription;
+
+    var keywords = $"{Model.MetaKeywords}, {ViewData.GetSystemSetting(AppSettingConstants.BlogKeywordsSetting)}".TrimEnd(' ', ',');
+
+    var blogAuthor = ViewData.GetSystemSetting(AppSettingConstants.BlogAuthor);
+    var author = string.IsNullOrWhiteSpace(blogAuthor) ? Model.AuthorUserName : $"{blogAuthor} ({Model.AuthorUserName})";
+}
+
+<meta name="description" content="@description"/>
+<meta name="keywords" content="@keywords"/>
+<meta name="author" content="@author" />

@@ -20,9 +20,9 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
 
-    @if (IsSectionDefined("meta"))
+    @if (IsSectionDefined("metaPostInfo"))
     {
-        @RenderSection("meta", required: false)
+        @RenderSection("metaPostInfo", required: false)
     }
     else
     {
