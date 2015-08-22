@@ -3,12 +3,19 @@
 
 @model Bloggable.Web.Models.Comments.ViewModels.PostCommentsPageViewModel
 
-@Html.DisplayFor(m => m.Comments)
-
-@if (Model.Comments.PageCount > 1)
+@if (Model.Comments.Any())
 {
-    @Html.PagedListPager(
-        Model.Comments,
-        page => Url.Action<CommentsController>(c => c.Read(Model.PostId, page)),
-        PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "post-comments-container" }))
+    @Html.DisplayFor(m => m.Comments)
+
+    if (Model.Comments.PageCount > 1)
+    {
+        @Html.PagedListPager(
+            Model.Comments,
+            page => Url.Action<CommentsController>(c => c.Read(Model.PostId, page)),
+            PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "post-comments-container" }))
+    }
+}
+else
+{
+    <em>No comments yet...</em>
 }
