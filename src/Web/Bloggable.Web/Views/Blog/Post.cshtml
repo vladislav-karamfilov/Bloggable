@@ -18,7 +18,7 @@
                 <h1>
                     @(Html.ActionLink<BlogController>(
                           Model.Title,
-                          c => c.PostDetails(Model.CreatedOn.Year, Model.CreatedOn.Month, Model.UrlTitle, Model.Id)))
+                          c => c.Post(Model.CreatedOn.Year, Model.CreatedOn.Month, Model.UrlTitle, Model.Id)))
                 </h1>
 
                 @if (!string.IsNullOrWhiteSpace(Model.SubTitle))
@@ -59,7 +59,7 @@
 
             <div class="clearfix">
                 @if (Model.Tags.Any())
-            {
+                {
                     @Html.DisplayFor(m => m.Tags)
                 }
                 else

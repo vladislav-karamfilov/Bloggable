@@ -420,7 +420,7 @@
     <Content Include="Views\Shared\EditorTemplates\KendoEditor.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\TagViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PostAnnotationViewModel.cshtml" />
-    <Content Include="Views\Blog\PostDetails.cshtml" />
+    <Content Include="Views\Blog\Post.cshtml" />
     <Content Include="Views\Tags\_MostPopularTags.cshtml" />
     <Content Include="Views\Blog\PostsByTag.cshtml" />
     <Content Include="Views\Blog\_CreateComment.cshtml" />

@@ -24,11 +24,14 @@
             this.tagsData = tagsData;
         }
 
-        public ActionResult PostDetails(int year, int month, string urlTitle, int id)
+        public ActionResult Post(int year, int month, string urlTitle, int id)
         {
             var post = this.postsData.All(p => p.Id == id).Project().To<PostDetailsViewModel>().FirstOrDefault();
 
-            if (post == null || !post.UrlTitle.Equals(urlTitle, StringComparison.OrdinalIgnoreCase))
+            if (post == null || 
+                !post.UrlTitle.Equals(urlTitle, StringComparison.OrdinalIgnoreCase) ||
+                post.CreatedOn.Year != year ||
+                post.CreatedOn.Month != month)
             {
                 return this.RedirectToAction<HomeController>(c => c.Index(null)).WithErrorAlert("There is no such post...");
             }
