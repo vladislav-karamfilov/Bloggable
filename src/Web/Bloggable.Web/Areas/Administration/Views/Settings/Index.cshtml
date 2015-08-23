@@ -26,31 +26,31 @@
     toolbar =>
     {
         toolbar.Create();
-        toolbar.Custom().Text("Remove settings in cache").HtmlAttributes(new { id = "remove-settings-from-cache-btn" });
+        toolbar.Custom().Text("Refresh settings in cache").HtmlAttributes(new { id = "refresh-settings-in-cache-btn" });
     }
 ).Events(ev => ev.Edit("onSettingEdit")))
 
 <script>
-    function onSettingEdit(ev) {
-        if (!ev.model.isNew()) {
-            $('#Id').prop('disabled', 'disabled');
-        }
-    }
-
-    $(function() {
-        $('#remove-settings-from-cache-btn').click(function(ev) {
+    $(function () {
+        $('#refresh-settings-in-cache-btn').click(function (ev) {
             ev.preventDefault();
 
             removeSettingFromCache();
         });
     });
 
+    function onSettingEdit(ev) {
+        if (!ev.model.isNew()) {
+            $('#Id').prop('disabled', 'disabled');
+        }
+    }
+
     function removeSettingFromCache() {
         $.ajax({
             type: 'POST',
-            url: '@(Url.Action<SettingsController>(c => c.RemoveSettingsFromCache()))',
+            url: '@(Url.Action<SettingsController>(c => c.RefreshSettingsInCache()))',
             success: function () {
-                Bloggable.Alerts.success('Settings successfully removed from cache!');
+                Bloggable.Alerts.success('Settings in cache successfully refreshed!');
             },
             error: function (jqXHR) {
                 var response = Bloggable.Helpers.ErrorResponseParser.parse(jqXHR);

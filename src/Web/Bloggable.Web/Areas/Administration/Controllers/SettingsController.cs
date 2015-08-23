@@ -51,7 +51,7 @@
         }
 
         [HttpPost]
-        public ActionResult RemoveSettingsFromCache()
+        public ActionResult RefreshSettingsInCache()
         {
             this.cache.Remove(CacheConstants.Settings);
 
