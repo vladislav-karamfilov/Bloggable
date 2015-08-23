@@ -11,29 +11,29 @@
             IDeletableEntityAdministrationService<TDeletableEntity>
         where TDeletableEntity : class, IDeletableEntity
     {
-        private readonly IDeletableEntityRepository<TDeletableEntity> entities;
-
         public DeletableEntityAdministrationService(IDeletableEntityRepository<TDeletableEntity> entities)
             : base(entities)
         {
-            this.entities = entities;
+            this.Entities = entities;
         }
+
+        protected new IDeletableEntityRepository<TDeletableEntity> Entities { get; }
 
         public virtual IQueryable<TDeletableEntity> ReadWithDeleted()
         {
-            return this.entities.AllWithDeleted();
+            return this.Entities.AllWithDeleted();
         }
 
         public virtual void HardDelete(object id)
         {
-            this.entities.HardDelete(id);
-            this.entities.SaveChanges();
+            this.Entities.HardDelete(id);
+            this.Entities.SaveChanges();
         }
 
         public void HardDelete(TDeletableEntity entity)
         {
-            this.entities.HardDelete(entity);
-            this.entities.SaveChanges();
+            this.Entities.HardDelete(entity);
+            this.Entities.SaveChanges();
         }
     }
 }

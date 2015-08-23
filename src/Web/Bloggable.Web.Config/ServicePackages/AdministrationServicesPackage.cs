@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Config.ServicePackages
 {
+    using Bloggable.Services.Administration;
     using Bloggable.Services.Administration.Base;
     using Bloggable.Services.Administration.Contracts;
 
@@ -13,6 +14,7 @@
         {
             container.RegisterOpenGeneric(typeof(IDeletableEntityAdministrationService<>), typeof(DeletableEntityAdministrationService<>));
             container.RegisterOpenGeneric(typeof(IAdministrationService<>), typeof(AdministrationService<>));
+            container.Register<ISettingsAdministrationService, SettingsAdministrationService>();
         }
     }
 }

@@ -28,7 +28,7 @@
         toolbar.Create();
         toolbar.Custom().Text("Refresh settings in cache").HtmlAttributes(new { id = "refresh-settings-in-cache-btn" });
     }
-).Events(ev => ev.Edit("onSettingEdit")))
+).Events(ev => ev.Edit("onSettingEdit")).DataSource(dataSource => dataSource.Ajax().Events(ev => ev.Error("Bloggable.KendoValidation.displayAllValidationMessagesForGrid"))))
 
 <script>
     $(function () {

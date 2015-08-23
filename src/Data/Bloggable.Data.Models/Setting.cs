@@ -7,6 +7,7 @@
 
     public class Setting : IdentifiableAuditInfo<string>
     {
+        [Required]
         [MaxLength(AppSettingConstants.SettingValueMaxLength)]
         public string Value { get; set; }
     }
