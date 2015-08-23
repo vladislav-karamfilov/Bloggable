@@ -3,7 +3,9 @@
     using System.Web.Mvc;
 
     using Bloggable.Services.Administration.Contracts;
+    using Bloggable.Services.Common.Cache.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
+    using Bloggable.Web.Infrastructure.Extensions;
 
     using Kendo.Mvc.UI;
 
@@ -12,9 +14,12 @@
 
     public class SettingsController : KendoGridAdministrationController<EntityModel, ViewModel>
     {
-        public SettingsController(IAdministrationService<EntityModel> administrationService)
+        private readonly ICacheService cache;
+
+        public SettingsController(IAdministrationService<EntityModel> administrationService, ICacheService cache)
             : base(administrationService)
         {
+            this.cache = cache;
         }
 
         [HttpGet]
@@ -42,6 +47,19 @@
         {
             this.DestroyEntity(model.Id);
             return this.GridOperation(request, model);
+        }
+
+        [HttpPost]
+        public ActionResult RemoveSettingFromCache(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                return this.JsonError("Setting ID cannot be null or white space...");
+            }
+
+            this.cache.Remove(id);
+
+            return this.EmptyResult();
         }
     }
 }

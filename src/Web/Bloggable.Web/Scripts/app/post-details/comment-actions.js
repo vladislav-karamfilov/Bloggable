@@ -10,7 +10,7 @@ Bloggable.CommentActions = (function () {
         var response = Bloggable.Helpers.ErrorResponseParser.parse(jqXHR);
 
         var failureMessageContainer = $(this).find('.general-error-message-container');
-        failureMessageContainer.html(response.errorMessage || 'An error has occured. Please try again later...').removeClass('hidden');
+        failureMessageContainer.html(response.errorMessage || 'An error has occurred. Please try again later...').removeClass('hidden');
     };
 
     var onUpdateCommentFormLoaded = function (data) {
@@ -20,7 +20,7 @@ Bloggable.CommentActions = (function () {
 
     var onUpdateCommentFormLoadFailure = function(jqXHR) {
         var response = Bloggable.Helpers.ErrorResponseParser.parse(jqXHR);
-        Bloggable.Alerts.error(response.errorMessage || 'An error has occured. Please try again later...');
+        Bloggable.Alerts.error(response.errorMessage || 'An error has occurred. Please try again later...');
     }
 
     var onUpdateCommentSuccess = function () {
@@ -31,7 +31,7 @@ Bloggable.CommentActions = (function () {
         var response = Bloggable.Helpers.ErrorResponseParser.parse(jqXHR);
 
         var failureMessageContainer = $(this).find('.general-error-message-container');
-        failureMessageContainer.html(response.errorMessage || 'An error has occured. Please try again later...').removeClass('hidden');
+        failureMessageContainer.html(response.errorMessage || 'An error has occurred. Please try again later...').removeClass('hidden');
     };
 
     return {

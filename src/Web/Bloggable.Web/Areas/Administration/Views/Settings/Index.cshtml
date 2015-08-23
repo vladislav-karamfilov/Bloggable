@@ -20,6 +20,7 @@
         cols.Bound(col => col.Value);
         cols.Bound(m => m.CreatedOn).Hidden(true);
         cols.Bound(m => m.ModifiedOn).Hidden(true);
+        cols.Command(command => command.Custom("Delete setting from cache").Click("removeSettingFromCache")).Title("Actions");
         cols.Command(command => command.Edit());
         cols.Command(command => command.Destroy());
     }
@@ -30,5 +31,27 @@
         if (!ev.model.isNew()) {
             $('#Id').prop('disabled', 'disabled');
         }
+    }
+
+    function removeSettingFromCache(ev) {
+        ev.preventDefault();
+
+        var dataItem = this.dataItem($(ev.currentTarget).closest('tr'));
+        var settingId = dataItem.get('Id');
+
+        $.ajax({
+            type: 'POST',
+            url: '@(Url.Action<SettingsController>(c => c.RemoveSettingFromCache(null)))',
+            data: {
+                id: settingId
+            },
+            success: function () {
+                Bloggable.Alerts.success('Setting successfully removed from cache!');
+            },
+            error: function (jqXHR) {
+                var response = Bloggable.Helpers.ErrorResponseParser.parse(jqXHR);
+                Bloggable.Alerts.error(response.errorMessage || 'An error has occurred. Please try again later...');
+            }
+        });
     }
 </script>
