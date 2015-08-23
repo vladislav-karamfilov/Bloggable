@@ -20,9 +20,13 @@
         cols.Bound(col => col.Value);
         cols.Bound(m => m.CreatedOn).Hidden(true);
         cols.Bound(m => m.ModifiedOn).Hidden(true);
-        cols.Command(command => command.Custom("Delete setting from cache").Click("removeSettingFromCache")).Title("Actions");
         cols.Command(command => command.Edit());
         cols.Command(command => command.Destroy());
+    },
+    toolbar =>
+    {
+        toolbar.Create();
+        toolbar.Custom().Text("Remove settings in cache").HtmlAttributes(new { id = "remove-settings-from-cache-btn" });
     }
 ).Events(ev => ev.Edit("onSettingEdit")))
 
@@ -33,20 +37,20 @@
         }
     }
 
-    function removeSettingFromCache(ev) {
-        ev.preventDefault();
+    $(function() {
+        $('#remove-settings-from-cache-btn').click(function(ev) {
+            ev.preventDefault();
 
-        var dataItem = this.dataItem($(ev.currentTarget).closest('tr'));
-        var settingId = dataItem.get('Id');
+            removeSettingFromCache();
+        });
+    });
 
+    function removeSettingFromCache() {
         $.ajax({
             type: 'POST',
-            url: '@(Url.Action<SettingsController>(c => c.RemoveSettingFromCache(null)))',
-            data: {
-                id: settingId
-            },
+            url: '@(Url.Action<SettingsController>(c => c.RemoveSettingsFromCache()))',
             success: function () {
-                Bloggable.Alerts.success('Setting successfully removed from cache!');
+                Bloggable.Alerts.success('Settings successfully removed from cache!');
             },
             error: function (jqXHR) {
                 var response = Bloggable.Helpers.ErrorResponseParser.parse(jqXHR);

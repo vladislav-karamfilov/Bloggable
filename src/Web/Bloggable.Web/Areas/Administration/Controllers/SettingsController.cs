@@ -2,6 +2,7 @@
 {
     using System.Web.Mvc;
 
+    using Bloggable.Common.Constants;
     using Bloggable.Services.Administration.Contracts;
     using Bloggable.Services.Common.Cache.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
@@ -50,14 +51,9 @@
         }
 
         [HttpPost]
-        public ActionResult RemoveSettingFromCache(string id)
+        public ActionResult RemoveSettingsFromCache()
         {
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                return this.JsonError("Setting ID cannot be null or white space...");
-            }
-
-            this.cache.Remove(id);
+            this.cache.Remove(CacheConstants.Settings);
 
             return this.EmptyResult();
         }
