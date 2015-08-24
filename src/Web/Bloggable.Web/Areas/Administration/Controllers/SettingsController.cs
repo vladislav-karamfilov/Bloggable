@@ -1,6 +1,7 @@
 ﻿namespace Bloggable.Web.Areas.Administration.Controllers
 {
     using System.Web.Mvc;
+    using System.Web.Mvc.Expressions;
 
     using Bloggable.Common.Constants;
     using Bloggable.Services.Administration.Contracts;
@@ -15,11 +16,13 @@
 
     public class SettingsController : KendoGridAdministrationController<EntityModel, ViewModel>
     {
+        private readonly ISettingsAdministrationService administrationService;
         private readonly ICacheService cache;
 
-        public SettingsController(IAdministrationService<EntityModel> administrationService, ICacheService cache)
+        public SettingsController(ISettingsAdministrationService administrationService, ICacheService cache)
             : base(administrationService)
         {
+            this.administrationService = administrationService;
             this.cache = cache;
         }
 
@@ -32,7 +35,15 @@
         [HttpPost]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
-            this.CreateEntity(model);
+            if (this.administrationService.IsAvailableSettingKey(model.Id))
+            {
+                this.CreateEntity(model);
+            }
+            else
+            {
+                this.ModelState.AddModelError<ViewModel>(m => m.Id, "A setting with this key already exists...");
+            }
+
             return this.GridOperation(request, model);
         }
 
@@ -51,10 +62,9 @@
         }
 
         [HttpPost]
-        public ActionResult RemoveSettingsFromCache()
+        public ActionResult RefreshSettingsInCache()
         {
             this.cache.Remove(CacheConstants.Settings);
-
             return this.EmptyResult();
         }
     }

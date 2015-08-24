@@ -43,11 +43,11 @@
 
         private static void RegisterStyleBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/styles").Include(
                 "~/Content/css/bootstrap/themes/superhero/bootstrap.css",
                 "~/Content/css/site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+            bundles.Add(new StyleBundle("~/Content/kendo-css").Include(
                 "~/Content/kendo/kendo.common-material.min.css",
                 "~/Content/kendo/kendo.materialblack.min.css"));
         }

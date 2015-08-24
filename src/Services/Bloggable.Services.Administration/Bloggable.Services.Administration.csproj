@@ -44,7 +44,9 @@
     <Compile Include="Base\DeletableEntityAdministrationService.cs" />
     <Compile Include="Contracts\IAdministrationService.cs" />
     <Compile Include="Contracts\IDeletableEntityAdministrationService.cs" />
+    <Compile Include="Contracts\ISettingsAdministrationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsAdministrationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Bloggable.Data.Contracts\Bloggable.Data.Contracts.csproj">

@@ -9,45 +9,45 @@
     public class AdministrationService<TEntity> : IAdministrationService<TEntity>
         where TEntity : class, IEntity
     {
-        private readonly IRepository<TEntity> entities;
-
         public AdministrationService(IRepository<TEntity> entities)
         {
-            this.entities = entities;
+            this.Entities = entities;
         }
+
+        protected IRepository<TEntity> Entities { get; }
 
         public virtual IQueryable<TEntity> Read()
         {
-            return this.entities.All();
+            return this.Entities.All();
         }
 
         public virtual TEntity Get(object id)
         {
-            return this.entities.GetById(id);
+            return this.Entities.GetById(id);
         }
 
         public virtual void Create(TEntity entity)
         {
-            this.entities.Add(entity);
-            this.entities.SaveChanges();
+            this.Entities.Add(entity);
+            this.Entities.SaveChanges();
         }
 
         public virtual void Update(TEntity entity)
         {
-            this.entities.Update(entity);
-            this.entities.SaveChanges();
+            this.Entities.Update(entity);
+            this.Entities.SaveChanges();
         }
 
         public virtual void Delete(object id)
         {
-            this.entities.Delete(id);
-            this.entities.SaveChanges();
+            this.Entities.Delete(id);
+            this.Entities.SaveChanges();
         }
 
         public void Delete(TEntity entity)
         {
-            this.entities.Delete(entity);
-            this.entities.SaveChanges();
+            this.Entities.Delete(entity);
+            this.Entities.SaveChanges();
         }
     }
 }

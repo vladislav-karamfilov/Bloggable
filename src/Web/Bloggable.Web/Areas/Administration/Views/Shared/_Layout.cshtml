@@ -3,15 +3,25 @@
 }
 
 @section styles {
-    @Styles.Render("~/Content/kendo")
-    @Styles.Render("~/Content/css/administration.css")
+    @Styles.Render("~/Content/kendo-css", "~/Content/css/administration.css")
     @RenderSection("styles", required: false)
 }
 
 @section scripts {
-    @Scripts.Render("~/bundles/kendo")
-    @Scripts.Render("~/Scripts/administration.js")
+    @Scripts.Render("~/bundles/kendo", "~/Scripts/app/administration.js", "~/Scripts/app/utilities/kendo-validation.js")
     @RenderSection("scripts", required: false)
+}
+
+@section other {
+    <!-- This code is required for administration validations to work properly -->
+    <script type="text/kendo-template" id="validationMessageTemplateForPopUpEditing">
+        <div class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+             style="margin: 0.5em; display: block;" data-for="#=field#" data-valmsg-for="#=field#" id="#=field#_validationMessage">
+            <span class="k-icon k-warning"> </span>#=message#<div class="k-callout k-callout-n"></div>
+        </div>
+    </script>
+
+    @RenderSection("other", required: false)
 }
 
 <div id="administartion-content">

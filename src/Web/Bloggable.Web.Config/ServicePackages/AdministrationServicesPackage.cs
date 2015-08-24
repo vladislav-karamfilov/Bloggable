@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Config.ServicePackages
 {
+    using Bloggable.Services.Administration;
     using Bloggable.Services.Administration.Base;
     using Bloggable.Services.Administration.Contracts;
 
@@ -15,6 +16,7 @@
 
             container.Register(typeof(IDeletableEntityAdministrationService<>), typeof(DeletableEntityAdministrationService<>), webRequestLifestyle);
             container.Register(typeof(IAdministrationService<>), typeof(AdministrationService<>), webRequestLifestyle);
+            container.Register<ISettingsAdministrationService, SettingsAdministrationService>();
         }
     }
 }

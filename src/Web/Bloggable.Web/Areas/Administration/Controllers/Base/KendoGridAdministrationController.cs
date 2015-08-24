@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using System.Web.Script.Serialization;
 
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
@@ -21,12 +20,12 @@
         where TEntity : class, IAuditInfo
         where TViewModel : AdministrationGridViewModel
     {
-        private readonly IAdministrationService<TEntity> administrationService;
-
         protected KendoGridAdministrationController(IAdministrationService<TEntity> administrationService)
         {
-            this.administrationService = administrationService;
+            this.AdministrationService = administrationService;
         }
+
+        protected IAdministrationService<TEntity> AdministrationService { get; }
 
         [HttpPost]
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
@@ -39,7 +38,7 @@
 
         protected virtual IEnumerable<TViewModel> GetData()
         {
-            return this.administrationService.Read().Project().To<TViewModel>();
+            return this.AdministrationService.Read().Project().To<TViewModel>();
         }
 
         protected virtual TEntity CreateEntity(TViewModel model)
@@ -49,7 +48,7 @@
             if (model != null && this.ModelState.IsValid)
             {
                 entity = Mapper.Map<TEntity>(model);
-                this.administrationService.Create(entity);
+                this.AdministrationService.Create(entity);
                 model.CreatedOn = entity.CreatedOn;
             }
 
@@ -62,11 +61,11 @@
 
             if (model != null && this.ModelState.IsValid)
             {
-                entity = this.administrationService.Get(id);
+                entity = this.AdministrationService.Get(id);
                 if (entity != null)
                 {
                     Mapper.Map(model, entity);
-                    this.administrationService.Update(entity);
+                    this.AdministrationService.Update(entity);
                     model.ModifiedOn = entity.ModifiedOn;
                 }
             }
@@ -78,7 +77,7 @@
         {
             if (this.ModelState.IsValid)
             {
-                this.administrationService.Delete(id);
+                this.AdministrationService.Delete(id);
             }
         }
 
