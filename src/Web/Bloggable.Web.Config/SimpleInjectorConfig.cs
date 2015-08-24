@@ -3,7 +3,10 @@ namespace Bloggable.Web.Config
     using System.Reflection;
     using System.Web.Mvc;
 
+    using Bloggable.Web.Config.Identity;
+
     using SimpleInjector;
+    using SimpleInjector.Diagnostics;
     using SimpleInjector.Integration.Web.Mvc;
 
     public static class SimpleInjectorConfig
@@ -15,7 +18,17 @@ namespace Bloggable.Web.Config
             container.RegisterPackages(new[] { Assembly.GetExecutingAssembly() });
 
             container.RegisterMvcControllers(mvcControllersAssembly);
-            
+
+            var applicationSignInManager = container.GetRegistration(typeof(ApplicationSignInManager)).Registration;
+            applicationSignInManager.SuppressDiagnosticWarning(
+                DiagnosticType.DisposableTransientComponent, 
+                "ASP.NET takes care of ApplicationSignInManager objects' dispisal.");
+
+            var applicationUserManager = container.GetRegistration(typeof(ApplicationUserManager)).Registration;
+            applicationUserManager.SuppressDiagnosticWarning(
+                DiagnosticType.DisposableTransientComponent,
+                "ASP.NET takes care of ApplicationUserManager objects' dispisal.");
+
             container.Verify();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));

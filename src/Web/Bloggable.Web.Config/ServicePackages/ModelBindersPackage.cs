@@ -11,7 +11,7 @@
     {
         public void RegisterServices(Container container)
         {
-            container.RegisterAll<IModelBinder>(typeof(TaggableModelModelBinder));
+            container.RegisterCollection<IModelBinder>(new[] { typeof(TaggableModelModelBinder) });
         }
     }
 }

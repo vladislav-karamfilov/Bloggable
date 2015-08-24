@@ -4,15 +4,17 @@
     using Bloggable.Services.Administration.Contracts;
 
     using SimpleInjector;
-    using SimpleInjector.Extensions;
+    using SimpleInjector.Integration.Web;
     using SimpleInjector.Packaging;
 
     public class AdministrationServicesPackage : IPackage
     {
         public void RegisterServices(Container container)
         {
-            container.RegisterOpenGeneric(typeof(IDeletableEntityAdministrationService<>), typeof(DeletableEntityAdministrationService<>));
-            container.RegisterOpenGeneric(typeof(IAdministrationService<>), typeof(AdministrationService<>));
+            var webRequestLifestyle = new WebRequestLifestyle();
+
+            container.Register(typeof(IDeletableEntityAdministrationService<>), typeof(DeletableEntityAdministrationService<>), webRequestLifestyle);
+            container.Register(typeof(IAdministrationService<>), typeof(AdministrationService<>), webRequestLifestyle);
         }
     }
 }

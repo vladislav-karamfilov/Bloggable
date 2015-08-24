@@ -11,19 +11,21 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using SimpleInjector;
-    using SimpleInjector.Extensions;
+    using SimpleInjector.Integration.Web;
     using SimpleInjector.Packaging;
 
     public class DataPackage : IPackage
     {
         public void RegisterServices(Container container)
         {
-            container.RegisterPerWebRequest(() => new BloggableDbContext(AppSettingConstants.DefaultDbConnectionName));
-            container.RegisterPerWebRequest<DbContext>(container.GetInstance<BloggableDbContext>);
-            container.RegisterPerWebRequest<IdentityDbContext<User>>(container.GetInstance<BloggableDbContext>);
+            var webRequestLifestyle = new WebRequestLifestyle();
 
-            container.RegisterOpenGeneric(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
-            container.RegisterOpenGeneric(typeof(IRepository<>), typeof(EfRepository<>));
+            container.Register(() => new BloggableDbContext(AppSettingConstants.DefaultDbConnectionName), webRequestLifestyle);
+            container.Register<DbContext>(container.GetInstance<BloggableDbContext>, webRequestLifestyle);
+            container.Register<IdentityDbContext<User>>(container.GetInstance<BloggableDbContext>, webRequestLifestyle);
+
+            container.Register(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>), webRequestLifestyle);
+            container.Register(typeof(IRepository<>), typeof(EfRepository<>), webRequestLifestyle);
         }
     }
 }

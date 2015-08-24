@@ -4,9 +4,12 @@
     using System.Web;
 
     using Bloggable.Data.Models;
+    using Bloggable.Services.Common;
+    using Bloggable.Web.Config.Identity;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
 
     using SimpleInjector;
