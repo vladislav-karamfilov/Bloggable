@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
 
+    using Bloggable.Common.Constants;
     using Bloggable.Data.Models;
     using Bloggable.Web.Infrastructure.Models;
 
@@ -17,7 +18,11 @@
         {
             this.Tags = new List<Tag>();
         }
-
+        
+        [Display(Name = "Tags")]
+        [RegularExpression(
+            TagValidationConstants.MergedTagsRegEx, 
+            ErrorMessage = "{0} should be strings with length between 2 and 30 characters separated by comma.")]
         public string MergedTags
         {
             get
