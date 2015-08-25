@@ -30,10 +30,9 @@
         [HttpPost]
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            var data = this.GetData();
-            var serializationSettings = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
-            var json = JsonConvert.SerializeObject(data.ToDataSourceResult(request), Formatting.None, serializationSettings);
-            return this.Content(json, ContentTypeConstants.Json);
+            var data = this.GetData().ToDataSourceResult(request);
+            var serializedJson = this.SerializeDataToJsonString(data);
+            return this.Content(serializedJson, ContentTypeConstants.Json);
         }
 
         protected virtual IEnumerable<TViewModel> GetData()
@@ -83,7 +82,16 @@
 
         protected ActionResult GridOperation([DataSourceRequest]DataSourceRequest request, object model)
         {
-            return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
+            var data = new[] { model }.ToDataSourceResult(request, this.ModelState);
+            var serializedJson = this.SerializeDataToJsonString(data);
+            return this.Content(serializedJson);
+        }
+
+        private string SerializeDataToJsonString(object data)
+        {
+            var serializationSettings = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
+            var json = JsonConvert.SerializeObject(data, Formatting.None, serializationSettings);
+            return json;
         }
     }
 }
