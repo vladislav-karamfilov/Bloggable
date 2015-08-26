@@ -29,9 +29,11 @@
             return allPosts;
         }
 
-        public IQueryable<Post> ByTag(string tag)
+        public IQueryable<Post> ByTag(string tag, bool includeDeleted = false)
         {
-            var postsByTag = this.posts.All().Where(p => p.Tags.Any(t => t.Name == tag));
+            var allPosts = includeDeleted ? this.posts.AllWithDeleted() : this.posts.All();
+
+            var postsByTag = allPosts.Where(p => p.Tags.Any(t => t.Name == tag));
 
             return postsByTag;
         }
