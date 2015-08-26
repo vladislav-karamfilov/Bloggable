@@ -36,7 +36,12 @@
 
         public IQueryable<Tag> GetMostPopularTags(int count)
         {
-            var mostPopularTags = this.tags.All().OrderByDescending(t => t.Posts.Count(p => !p.IsDeleted)).Take(count);
+            var mostPopularTags = this.tags
+                .All()
+                .Where(t => t.Posts.Any(p => !p.IsDeleted))
+                .OrderByDescending(t => t.Posts.Count(p => !p.IsDeleted))
+                .Take(count);
+
             return mostPopularTags;
         }
     }
