@@ -7,18 +7,19 @@
     using Bloggable.Common.Constants;
     using Bloggable.Web.Infrastructure.ActionResults;
 
+    using Newtonsoft.Json;
+
     public static class ControllerExtensions
     {
-        public static ActionResult EmptyResult(this Controller controller)
-            => new EmptyResult();
+        public static ActionResult EmptyResult(this Controller controller) => new EmptyResult();
 
         public static ActionResult JsonSuccess(
                 this Controller controller,
                 object data,
                 string contentType = null,
                 Encoding contentEncoding = null,
-                JsonRequestBehavior jsonRequestBehavior = JsonRequestBehavior.DenyGet)
-            => new StandardJsonResult
+                JsonRequestBehavior jsonRequestBehavior = JsonRequestBehavior.DenyGet) => 
+            new StandardJsonResult
             {
                 Data = data,
                 ContentType = contentType,
@@ -63,6 +64,24 @@
             {
                 result.AddError(validationMessage);
             }
+
+            return result;
+        }
+
+        public static ActionResult JsonWithoutReferenceLoop(
+            this Controller controller, 
+            object data, 
+            Encoding contentEncoding = null)
+        {
+            var serializationSettings = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
+            var json = JsonConvert.SerializeObject(data, Formatting.None, serializationSettings);
+
+            var result = new ContentResult
+            {
+                Content = json,
+                ContentType = ContentTypeConstants.Json,
+                ContentEncoding = contentEncoding
+            };
 
             return result;
         }
