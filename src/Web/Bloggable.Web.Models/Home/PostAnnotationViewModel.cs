@@ -20,16 +20,14 @@
 
         public string Summary { get; set; }
 
+        // TODO: Separate to two properties
         public string ImageOrVideoUrl { get; set; }
 
         public string AuthorUserName { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
-        public string UrlTitle
-        {
-            get { return this.Title.ToUrl(); }
-        }
+        public string UrlTitle => this.Title.ToUrl();
 
         public IEnumerable<TagViewModel> Tags
         {

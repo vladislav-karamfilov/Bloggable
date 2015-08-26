@@ -16,15 +16,9 @@
 
         protected IRepository<TEntity> Entities { get; }
 
-        public virtual IQueryable<TEntity> Read()
-        {
-            return this.Entities.All();
-        }
+        public virtual IQueryable<TEntity> Read() => this.Entities.All();
 
-        public virtual TEntity Get(object id)
-        {
-            return this.Entities.GetById(id);
-        }
+        public virtual TEntity Get(object id) => this.Entities.GetById(id);
 
         public virtual void Create(TEntity entity)
         {

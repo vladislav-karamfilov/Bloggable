@@ -14,9 +14,6 @@
         {
         }
 
-        public bool IsAvailableSettingKey(string key)
-        {
-            return this.Entities.All().All(s => s.Id != key);
-        }
+        public bool IsAvailableSettingKey(string key) => this.Entities.All().All(s => s.Id != key);
     }
 }

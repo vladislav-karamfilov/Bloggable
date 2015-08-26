@@ -8,9 +8,7 @@
 
     public static class BootstrapHelpers
     {
-        public static IHtmlString BootstrapLabelFor<TModel, TProp>(this HtmlHelper<TModel> helper, Expression<Func<TModel, TProp>> expression)
-        {
-            return helper.LabelFor(expression, new { @class = "control-label" });
-        }
+        public static IHtmlString BootstrapLabelFor<TModel, TProp>(this HtmlHelper<TModel> helper, Expression<Func<TModel, TProp>> expression) => 
+            helper.LabelFor(expression, new { @class = "control-label" });
     }
 }

@@ -5,10 +5,6 @@
 
     using Bloggable.Common.Constants;
     using Bloggable.Services.Common;
-    using Bloggable.Services.Common.Cache;
-    using Bloggable.Services.Common.Cache.Contracts;
-    using Bloggable.Services.Data;
-    using Bloggable.Services.Data.Contracts;
 
     using SimpleInjector;
     using SimpleInjector.Integration.Web;

@@ -6,14 +6,10 @@
 
     public static class IPrincipalExtensions
     {
-        public static bool IsLoggedIn(this IPrincipal principal)
-        {
-            return principal != null && principal.Identity.IsAuthenticated;
-        }
+        public static bool IsLoggedIn(this IPrincipal principal) => 
+            principal != null && principal.Identity.IsAuthenticated;
 
-        public static bool IsAdmin(this IPrincipal principal)
-        {
-            return principal != null && principal.IsInRole(RoleConstants.Administrator);
-        }
+        public static bool IsAdmin(this IPrincipal principal) => 
+            principal != null && principal.IsInRole(RoleConstants.Administrator);
     }
 }

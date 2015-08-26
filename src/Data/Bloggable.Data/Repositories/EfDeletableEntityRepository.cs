@@ -15,15 +15,9 @@
         {
         }
 
-        public override IQueryable<T> All()
-        {
-            return base.All().Where(x => !x.IsDeleted);
-        }
+        public override IQueryable<T> All() => base.All().Where(x => !x.IsDeleted);
 
-        public IQueryable<T> AllWithDeleted()
-        {
-            return base.All();
-        }
+        public IQueryable<T> AllWithDeleted() => base.All();
 
         public void HardDelete(T entity)
         {

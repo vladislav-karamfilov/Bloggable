@@ -19,10 +19,7 @@
 
         protected new IDeletableEntityRepository<TDeletableEntity> Entities { get; }
 
-        public virtual IQueryable<TDeletableEntity> ReadWithDeleted()
-        {
-            return this.Entities.AllWithDeleted();
-        }
+        public virtual IQueryable<TDeletableEntity> ReadWithDeleted() => this.Entities.AllWithDeleted();
 
         public virtual void HardDelete(object id)
         {

@@ -16,10 +16,7 @@
             this.comments = comments;
         }
 
-        public Comment GetById(int id)
-        {
-            return this.comments.GetById(id);
-        }
+        public Comment GetById(int id) => this.comments.GetById(id);
 
         public Comment AddCommentForPost(int postId, string content, string authorId)
         {

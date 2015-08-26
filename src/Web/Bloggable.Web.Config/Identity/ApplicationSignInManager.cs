@@ -17,14 +17,10 @@ namespace Bloggable.Web.Config.Identity
         {
         }
 
-        public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
-        {
-            return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
-        }
+        public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context) => 
+            new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
 
-        public override Task<ClaimsIdentity> CreateUserIdentityAsync(User user)
-        {
-            return user.GenerateUserIdentityAsync((ApplicationUserManager)this.UserManager);
-        }
+        public override Task<ClaimsIdentity> CreateUserIdentityAsync(User user) => 
+            user.GenerateUserIdentityAsync((ApplicationUserManager)this.UserManager);
     }
 }

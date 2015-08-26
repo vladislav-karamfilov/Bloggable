@@ -9,12 +9,12 @@
         {
             if (enumerable == null)
             {
-                throw new ArgumentNullException("enumerable");
+                throw new ArgumentNullException(nameof(enumerable));
             }
 
             if (action == null)
             {
-                throw new ArgumentNullException("action");
+                throw new ArgumentNullException(nameof(action));
             }
 
             foreach (var item in enumerable)

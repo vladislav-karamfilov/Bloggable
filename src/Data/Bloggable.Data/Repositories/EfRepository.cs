@@ -23,15 +23,9 @@
 
         protected DbContext Context { get; set; }
 
-        public virtual IQueryable<T> All()
-        {
-            return this.DbSet.AsQueryable();
-        }
+        public virtual IQueryable<T> All() => this.DbSet.AsQueryable();
 
-        public virtual T GetById(object id)
-        {
-            return this.DbSet.Find(id);
-        }
+        public virtual T GetById(object id) => this.DbSet.Find(id);
 
         public virtual void Add(T entity)
         {
@@ -80,10 +74,7 @@
             }
         }
 
-        public int SaveChanges()
-        {
-            return this.Context.SaveChanges();
-        }
+        public int SaveChanges() => this.Context.SaveChanges();
 
         public void Dispose()
         {
