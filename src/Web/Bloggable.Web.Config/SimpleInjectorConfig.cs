@@ -22,12 +22,12 @@ namespace Bloggable.Web.Config
             var applicationSignInManager = container.GetRegistration(typeof(ApplicationSignInManager)).Registration;
             applicationSignInManager.SuppressDiagnosticWarning(
                 DiagnosticType.DisposableTransientComponent, 
-                "ASP.NET takes care of ApplicationSignInManager objects' dispisal.");
+                "ASP.NET takes care of ApplicationSignInManager objects' disposal.");
 
             var applicationUserManager = container.GetRegistration(typeof(ApplicationUserManager)).Registration;
             applicationUserManager.SuppressDiagnosticWarning(
                 DiagnosticType.DisposableTransientComponent,
-                "ASP.NET takes care of ApplicationUserManager objects' dispisal.");
+                "ASP.NET takes care of ApplicationUserManager objects' disposal.");
 
             container.Verify();
 
