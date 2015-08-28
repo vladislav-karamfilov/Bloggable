@@ -215,6 +215,7 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministrationLogsController.cs" />
     <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\PagesController.cs" />
     <Compile Include="Areas\Administration\Controllers\PostsController.cs" />
     <Compile Include="Areas\Administration\Controllers\SettingsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -333,7 +334,7 @@
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Posts\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Posts\Update.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\PostGridViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Posts\EditorTemplates\PostGridViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Comments.cshtml" />
     <Content Include="Areas\Administration\Views\Settings\Index.cshtml" />
     <Content Include="Content\css\bootstrap\themes\fonts\glyphicons-halflings-regular.eot" />
@@ -348,6 +349,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Areas\Administration\Views\Pages\EditorTemplates\PageGridViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Pages\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Pages\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Pages\Update.cshtml" />
     <None Include="Scripts\jquery\jquery-2.1.4.intellisense.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\administration.js" />

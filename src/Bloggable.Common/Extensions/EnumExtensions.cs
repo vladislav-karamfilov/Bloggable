@@ -6,19 +6,14 @@
 
     public static class EnumExtensions
     {
-        public static string GetDisplayName<T>(this T enumerationValue)
-        {
-            return GetDisplayName(enumerationValue, typeof(DisplayAttribute));
-        }
+        public static string GetDisplayName<T>(this T enumerationValue) => 
+            GetDisplayName(enumerationValue, typeof(DisplayAttribute));
 
         /// <summary>
         /// Extends the enumeration so that if it has Description attribute on top of the value, it can be taken as a friendly text instead of the basic ToString method
         /// </summary>
-        public static string GetDescription<T>(this T enumerationValue)
-            where T : struct
-        {
-            return GetEnumDescription(enumerationValue, typeof(DescriptionAttribute));
-        }
+        public static string GetDescription<T>(this T enumerationValue) 
+            where T : struct => GetEnumDescription(enumerationValue, typeof(DescriptionAttribute));
 
         private static string GetEnumDescription<T>(this T enumerationValue, Type descriptionType)
         {

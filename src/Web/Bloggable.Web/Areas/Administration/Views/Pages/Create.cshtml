@@ -1,0 +1,26 @@
+﻿@using Bloggable.Web.Areas.Administration.Controllers
+
+@model Bloggable.Web.Models.Administration.Pages.ViewModels.PageGridViewModel
+
+@{
+    ViewBag.Title = "Create page";
+}
+
+<h2 class="text-center bottom-buffer">@ViewBag.Title</h2>
+
+<div class="container">
+    @using (Html.BeginForm<PagesController>(c => c.Create(null), FormMethod.Post, null, new { role = "form", @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        
+        @Html.EditorForModel()
+
+        <div class="text-center">
+            @Html.Submit("Create").Attr("class", "btn btn-primary")
+        </div>
+    }
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

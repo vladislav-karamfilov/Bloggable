@@ -5,9 +5,6 @@
     public static class IServiceProviderExtensions
     {
         public static T GetService<T>(this IServiceProvider serviceProvider)
-            where T : class
-        {
-            return serviceProvider.GetService(typeof(T)) as T;
-        }
+            where T : class => serviceProvider.GetService(typeof(T)) as T;
     }
 }

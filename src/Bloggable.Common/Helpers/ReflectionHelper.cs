@@ -7,11 +7,9 @@
 
     public static class ReflectionHelper
     {
-        public static IEnumerable<Type> GetSubClasses<T>(params Assembly[] assemblies)
-        {
-            return assemblies
+        public static IEnumerable<Type> GetSubClasses<T>(params Assembly[] assemblies) => 
+            assemblies
                 .SelectMany(a => a.GetTypes())
                 .Where(type => type.IsSubclassOf(typeof(T)) && !type.IsAbstract);
-        }
     }
 }

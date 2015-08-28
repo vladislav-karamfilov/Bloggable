@@ -114,6 +114,7 @@
     <Compile Include="Administration\AdministrationLogs\ViewModels\AdministrationLogGridViewModel.cs" />
     <Compile Include="Administration\AdministrationViewModel.cs" />
     <Compile Include="Administration\Comments\ViewModels\CommentGridViewModel.cs" />
+    <Compile Include="Administration\Pages\ViewModels\PageGridViewModel.cs" />
     <Compile Include="Administration\Posts\ViewModels\PostGridViewModel.cs" />
     <Compile Include="Administration\Settings\ViewModels\SettingGridViewModel.cs" />
     <Compile Include="Administration\TaggableAdministrationGridViewModel.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Comments\InputModels\UpdateCommentInputModel.cs" />
     <Compile Include="Comments\ViewModels\CommentViewModel.cs" />
     <Compile Include="Comments\ViewModels\PostCommentsPageViewModel.cs" />
+    <Compile Include="Administration\ContentHolderGridViewModel.cs" />
     <Compile Include="Common\ViewModels\TagViewModel.cs" />
     <Compile Include="Home\PostAnnotationViewModel.cs" />
     <Compile Include="Manage\ViewModels\AddPhoneNumberViewModel.cs" />

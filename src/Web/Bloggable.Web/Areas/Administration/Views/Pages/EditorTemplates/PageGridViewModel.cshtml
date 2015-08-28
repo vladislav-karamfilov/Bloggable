@@ -1,0 +1,75 @@
+﻿@model Bloggable.Web.Models.Administration.Pages.ViewModels.PageGridViewModel
+
+<div class="form-group hidden">
+    @Html.EditorFor(m => m.Id)
+</div>
+
+<div class="form-group">
+    <div class="col-md-2">
+        @Html.BootstrapLabelFor(m => m.Title)
+    </div>
+    <div class="col-md-10">
+        @Html.EditorFor(m => m.Title)
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-2">
+        @Html.BootstrapLabelFor(m => m.SubTitle)
+    </div>
+    <div class="col-md-10">
+        @Html.EditorFor(m => m.SubTitle)
+        @Html.ValidationMessageFor(m => m.SubTitle)
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-2">
+        @Html.BootstrapLabelFor(m => m.Permalink)
+    </div>
+    <div class="col-md-10">
+        @Html.EditorFor(m => m.Permalink)
+        @Html.ValidationMessageFor(m => m.Permalink)
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-2">
+        @Html.BootstrapLabelFor(m => m.Content)
+    </div>
+    <div class="col-md-10">
+        @Html.EditorFor(m => m.Content)
+        @Html.ValidationMessageFor(m => m.Content)
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-2">
+        @Html.BootstrapLabelFor(m => m.MergedTags)
+    </div>
+    <div class="col-md-10">
+        @Html.EditorFor(m => m.MergedTags)
+        @Html.ValidationMessageFor(m => m.MergedTags)
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-2">
+        @Html.BootstrapLabelFor(m => m.MetaDescription)
+    </div>
+    <div class="col-md-10">
+        @Html.EditorFor(m => m.MetaDescription)
+        @Html.ValidationMessageFor(m => m.MetaDescription)
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-2">
+        @Html.BootstrapLabelFor(m => m.MetaKeywords)
+    </div>
+    <div class="col-md-10">
+        @Html.EditorFor(m => m.MetaKeywords)
+        @Html.ValidationMessageFor(m => m.MetaKeywords)
+    </div>
+</div>
