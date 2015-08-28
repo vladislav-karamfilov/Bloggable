@@ -27,10 +27,7 @@
         }
 
         [HttpGet]
-        public ActionResult Index()
-        {
-            return this.View();
-        }
+        public ActionResult Index() => this.View();
 
         [HttpPost]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, ViewModel model)

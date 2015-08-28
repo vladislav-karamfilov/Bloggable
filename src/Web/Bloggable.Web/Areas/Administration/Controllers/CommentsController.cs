@@ -40,9 +40,7 @@
             return this.GridOperation(request, model);
         }
 
-        protected override IEnumerable<ViewModel> GetData()
-        {
-            return this.administrationService.ReadWithDeleted().Where(c => c.PostId == this.postId).Project().To<ViewModel>();
-        }
+        protected override IEnumerable<ViewModel> GetData() =>
+            this.administrationService.ReadWithDeleted().Where(c => c.PostId == this.postId).Project().To<ViewModel>();
     }
 }

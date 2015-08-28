@@ -18,10 +18,7 @@
         }
 
         [HttpGet]
-        public ActionResult Index()
-        {
-            return this.View();
-        }
+        public ActionResult Index() => this.View();
 
         [HttpPost]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ViewModel model)

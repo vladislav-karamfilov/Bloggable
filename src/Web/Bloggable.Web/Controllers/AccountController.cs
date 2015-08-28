@@ -52,13 +52,7 @@
             }
         }
 
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return this.HttpContext.GetOwinContext().Authentication;
-            }
-        }
+        private IAuthenticationManager AuthenticationManager => this.HttpContext.GetOwinContext().Authentication;
 
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -116,9 +110,9 @@
                 return this.View(model);
             }
 
-            // The following code protects for brute force attacks against the two factor codes. 
-            // If a user enters incorrect codes for a specified amount of time then the user account 
-            // will be locked out for a specified amount of time. 
+            // The following code protects for brute force attacks against the two factor codes.
+            // If a user enters incorrect codes for a specified amount of time then the user account
+            // will be locked out for a specified amount of time.
             // You can configure the account lockout settings in IdentityConfig
             var result = await this.SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, model.RememberMe, model.RememberBrowser);
             switch (result)
@@ -134,10 +128,7 @@
         }
 
         [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return this.View();
-        }
+        public ActionResult Register() => this.View();
 
         [HttpPost]
         [AllowAnonymous]
@@ -181,10 +172,7 @@
         }
 
         [AllowAnonymous]
-        public ActionResult ForgotPassword()
-        {
-            return this.View();
-        }
+        public ActionResult ForgotPassword() => this.View();
 
         [HttpPost]
         [AllowAnonymous]
@@ -213,16 +201,10 @@
         }
 
         [AllowAnonymous]
-        public ActionResult ForgotPasswordConfirmation()
-        {
-            return this.View();
-        }
+        public ActionResult ForgotPasswordConfirmation() => this.View();
 
         [AllowAnonymous]
-        public ActionResult ResetPassword(string code)
-        {
-            return code == null ? this.View("Error") : this.View();
-        }
+        public ActionResult ResetPassword(string code) => code == null ? this.View("Error") : this.View();
 
         [HttpPost]
         [AllowAnonymous]
@@ -252,19 +234,13 @@
         }
 
         [AllowAnonymous]
-        public ActionResult ResetPasswordConfirmation()
-        {
-            return this.View();
-        }
+        public ActionResult ResetPasswordConfirmation() => this.View();
 
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult ExternalLogin(string provider, string returnUrl)
-        {
-            // Request a redirect to the external login provider
-            return new ChallengeResult(provider, this.Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
-        }
+        public ActionResult ExternalLogin(string provider, string returnUrl) =>
+            new ChallengeResult(provider, this.Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
 
         [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
@@ -373,10 +349,7 @@
         }
 
         [AllowAnonymous]
-        public ActionResult ExternalLoginFailure()
-        {
-            return this.View();
-        }
+        public ActionResult ExternalLoginFailure() => this.View();
 
         protected override void Dispose(bool disposing)
         {
@@ -398,8 +371,6 @@
             base.Dispose(disposing);
         }
 
-        #region Helpers
-
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
@@ -417,7 +388,5 @@
 
             return this.RedirectToAction("Index", "Home");
         }
-
-        #endregion
     }
 }

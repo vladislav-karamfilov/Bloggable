@@ -56,13 +56,7 @@
             }
         }
 
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return this.HttpContext.GetOwinContext().Authentication;
-            }
-        }
+        private IAuthenticationManager AuthenticationManager => this.HttpContext.GetOwinContext().Authentication;
 
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
@@ -112,10 +106,7 @@
             return this.RedirectToAction("ManageLogins", new { Message = message });
         }
 
-        public ActionResult AddPhoneNumber()
-        {
-            return this.View();
-        }
+        public ActionResult AddPhoneNumber() => this.View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -220,10 +211,7 @@
             return this.RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
         }
 
-        public ActionResult ChangePassword()
-        {
-            return this.View();
-        }
+        public ActionResult ChangePassword() => this.View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -250,10 +238,7 @@
             return this.View(model);
         }
 
-        public ActionResult SetPassword()
-        {
-            return this.View();
-        }
+        public ActionResult SetPassword() => this.View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -293,7 +278,11 @@
             }
 
             var userLogins = await this.UserManager.GetLoginsAsync(this.User.Identity.GetUserId());
-            var otherLogins = this.AuthenticationManager.GetExternalAuthenticationTypes().Where(auth => userLogins.All(ul => auth.AuthenticationType != ul.LoginProvider)).ToList();
+            var otherLogins = this.AuthenticationManager
+                .GetExternalAuthenticationTypes()
+                .Where(auth => userLogins.All(ul => auth.AuthenticationType != ul.LoginProvider))
+                .ToList();
+
             this.ViewBag.ShowRemoveButton = user.PasswordHash != null || userLogins.Count > 1;
             return this.View(new ManageLoginsViewModel
             {
@@ -304,11 +293,8 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LinkLogin(string provider)
-        {
-            // Request a redirect to the external login provider to link a login for the current user
-            return new ChallengeResult(provider, this.Url.Action("LinkLoginCallback", "Manage"), this.User.Identity.GetUserId());
-        }
+        public ActionResult LinkLogin(string provider) =>
+            new ChallengeResult(provider, this.Url.Action("LinkLoginCallback", "Manage"), this.User.Identity.GetUserId());
 
         public async Task<ActionResult> LinkLoginCallback()
         {
@@ -333,8 +319,6 @@
             base.Dispose(disposing);
         }
 
-        #region Helpers
-
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
@@ -346,25 +330,13 @@
         private bool HasPassword()
         {
             var user = this.UserManager.FindById(this.User.Identity.GetUserId());
-            if (user != null)
-            {
-                return user.PasswordHash != null;
-            }
-
-            return false;
+            return user?.PasswordHash != null;
         }
 
         private bool HasPhoneNumber()
         {
             var user = this.UserManager.FindById(this.User.Identity.GetUserId());
-            if (user != null)
-            {
-                return user.PhoneNumber != null;
-            }
-
-            return false;
+            return user?.PhoneNumber != null;
         }
-
-        #endregion
     }
 }

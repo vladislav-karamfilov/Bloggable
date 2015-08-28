@@ -26,15 +26,11 @@
         protected IAdministrationService<TEntity> AdministrationService { get; }
 
         [HttpPost]
-        public ActionResult Read([DataSourceRequest]DataSourceRequest request)
-        {
-            return this.JsonWithoutReferenceLoop(this.GetData().ToDataSourceResult(request));
-        }
+        public ActionResult Read([DataSourceRequest]DataSourceRequest request) =>
+            this.JsonWithoutReferenceLoop(this.GetData().ToDataSourceResult(request));
 
-        protected virtual IEnumerable<TViewModel> GetData()
-        {
-            return this.AdministrationService.Read().Project().To<TViewModel>();
-        }
+        protected virtual IEnumerable<TViewModel> GetData() =>
+            this.AdministrationService.Read().Project().To<TViewModel>();
 
         protected virtual TEntity CreateEntity(TViewModel model)
         {
@@ -76,9 +72,7 @@
             }
         }
 
-        protected ActionResult GridOperation([DataSourceRequest]DataSourceRequest request, object model)
-        {
-            return this.JsonWithoutReferenceLoop(new[] { model }.ToDataSourceResult(request, this.ModelState));
-        }
+        protected ActionResult GridOperation([DataSourceRequest]DataSourceRequest request, object model) =>
+            this.JsonWithoutReferenceLoop(new[] { model }.ToDataSourceResult(request, this.ModelState));
     }
 }

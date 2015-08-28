@@ -28,7 +28,7 @@
         {
             var post = this.postsData.All(p => p.Id == id).Project().To<PostDetailsViewModel>().FirstOrDefault();
 
-            if (post == null || 
+            if (post == null ||
                 !post.UrlTitle.Equals(urlTitle, StringComparison.OrdinalIgnoreCase) ||
                 post.CreatedOn.Year != year ||
                 post.CreatedOn.Month != month)

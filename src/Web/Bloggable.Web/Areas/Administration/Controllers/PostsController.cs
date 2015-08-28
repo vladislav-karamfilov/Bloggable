@@ -27,16 +27,10 @@
         }
 
         [HttpGet]
-        public ActionResult Index()
-        {
-            return this.View();
-        }
+        public ActionResult Index() => this.View();
 
         [HttpGet]
-        public ActionResult Create()
-        {
-            return this.View(new ViewModel());
-        }
+        public ActionResult Create() => this.View(new ViewModel());
 
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -89,22 +89,20 @@
         private static Action<GridColumnFactory<T>> GetDefaultColumns<T>(
                 Action<CrudOperationBuilder> updateOperation,
                 Action<CrudOperationBuilder> destroyOperation)
-            where T : class
+            where T : class => 
+        cols =>
         {
-            return cols =>
+            cols.AutoGenerate(true);
+            if (updateOperation != null)
             {
-                cols.AutoGenerate(true);
-                if (updateOperation != null)
-                {
-                    cols.Command(c => c.Edit());
-                }
+                cols.Command(c => c.Edit());
+            }
 
-                if (destroyOperation != null)
-                {
-                    cols.Command(c => c.Destroy());
-                }
-            };
-        }
+            if (destroyOperation != null)
+            {
+                cols.Command(c => c.Destroy());
+            }
+        };
 
         private static Action<GridToolBarCommandFactory<T>> GetDefaultToolbar<T>(Action<CrudOperationBuilder> createAction)
             where T : class
@@ -118,19 +116,17 @@
         }
 
         private static Action<GridEditingSettingsBuilder<T>> GetEditingSettings<T>(string editorTemplateName)
-            where T : class
+            where T : class => 
+        editable =>
         {
-            return editable =>
-            {
-                editable.Mode(GridEditMode.PopUp);
-                editable.DisplayDeleteConfirmation("Do you really want to delete this item?");
+            editable.Mode(GridEditMode.PopUp);
+            editable.DisplayDeleteConfirmation("Do you really want to delete this item?");
 
-                if (editorTemplateName != null)
-                {
-                    editable.TemplateName(editorTemplateName);
-                }
-            };
-        }
+            if (editorTemplateName != null)
+            {
+                editable.TemplateName(editorTemplateName);
+            }
+        };
 
         private static Action<DataSourceBuilder<T>> GetDataSource<T>(
                 Expression<Func<T, object>> modelIdExpression,
@@ -138,29 +134,27 @@
                 Action<CrudOperationBuilder> createOperation,
                 Action<CrudOperationBuilder> updateOperation,
                 Action<CrudOperationBuilder> destroyOperation)
-            where T : class
+            where T : class => 
+        dataSource =>
         {
-            return dataSource =>
+            var dataSourceBuilder = dataSource.Ajax();
+            dataSourceBuilder.Model(m => m.Id(modelIdExpression));
+            dataSourceBuilder.Read(readOperation);
+
+            if (createOperation != null)
             {
-                var dataSourceBuilder = dataSource.Ajax();
-                dataSourceBuilder.Model(m => m.Id(modelIdExpression));
-                dataSourceBuilder.Read(readOperation);
+                dataSourceBuilder.Create(createOperation);
+            }
 
-                if (createOperation != null)
-                {
-                    dataSourceBuilder.Create(createOperation);
-                }
+            if (updateOperation != null)
+            {
+                dataSourceBuilder.Update(updateOperation);
+            }
 
-                if (updateOperation != null)
-                {
-                    dataSourceBuilder.Update(updateOperation);
-                }
-
-                if (destroyOperation != null)
-                {
-                    dataSourceBuilder.Destroy(destroyOperation);
-                }
-            };
-        }
+            if (destroyOperation != null)
+            {
+                dataSourceBuilder.Destroy(destroyOperation);
+            }
+        };
     }
 }
