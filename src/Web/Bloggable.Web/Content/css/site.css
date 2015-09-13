@@ -63,3 +63,7 @@ textarea {
 .field-validation-error {
     color: #ff4500;
 }
+
+.general-error-image, .page-not-found-image {
+    height: 400px;
+}

@@ -222,6 +222,7 @@
     <Compile Include="Areas\Administration\Controllers\Base\AdministrationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\KendoGridAdministrationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -233,6 +234,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Content\images\404-not-found.jpg" />
+    <Content Include="Content\images\general-error.jpg" />
     <Content Include="Scripts\app\utilities\kendo-validation.js" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -436,6 +439,8 @@
     <Content Include="Views\Comments\DisplayTemplates\CommentViewModel.cshtml" />
     <Content Include="Views\Comments\_UpdateComment.cshtml" />
     <Content Include="Views\Blog\_PostMetaInfo.cshtml" />
+    <Content Include="Views\Errors\General.cshtml" />
+    <Content Include="Views\Errors\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
@@ -485,6 +490,7 @@
   <ItemGroup>
     <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-beta008\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
