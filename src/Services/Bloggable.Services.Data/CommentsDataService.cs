@@ -66,7 +66,7 @@
         {
             var allComments = includeDeleted ? this.comments.AllWithDeleted() : this.comments.All();
 
-            var authorId = allComments.Where(c => c.Id == (int) commentId).Select(c => c.AuthorId).FirstOrDefault();
+            var authorId = allComments.Where(c => c.Id == (int)commentId).Select(c => c.AuthorId).FirstOrDefault();
 
             return authorId;
         }

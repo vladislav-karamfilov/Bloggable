@@ -9,12 +9,11 @@
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute(
+            // routes.MapRoute(
             //    name: "Page",
             //    url: "{id}",
             //    defaults: new { controller = "Pages", action = "Page" },
             //    namespaces: new[] { "Bloggable.Web.Controllers" });
-
             routes.MapRoute(
                 name: "Blog post",
                 url: "Blog/{year}/{month}/{urlTitle}/{id}",

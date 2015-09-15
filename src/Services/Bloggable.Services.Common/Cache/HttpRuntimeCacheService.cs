@@ -8,7 +8,8 @@
 
     public class HttpRuntimeCacheService : ICacheService
     {
-        public T Get<T>(string cacheId, Func<T> getItemCallback, int cacheSeconds) where T : class
+        public T Get<T>(string cacheId, Func<T> getItemCallback, int cacheSeconds) 
+            where T : class
         {
             var item = HttpRuntime.Cache.Get(cacheId) as T;
             if (item == null)

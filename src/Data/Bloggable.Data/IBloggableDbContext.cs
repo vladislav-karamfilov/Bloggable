@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace Bloggable.Data
+﻿namespace Bloggable.Data
 {
+    using System;
     using System.Data.Entity;
 
     using Bloggable.Data.Models;

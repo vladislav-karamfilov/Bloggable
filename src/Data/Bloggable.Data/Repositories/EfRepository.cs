@@ -6,7 +6,8 @@
 
     using Bloggable.Data.Contracts.Repositories;
 
-    public class EfRepository<T> : IRepository<T> where T : class
+    public class EfRepository<T> : IRepository<T> 
+        where T : class
     {
         public EfRepository(DbContext context)
         {

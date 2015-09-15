@@ -1,8 +1,9 @@
 ﻿namespace Bloggable.Web.Models.Account.ViewModels
 {
-    using Bloggable.Common.Constants;
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
+
+    using Bloggable.Common.Constants;
 
     public class RegisterViewModel
     {
