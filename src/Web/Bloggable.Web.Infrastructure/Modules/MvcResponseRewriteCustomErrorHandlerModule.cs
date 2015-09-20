@@ -7,6 +7,8 @@
     using System.Web.Configuration;
     using System.Web.Mvc;
 
+    using Bloggable.Web.Infrastructure.Extensions;
+
     public class MvcResponseRewriteCustomErrorHandlerModule : IHttpModule
     {
         private CustomErrorsSection customErrors;
@@ -26,15 +28,26 @@
         protected void Application_EndRequest(object sender, EventArgs e)
         {
             var httpContext = HttpContext.Current;
-            if (this.customErrors.RedirectMode == CustomErrorsRedirectMode.ResponseRewrite && httpContext.IsCustomErrorEnabled)
+            if (this.customErrors.RedirectMode == CustomErrorsRedirectMode.ResponseRewrite &&
+                httpContext.IsCustomErrorEnabled &&
+                !httpContext.Request.IsAjax())
             {
                 var statusCode = this.GetStatusCode(httpContext);
                 if ((HttpStatusCode)statusCode != HttpStatusCode.OK)
                 {
                     var errorPaths = this.GetErrorPaths();
 
-                    // Find a custom error path for this status code or use the default redirect if missing
-                    var url = errorPaths.ContainsKey(statusCode) ? errorPaths[statusCode] : this.customErrors.DefaultRedirect;
+                    string url = null;
+                    if (errorPaths.ContainsKey(statusCode))
+                    {
+                        url = errorPaths[statusCode];
+                    }
+                    else if (!string.IsNullOrWhiteSpace(this.customErrors.DefaultRedirect) && statusCode >= (int)HttpStatusCode.InternalServerError)
+                    {
+                        url = this.customErrors.DefaultRedirect;
+                    }
+
+                    // Find a custom error path for this status code
                     if (!string.IsNullOrWhiteSpace(url))
                     {
                         var isCircularRedirect = httpContext.Request.Url.AbsolutePath.Equals(

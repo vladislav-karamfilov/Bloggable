@@ -110,12 +110,14 @@
     <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
     <Compile Include="Extensions\ActionResultExtensions.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
+    <Compile Include="Extensions\HttpRequestExtensions.cs" />
     <Compile Include="Extensions\IPrincipalExtensions.cs" />
     <Compile Include="Extensions\TempDataDictionaryExtensions.cs" />
     <Compile Include="Extensions\ViewDataDictionaryExtensions.cs" />
     <Compile Include="Filters\AdministrationLogFilter.cs" />
     <Compile Include="Filters\ActionFilterDispatcher.cs" />
     <Compile Include="Filters\Contracts\IActionFilter.cs" />
+    <Compile Include="Filters\PopulateSystemSettingsResultFilter.cs" />
     <Compile Include="Filters\PopulateSystemSettingsFilter.cs" />
     <Compile Include="HtmlHelpers\BootstrapHelpers.cs" />
     <Compile Include="HtmlHelpers\InputHelpers.cs" />
@@ -132,10 +134,6 @@
     <Compile Include="Modules\RemoveServerHeaderModule.cs" />
     <Compile Include="Modules\AddXfoHeaderModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-beta011\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-beta011\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -166,6 +164,10 @@
       <Project>{34769DF1-1CCC-45DB-A378-3F869885B0DC}</Project>
       <Name>Bloggable.Services.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-beta012\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-beta012\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -36,5 +36,14 @@
 
             this.Update(entity);
         }
+
+        public override void Delete(object id)
+        {
+            var entity = this.GetById(id);
+            if (entity != null)
+            {
+                this.Delete(entity);
+            }
+        }
     }
 }

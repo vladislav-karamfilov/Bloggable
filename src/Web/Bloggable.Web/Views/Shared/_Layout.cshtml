@@ -58,8 +58,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 @(Html.ActionLink<HomeController>(
-                    ViewData.GetSystemSetting(
-                    AppSettingConstants.BlogNameSetting),
+                    ViewData.GetSystemSetting(AppSettingConstants.BlogNameSetting),
                     c => c.Index(null),
                     null,
                     new { @class = "navbar-brand" }))
