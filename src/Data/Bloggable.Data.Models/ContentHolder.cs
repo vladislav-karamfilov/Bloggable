@@ -1,6 +1,5 @@
 ﻿namespace Bloggable.Data.Models
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using Bloggable.Common.Constants;
@@ -8,13 +7,6 @@
 
     public abstract class ContentHolder : IdentifiableDeletableEntity<int>
     {
-        private ICollection<Tag> tags;
-
-        protected ContentHolder()
-        {
-            this.tags = new HashSet<Tag>();
-        }
-
         [Required]
         [MinLength(ContentHolderValidationConstants.TitleMinLength)]
         [MaxLength(ContentHolderValidationConstants.TitleMaxLength)]
@@ -36,11 +28,5 @@
         [MinLength(ContentHolderValidationConstants.MetaKeywordsMinLength)]
         [MaxLength(ContentHolderValidationConstants.MetaKeywordsMaxLength)]
         public string MetaKeywords { get; set; }
-
-        public virtual ICollection<Tag> Tags
-        {
-            get { return this.tags; }
-            set { this.tags = value; }
-        }
     }
 }

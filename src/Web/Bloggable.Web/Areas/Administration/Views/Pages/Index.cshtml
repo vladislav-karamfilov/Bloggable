@@ -18,9 +18,8 @@
     {
         cols.Bound(m => m.Id).Hidden(true);
         cols.Bound(m => m.Title);
-        cols.Bound(m => m.SubTitle).Hidden(true);
+        cols.Bound(m => m.SubTitle);
         cols.Bound(m => m.Permalink);
-        cols.Bound(m => m.MergedTags).Sortable(false);
         cols.Bound(m => m.CreatedOn).Hidden(true);
         cols.Bound(m => m.ModifiedOn).Hidden(true);
         cols.Command(m => m.Custom("Edit page").Click("editPage"));

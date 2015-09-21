@@ -1,8 +1,5 @@
 namespace Bloggable.Services.Data
 {
-    using System.Data.Entity;
-    using System.Linq;
-
     using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
     using Bloggable.Services.Data.Contracts;
@@ -18,10 +15,7 @@ namespace Bloggable.Services.Data
 
         public Page GetById(object id)
         {
-            var page = this.pages
-                .All()
-                .Include(p => p.Tags)
-                .FirstOrDefault(p => p.Id == (int)id);
+            var page = this.pages.GetById(id);
 
             return page;
         }

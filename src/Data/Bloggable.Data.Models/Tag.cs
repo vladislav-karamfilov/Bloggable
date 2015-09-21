@@ -10,12 +10,10 @@
     public class Tag : IdentifiableAuditInfo<int>
     {
         private ICollection<Post> posts;
-        private ICollection<Page> pages;
 
         public Tag()
         {
             this.posts = new HashSet<Post>();
-            this.pages = new HashSet<Page>();
         }
 
         [Required]
@@ -28,12 +26,6 @@
         {
             get { return this.posts; }
             set { this.posts = value; }
-        }
-
-        public virtual ICollection<Page> Pages
-        {
-            get { return this.pages; }
-            set { this.pages = value; }
         }
     }
 }

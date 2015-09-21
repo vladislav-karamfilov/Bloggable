@@ -7,10 +7,12 @@
 
     public class Post : ContentHolder
     {
+        private ICollection<Tag> tags;
         private ICollection<Comment> comments;
 
         public Post()
         {
+            this.tags = new HashSet<Tag>();
             this.comments = new HashSet<Comment>();
         }
 
@@ -26,6 +28,12 @@
         public string AuthorId { get; set; }
 
         public virtual User Author { get; set; }
+
+        public virtual ICollection<Tag> Tags
+        {
+            get { return this.tags; }
+            set { this.tags = value; }
+        }
 
         public virtual ICollection<Comment> Comments
         {

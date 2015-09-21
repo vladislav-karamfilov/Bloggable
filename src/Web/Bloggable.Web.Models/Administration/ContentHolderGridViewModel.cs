@@ -5,7 +5,7 @@
 
     using Bloggable.Common.Constants;
 
-    public abstract class ContentHolderGridViewModel : TaggableAdministrationGridViewModel
+    public abstract class ContentHolderGridViewModel : AdministrationGridViewModel
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
