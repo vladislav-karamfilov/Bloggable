@@ -44,7 +44,7 @@
 
                         var isCircularRedirect = httpContext.Request.Url.AbsolutePath.Equals(
                             VirtualPathUtility.ToAbsolute(url),
-                            StringComparison.InvariantCultureIgnoreCase);
+                            StringComparison.OrdinalIgnoreCase);
                         if (!isCircularRedirect)
                         {
                             httpContext.Response.Clear();
