@@ -9,25 +9,25 @@
     }
 }
 
-<h2>An unexpecter error occurred while processing your request... <br />Please try again later...</h2>
+<div class="container">
+    <h2>An unexpecter error occurred while processing your request... <br />Please try again later...</h2>
 
-@if (Model != null && User.IsAdmin())
-{
-    <h2 class="text-error">@Model.Exception.Message</h2>
-
-    <pre>@Model.Exception.ToString()</pre>
-
-    while (innerException != null)
+    @if (Model != null && User.IsAdmin())
     {
-        <h3>@innerException.Message</h3>
-        <pre>@innerException.ToString()</pre>
-        innerException = innerException.InnerException;
+        <h2 class="text-error">@Model.Exception.Message</h2>
+
+        <pre>@Model.Exception.ToString()</pre>
+
+        while (innerException != null)
+        {
+            <h3>@innerException.Message</h3>
+            <pre>@innerException.ToString()</pre>
+            innerException = innerException.InnerException;
+        }
+
+        <p>Controller name: @Model.ControllerName</p>
+        <p>Action name: @Model.ActionName</p>
     }
 
-    <p>Controller name: @Model.ControllerName</p>
-    <p>Action name: @Model.ActionName</p>
-}
-
-<div class="container">
     <img src="~/Content/images/general-error.jpg" alt="Error..." class="general-error-image" />
 </div>

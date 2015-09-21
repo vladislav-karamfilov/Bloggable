@@ -106,7 +106,8 @@
     <Compile Include="ActionResults\RssResult.cs" />
     <Compile Include="Attributes\AdministrationLogAttribute.cs" />
     <Compile Include="Attributes\PlaceholderAttribute.cs" />
-    <Compile Include="Attributes\PopulateSystemSettingsAttribute.cs" />
+    <Compile Include="Attributes\PopulateSystemSettingsViewDataAttribute.cs" />
+    <Compile Include="Attributes\PreserveViewDataHandleErrorAttribute.cs" />
     <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
     <Compile Include="Extensions\ActionResultExtensions.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
@@ -117,8 +118,7 @@
     <Compile Include="Filters\AdministrationLogFilter.cs" />
     <Compile Include="Filters\ActionFilterDispatcher.cs" />
     <Compile Include="Filters\Contracts\IActionFilter.cs" />
-    <Compile Include="Filters\PopulateSystemSettingsResultFilter.cs" />
-    <Compile Include="Filters\PopulateSystemSettingsFilter.cs" />
+    <Compile Include="Filters\PopulateSystemSettingsViewDataActionFilter.cs" />
     <Compile Include="HtmlHelpers\BootstrapHelpers.cs" />
     <Compile Include="HtmlHelpers\InputHelpers.cs" />
     <Compile Include="HtmlHelpers\KendoGridHelpers.cs" />

@@ -4,7 +4,7 @@
 
     using Bloggable.Web.Infrastructure.Attributes;
 
-    [PopulateSystemSettings]
+    [PopulateSystemSettingsViewData]
     public abstract class BaseController : Controller
     {
     }

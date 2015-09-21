@@ -37,19 +37,11 @@
                 {
                     var errorPaths = this.GetErrorPaths();
 
-                    string url = null;
+                    // Find a custom error path for this status code
                     if (errorPaths.ContainsKey(statusCode))
                     {
-                        url = errorPaths[statusCode];
-                    }
-                    else if (!string.IsNullOrWhiteSpace(this.customErrors.DefaultRedirect) && statusCode >= (int)HttpStatusCode.InternalServerError)
-                    {
-                        url = this.customErrors.DefaultRedirect;
-                    }
+                        var url = errorPaths[statusCode];
 
-                    // Find a custom error path for this status code
-                    if (!string.IsNullOrWhiteSpace(url))
-                    {
                         var isCircularRedirect = httpContext.Request.Url.AbsolutePath.Equals(
                             VirtualPathUtility.ToAbsolute(url),
                             StringComparison.InvariantCultureIgnoreCase);

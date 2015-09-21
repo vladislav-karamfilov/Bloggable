@@ -3,7 +3,7 @@
     using System;
 
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class PopulateSystemSettingsAttribute : Attribute
+    public class PopulateSystemSettingsViewDataAttribute : Attribute
     {
     }
 }
