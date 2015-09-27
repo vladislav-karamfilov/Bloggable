@@ -14,9 +14,9 @@
                 throw new ArgumentNullException(nameof(filterContext));
             }
 
-            if (!filterContext.IsChildAction && 
-                !filterContext.ExceptionHandled && 
-                filterContext.HttpContext.IsCustomErrorEnabled && 
+            if (!filterContext.IsChildAction &&
+                !filterContext.ExceptionHandled &&
+                filterContext.HttpContext.IsCustomErrorEnabled &&
                 new HttpException(null, filterContext.Exception).GetHttpCode() == (int)HttpStatusCode.InternalServerError &&
                 this.ExceptionType.IsInstanceOfType(filterContext.Exception))
             {
@@ -28,7 +28,7 @@
                 {
                     Model = model
                 };
-                
+
                 filterContext.Result = new ViewResult
                 {
                     ViewName = this.View,
