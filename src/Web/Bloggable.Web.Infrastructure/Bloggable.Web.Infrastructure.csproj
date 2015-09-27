@@ -130,6 +130,7 @@
     <Compile Include="Models\AlertType.cs" />
     <Compile Include="Models\ITaggableModel.cs" />
     <Compile Include="ActionResults\StandardJsonResult.cs" />
+    <Compile Include="Modules\ClearServerErrorModule.cs" />
     <Compile Include="Modules\MvcResponseRewriteCustomErrorHandlerModule.cs" />
     <Compile Include="Modules\RemoveServerHeaderModule.cs" />
     <Compile Include="Modules\AddXfoHeaderModule.cs" />

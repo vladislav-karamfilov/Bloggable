@@ -10,14 +10,14 @@
 
         public void Init(HttpApplication context)
         {
-            context.PreSendRequestHeaders += this.ContextOnPreSendRequestHeaders;
+            context.PreSendRequestHeaders += this.OnPreSendRequestHeaders;
         }
 
         public void Dispose()
         {
         }
 
-        private void ContextOnPreSendRequestHeaders(object sender, EventArgs eventArgs)
+        private void OnPreSendRequestHeaders(object sender, EventArgs eventArgs)
         {
             var app = (HttpApplication)sender;
             app.Context.Response.Headers[XfoHeaderName] = XfoHeaderValue;

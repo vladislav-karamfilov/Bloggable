@@ -64,6 +64,6 @@ textarea {
     color: #ff4500;
 }
 
-.general-error-image, .page-not-found-image {
+.error-image {
     height: 400px;
 }

@@ -14,7 +14,7 @@
 
     @if (Model != null && User.IsAdmin())
     {
-        <h2 class="text-error">@Model.Exception.Message</h2>
+        <h2 class="text-danger">@Model.Exception.Message</h2>
 
         <pre>@Model.Exception.ToString()</pre>
 
@@ -29,5 +29,5 @@
         <p>Action name: @Model.ActionName</p>
     }
 
-    <img src="~/Content/images/general-error.jpg" alt="Error..." class="general-error-image" />
+    <img src="~/Content/images/general-error.jpg" alt="Error..." class="error-image" />
 </div>

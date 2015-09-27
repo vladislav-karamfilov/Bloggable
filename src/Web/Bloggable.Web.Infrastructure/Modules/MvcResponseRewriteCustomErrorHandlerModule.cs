@@ -2,12 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
     using System.Web;
     using System.Web.Configuration;
     using System.Web.Mvc;
-
-    using Bloggable.Web.Infrastructure.Extensions;
 
     public class MvcResponseRewriteCustomErrorHandlerModule : IHttpModule
     {
@@ -18,30 +17,37 @@
             var configuration = WebConfigurationManager.OpenWebConfiguration("~");
             this.customErrors = (CustomErrorsSection)configuration.GetSection("system.web/customErrors");
 
-            application.EndRequest += this.Application_EndRequest;
+            application.Error += this.OnError;
         }
 
         public void Dispose()
         {
         }
 
-        protected void Application_EndRequest(object sender, EventArgs e)
+        protected void OnError(object sender, EventArgs e)
         {
             var httpContext = HttpContext.Current;
-            if (this.customErrors.RedirectMode == CustomErrorsRedirectMode.ResponseRewrite &&
-                httpContext.IsCustomErrorEnabled &&
-                !httpContext.Request.IsAjax())
+            if (this.customErrors.RedirectMode == CustomErrorsRedirectMode.ResponseRewrite && httpContext.IsCustomErrorEnabled)
             {
                 var statusCode = this.GetStatusCode(httpContext);
                 if ((HttpStatusCode)statusCode != HttpStatusCode.OK)
                 {
                     var errorPaths = this.GetErrorPaths();
 
+                    string url = null;
+
                     // Find a custom error path for this status code
                     if (errorPaths.ContainsKey(statusCode))
                     {
-                        var url = errorPaths[statusCode];
+                        url = errorPaths[statusCode];
+                    }
+                    else if (!string.IsNullOrWhiteSpace(this.customErrors.DefaultRedirect))
+                    {
+                        url = this.customErrors.DefaultRedirect;
+                    }
 
+                    if (!string.IsNullOrWhiteSpace(url))
+                    {
                         var isCircularRedirect = httpContext.Request.Url.AbsolutePath.Equals(
                             VirtualPathUtility.ToAbsolute(url),
                             StringComparison.OrdinalIgnoreCase);
@@ -55,6 +61,7 @@
                             // Do the redirect here
                             if (HttpRuntime.UsingIntegratedPipeline)
                             {
+                                // Need to set the Response.StatusCode to the corresponding status code in the action
                                 httpContext.Server.TransferRequest(url, true);
                             }
                             else
@@ -73,17 +80,8 @@
             }
         }
 
-        private IDictionary<int, string> GetErrorPaths()
-        {
-            var errorPaths = new Dictionary<int, string>();
-
-            foreach (CustomError error in this.customErrors.Errors)
-            {
-                errorPaths.Add(error.StatusCode, error.Redirect);
-            }
-
-            return errorPaths;
-        }
+        private IDictionary<int, string> GetErrorPaths() =>
+            this.customErrors.Errors.Cast<CustomError>().ToDictionary(error => error.StatusCode, error => error.Redirect);
 
         private int GetStatusCode(HttpContext httpContext)
         {
