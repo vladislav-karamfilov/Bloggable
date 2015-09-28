@@ -30,50 +30,48 @@
             if (this.customErrors.RedirectMode == CustomErrorsRedirectMode.ResponseRewrite && httpContext.IsCustomErrorEnabled)
             {
                 var statusCode = this.GetStatusCode(httpContext);
-                if ((HttpStatusCode)statusCode != HttpStatusCode.OK)
+
+                var errorPaths = this.GetErrorPaths();
+
+                string url = null;
+
+                // Find a custom error path for this status code
+                if (errorPaths.ContainsKey(statusCode))
                 {
-                    var errorPaths = this.GetErrorPaths();
+                    url = errorPaths[statusCode];
+                }
+                else if (!string.IsNullOrWhiteSpace(this.customErrors.DefaultRedirect))
+                {
+                    url = this.customErrors.DefaultRedirect;
+                }
 
-                    string url = null;
+                if (!string.IsNullOrWhiteSpace(url))
+                {
+                    var isCircularRedirect = httpContext.Request.Url.AbsolutePath.Equals(
+                        VirtualPathUtility.ToAbsolute(url),
+                        StringComparison.OrdinalIgnoreCase);
+                    if (!isCircularRedirect)
+                    {
+                        httpContext.Response.Clear();
+                        httpContext.Response.TrySkipIisCustomErrors = true;
 
-                    // Find a custom error path for this status code
-                    if (errorPaths.ContainsKey(statusCode))
-                    {
-                        url = errorPaths[statusCode];
-                    }
-                    else if (!string.IsNullOrWhiteSpace(this.customErrors.DefaultRedirect))
-                    {
-                        url = this.customErrors.DefaultRedirect;
-                    }
+                        httpContext.Server.ClearError();
 
-                    if (!string.IsNullOrWhiteSpace(url))
-                    {
-                        var isCircularRedirect = httpContext.Request.Url.AbsolutePath.Equals(
-                            VirtualPathUtility.ToAbsolute(url),
-                            StringComparison.OrdinalIgnoreCase);
-                        if (!isCircularRedirect)
+                        // Do the redirect here
+                        if (HttpRuntime.UsingIntegratedPipeline)
                         {
-                            httpContext.Response.Clear();
-                            httpContext.Response.TrySkipIisCustomErrors = true;
+                            // Need to set the Response.StatusCode to the corresponding status code in the action
+                            httpContext.Server.TransferRequest(url, true);
+                        }
+                        else
+                        {
+                            httpContext.RewritePath(url, false);
 
-                            httpContext.Server.ClearError();
+                            IHttpHandler httpHandler = new MvcHttpHandler();
+                            httpHandler.ProcessRequest(httpContext);
 
-                            // Do the redirect here
-                            if (HttpRuntime.UsingIntegratedPipeline)
-                            {
-                                // Need to set the Response.StatusCode to the corresponding status code in the action
-                                httpContext.Server.TransferRequest(url, true);
-                            }
-                            else
-                            {
-                                httpContext.RewritePath(url, false);
-
-                                IHttpHandler httpHandler = new MvcHttpHandler();
-                                httpHandler.ProcessRequest(httpContext);
-
-                                // Return the original status code to the client (this won't work in integrated pipleline mode)
-                                httpContext.Response.StatusCode = statusCode;
-                            }
+                            // Return the original status code to the client (this won't work in integrated pipleline mode)
+                            httpContext.Response.StatusCode = statusCode;
                         }
                     }
                 }

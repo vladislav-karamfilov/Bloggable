@@ -8,6 +8,8 @@
     using System.Web.Mvc;
 
     using Bloggable.Common.Constants;
+    using Bloggable.Web.Infrastructure.ActionResults.Models;
+    using Bloggable.Web.Infrastructure.Extensions;
 
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
@@ -15,11 +17,11 @@
 
     internal class StandardJsonResult : JsonResult
     {
-        public ICollection<string> ErrorMessages { get; } = new List<string>();
+        private readonly ICollection<string> errorMessages = new List<string>();
 
         public void AddError(string errorMessage)
         {
-            this.ErrorMessages.Add(errorMessage);
+            this.errorMessages.Add(errorMessage);
         }
 
         public override void ExecuteResult(ControllerContext context)
@@ -48,26 +50,33 @@
 
         protected virtual void SerializeData(HttpResponseBase response)
         {
-            if (this.ErrorMessages.Any())
+            if (this.errorMessages.Any())
             {
                 var originalData = this.Data;
-                this.Data = new
+                this.Data = new JsonResponse
                 {
-                    Success = false,
                     OriginalData = originalData,
-                    this.ErrorMessages
+                    ErrorMessages = this.errorMessages
                 };
 
-                response.StatusCode = (int)HttpStatusCode.BadRequest;
+                // Set error response status code if it's not already set
+                if (!response.IsError())
+                {
+                    response.StatusCode = (int)HttpStatusCode.BadRequest;
+                }
+
+                response.TrySkipIisCustomErrors = true;
             }
 
             var settings = new JsonSerializerSettings
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 Converters = new JsonConverter[] { new StringEnumConverter(), },
+                NullValueHandling = NullValueHandling.Ignore,
             };
 
-            response.Write(JsonConvert.SerializeObject(this.Data, settings));
+            var serializedData = JsonConvert.SerializeObject(this.Data, settings);
+            response.Write(serializedData);
         }
     }
 }

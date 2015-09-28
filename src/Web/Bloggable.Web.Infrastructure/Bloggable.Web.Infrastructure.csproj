@@ -112,6 +112,7 @@
     <Compile Include="Extensions\ActionResultExtensions.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\HttpRequestExtensions.cs" />
+    <Compile Include="Extensions\HttpResponseBaseExtensions.cs" />
     <Compile Include="Extensions\IPrincipalExtensions.cs" />
     <Compile Include="Extensions\TempDataDictionaryExtensions.cs" />
     <Compile Include="Extensions\ViewDataDictionaryExtensions.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Models\AlertType.cs" />
     <Compile Include="Models\ITaggableModel.cs" />
     <Compile Include="ActionResults\StandardJsonResult.cs" />
+    <Compile Include="ActionResults\Models\JsonResponse.cs" />
     <Compile Include="Modules\ClearServerErrorModule.cs" />
     <Compile Include="Modules\MvcResponseRewriteCustomErrorHandlerModule.cs" />
     <Compile Include="Modules\RemoveServerHeaderModule.cs" />
@@ -167,8 +169,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-beta012\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-beta012\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-beta013\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-beta013\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
