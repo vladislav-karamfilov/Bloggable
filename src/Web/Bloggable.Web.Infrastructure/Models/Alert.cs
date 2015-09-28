@@ -1,5 +1,8 @@
 ﻿namespace Bloggable.Web.Infrastructure.Models
 {
+    using System;
+
+    [Serializable]
     public class Alert
     {
         public Alert(AlertType type, string message)

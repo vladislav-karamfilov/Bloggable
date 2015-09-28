@@ -13,6 +13,8 @@
     using Bloggable.Data.Migrations;
     using Bloggable.Web.Config;
 
+    using BrockAllen.CookieTempData;
+
     public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
@@ -24,6 +26,9 @@
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ViewEngineConfig.RegisterViewEngines(ViewEngines.Engines);
             AutoMapperConfig.RegisterMappings(Assembly.Load(AssemblyConstants.WebModels), Assembly.Load(AssemblyConstants.WebInfrastructure));
+
+            var currentControllerFactory = ControllerBuilder.Current.GetControllerFactory();
+            ControllerBuilder.Current.SetControllerFactory(new CookieTempDataControllerFactory(currentControllerFactory));
 
             MvcHandler.DisableMvcResponseHeader = true;
         }
