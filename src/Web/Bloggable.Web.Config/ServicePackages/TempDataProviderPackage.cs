@@ -1,0 +1,55 @@
+﻿namespace Bloggable.Web.Config.ServicePackages
+{
+    using System.Configuration;
+    using System.Web.Mvc;
+
+    using BrockAllen.CookieTempData;
+
+    using Harbour.RedisTempData;
+
+    using SimpleInjector;
+    using SimpleInjector.Packaging;
+
+    using StackExchange.Redis;
+
+    public class TempDataProviderPackage : IPackage
+    {
+        public void RegisterServices(Container container)
+        {
+            bool disableCookieTempData;
+            if (bool.TryParse(ConfigurationManager.AppSettings["cookieTempData:disable"], out disableCookieTempData) && disableCookieTempData)
+            {
+                this.RegisterRedisTempDataProvider(container);
+            }
+            else
+            {
+                this.RegisterCookiesTempDataProvider(container);
+            }
+        }
+
+        private void RegisterRedisTempDataProvider(Container container)
+        {
+            // You could also use ConfigurationOptions object for Redis connection configuration
+            const string ServerName = "localhost";
+            const int DatabaseIndex = 0;
+
+            container.RegisterSingleton(() => ConnectionMultiplexer.Connect(ServerName));
+            container.RegisterPerWebRequest(() => container.GetInstance<ConnectionMultiplexer>().GetDatabase(DatabaseIndex));
+            container.RegisterPerWebRequest<ITempDataProvider>(() =>
+            {
+                var options = new RedisTempDataProviderOptions
+                {
+                    KeyPrefix = "__TempData",
+                    KeySeparator = "/"
+                };
+
+                return new RedisTempDataProvider(options, container.GetInstance<IDatabase>());
+            });
+        }
+
+        private void RegisterCookiesTempDataProvider(Container container)
+        {
+            container.RegisterPerWebRequest<ITempDataProvider, CookieTempDataProvider>();
+        }
+    }
+}
