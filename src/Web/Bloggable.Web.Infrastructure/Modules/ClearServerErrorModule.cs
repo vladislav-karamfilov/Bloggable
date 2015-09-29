@@ -5,10 +5,10 @@
     using System.Web;
 
     /// <remarks>
-    /// This module allows using "customErrors" and "httpErrors" together in the Web.config. 
+    /// This module allows using "customErrors" and "httpErrors" (in Web.config) together.
     /// Problem explanation: http://stackoverflow.com/questions/24465261/customerrors-vs-httperrors-a-significant-design-flaw
-    /// Workaround: http://stackoverflow.com/questions/18276397/how-can-i-use-existingresponse-auto-successfully#answer-21271085
-    /// IMPORTANT: Register the module after all error logging modules (like ELMAH) or implement logging logic in this module.
+    /// Solution approach: http://stackoverflow.com/questions/18276397/how-can-i-use-existingresponse-auto-successfully#answer-21271085
+    /// IMPORTANT: Register this module after all error logging modules (like ELMAH) or implement logging logic here.
     /// </remarks>
     public class ClearServerErrorModule : IHttpModule
     {
