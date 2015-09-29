@@ -23,6 +23,7 @@
         cols.Bound(m => m.MergedTags).Sortable(false);
         cols.Bound(m => m.CreatedOn).Hidden(true);
         cols.Bound(m => m.ModifiedOn).Hidden(true);
+        cols.Command(m => m.Custom("Show").Click("showPost"));
         cols.Command(m => m.Custom("Edit post").Click("editPost"));
         cols.Command(command => command.Destroy());
     },
@@ -36,12 +37,22 @@
 
 <script>
     function editPost(ev) {
+        var baseUrl = '@(Url.Action<PostsController>(c => c.Update((int?)null)))';
+        _goToLink(this, ev, baseUrl);
+    }
+
+    function showPost(ev) {
+        var baseUrl = '@(Url.Action<PostsController>(c => c.Show(null)))';
+        _goToLink(this, ev, baseUrl);
+    }
+
+    function _goToLink(grid, ev, baseUrl) {
         ev.preventDefault();
 
-        var dataItem = this.dataItem($(ev.currentTarget).closest('tr'));
+        var dataItem = grid.dataItem($(ev.currentTarget).closest('tr'));
         var id = dataItem.get('Id');
 
-        var editUrl = '@(Url.Action<PostsController>(c => c.Update((int?)null)))' + '/' + id;
+        var editUrl = baseUrl + '/' + id;
 
         window.location = editUrl;
     }

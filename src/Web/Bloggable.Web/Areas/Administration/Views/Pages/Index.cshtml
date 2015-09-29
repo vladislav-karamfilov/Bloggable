@@ -22,6 +22,7 @@
         cols.Bound(m => m.Permalink);
         cols.Bound(m => m.CreatedOn).Hidden(true);
         cols.Bound(m => m.ModifiedOn).Hidden(true);
+        cols.Command(m => m.Custom("Show").Click("showPage"));
         cols.Command(m => m.Custom("Edit page").Click("editPage"));
         cols.Command(command => command.Destroy());
     },
@@ -30,12 +31,22 @@
 
 <script>
     function editPage(ev) {
+        var baseUrl = '@(Url.Action<PagesController>(c => c.Update((int?)null)))';
+        _goToLink(this, ev, baseUrl);
+    }
+
+    function showPage(ev) {
+        var baseUrl = '@(Url.Action<PagesController>(c => c.Show(null)))';
+        _goToLink(this, ev, baseUrl);
+    }
+
+    function _goToLink(grid, ev, baseUrl) {
         ev.preventDefault();
 
-        var dataItem = this.dataItem($(ev.currentTarget).closest('tr'));
+        var dataItem = grid.dataItem($(ev.currentTarget).closest('tr'));
         var id = dataItem.get('Id');
 
-        var editUrl = '@(Url.Action<PagesController>(c => c.Update((int?)null)))' + '/' + id;
+        var editUrl = baseUrl + '/' + id;
 
         window.location = editUrl;
     }

@@ -8,10 +8,11 @@
     using Bloggable.Services.Administration.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
     using Bloggable.Web.Infrastructure.Extensions;
-    
+
     using Kendo.Mvc.UI;
-    
+
     using EntityModel = Bloggable.Data.Models.Page;
+    using PublicPagesController = Bloggable.Web.Controllers.PagesController;
     using ViewModel = Bloggable.Web.Models.Administration.Pages.ViewModels.PageGridViewModel;
 
     public class PagesController : KendoGridAdministrationController<EntityModel, ViewModel>
@@ -77,6 +78,23 @@
         {
             this.DestroyEntity(model.Id);
             return this.GridOperation(request, model);
+        }
+
+        public ActionResult Show(int? id)
+        {
+            var page = this.administrationService.Get(id);
+
+            if (page == null)
+            {
+                return this.RedirectToAction(c => c.Index()).WithErrorAlert("Page not found.");
+            }
+
+            if (page.IsDeleted)
+            {
+                return this.RedirectToAction(c => c.Index()).WithErrorAlert("The page was deleted.");
+            }
+
+            return this.RedirectToAction<PublicPagesController>(c => c.Page(page.Permalink));
         }
     }
 }

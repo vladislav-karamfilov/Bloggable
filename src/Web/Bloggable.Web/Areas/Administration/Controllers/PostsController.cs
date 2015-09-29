@@ -5,8 +5,10 @@
 
     using AutoMapper;
 
+    using Bloggable.Common.Extensions;
     using Bloggable.Services.Administration.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
+    using Bloggable.Web.Controllers;
     using Bloggable.Web.Infrastructure.Extensions;
 
     using Kendo.Mvc.UI;
@@ -80,6 +82,24 @@
         {
             this.DestroyEntity(model.Id);
             return this.GridOperation(request, model);
+        }
+
+        public ActionResult Show(int? id)
+        {
+            var post = this.administrationService.Get(id);
+
+            if (post == null)
+            {
+                return this.RedirectToAction(c => c.Index()).WithErrorAlert("Post not found.");
+            }
+
+            if (post.IsDeleted)
+            {
+                return this.RedirectToAction(c => c.Index()).WithErrorAlert("The post was deleted.");
+            }
+
+            return this.RedirectToAction<BlogController>(
+                c => c.Post(post.CreatedOn.Year, post.CreatedOn.Month, post.Title.ToUrl(), post.Id));
         }
     }
 }
