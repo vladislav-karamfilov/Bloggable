@@ -17,13 +17,6 @@
             ErrorMessage = "{0} must be between {2} and {1} characters long.")]
         public string Title { get; set; }
 
-        [Display(Name = "Subtitle")]
-        [StringLength(
-            ContentHolderValidationConstants.TitleMaxLength,
-            MinimumLength = ContentHolderValidationConstants.ContentMinLength,
-            ErrorMessage = "{0} must be between {2} and {1} characters long.")]
-        public string SubTitle { get; set; }
-
         [Required(ErrorMessage = "{0} is required.")]
         [StringLength(
             ContentHolderValidationConstants.ContentMaxLength,

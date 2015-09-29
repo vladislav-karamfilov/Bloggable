@@ -12,10 +12,6 @@
         [MaxLength(ContentHolderValidationConstants.TitleMaxLength)]
         public string Title { get; set; }
 
-        [MinLength(ContentHolderValidationConstants.TitleMinLength)]
-        [MaxLength(ContentHolderValidationConstants.TitleMaxLength)]
-        public string SubTitle { get; set; }
-
         [Required]
         [MinLength(ContentHolderValidationConstants.ContentMinLength)]
         [MaxLength(ContentHolderValidationConstants.ContentMaxLength)]

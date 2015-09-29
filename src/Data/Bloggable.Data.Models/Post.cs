@@ -14,6 +14,10 @@
             this.tags = new HashSet<Tag>();
         }
 
+        [MinLength(ContentHolderValidationConstants.TitleMinLength)]
+        [MaxLength(ContentHolderValidationConstants.TitleMaxLength)]
+        public string SubTitle { get; set; }
+
         [MaxLength(ContentHolderValidationConstants.SummaryMaxLength)]
         public string Summary { get; set; }
 

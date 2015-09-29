@@ -23,6 +23,13 @@
             this.Tags = new List<Tag>();
         }
 
+        [Display(Name = "Subtitle")]
+        [StringLength(
+            ContentHolderValidationConstants.TitleMaxLength,
+            MinimumLength = ContentHolderValidationConstants.ContentMinLength,
+            ErrorMessage = "{0} must be between {2} and {1} characters long.")]
+        public string SubTitle { get; set; }
+
         [StringLength(
             ContentHolderValidationConstants.SummaryMaxLength,
             ErrorMessage = "{0} must be at most {1} characters long.")]
