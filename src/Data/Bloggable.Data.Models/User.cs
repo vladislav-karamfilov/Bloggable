@@ -1,7 +1,6 @@
 ﻿namespace Bloggable.Data.Models
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
@@ -16,15 +15,8 @@
 
     public class User : IdentityUser, IIdentifiable<string>, IAuditInfo, IDeletableEntity
     {
-        private ICollection<Post> posts;
-        private ICollection<Comment> comments;
-        private ICollection<Rating> ratings;
-
         public User()
         {
-            this.posts = new HashSet<Post>();
-            this.comments = new HashSet<Comment>();
-            this.ratings = new HashSet<Rating>();
             this.CreatedOn = DateTime.Now;
         }
 
@@ -34,24 +26,6 @@
         [MinLength(UserValidationConstants.EmailMinLength)]
         [MaxLength(UserValidationConstants.EmailMaxLength)]
         public override string Email { get; set; }
-
-        public virtual ICollection<Post> Posts
-        {
-            get { return this.posts; }
-            set { this.posts = value; }
-        }
-
-        public virtual ICollection<Comment> Comments
-        {
-            get { return this.comments; }
-            set { this.comments = value; }
-        }
-
-        public virtual ICollection<Rating> Ratings
-        {
-            get { return this.ratings; }
-            set { this.ratings = value; }
-        }
 
         #region IAuditInfo Members
 

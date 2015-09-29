@@ -8,12 +8,10 @@
     public class Post : ContentHolder
     {
         private ICollection<Tag> tags;
-        private ICollection<Comment> comments;
 
         public Post()
         {
             this.tags = new HashSet<Tag>();
-            this.comments = new HashSet<Comment>();
         }
 
         [MaxLength(ContentHolderValidationConstants.SummaryMaxLength)]
@@ -33,12 +31,6 @@
         {
             get { return this.tags; }
             set { this.tags = value; }
-        }
-
-        public virtual ICollection<Comment> Comments
-        {
-            get { return this.comments; }
-            set { this.comments = value; }
         }
     }
 }
