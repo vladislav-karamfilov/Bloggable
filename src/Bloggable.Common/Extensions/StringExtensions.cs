@@ -1,11 +1,17 @@
 ﻿namespace Bloggable.Common.Extensions
 {
+    using System;
     using System.Text;
 
     public static class StringExtensions
     {
         public static string ToUrl(this string uglyString)
         {
+            if (uglyString == null)
+            {
+                throw new ArgumentNullException(nameof(uglyString));
+            }
+
             var resultString = new StringBuilder(uglyString.Length);
             var isLastCharacterDash = false;
 
