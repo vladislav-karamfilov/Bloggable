@@ -21,9 +21,9 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
 
-    @if (IsSectionDefined("metaPostInfo"))
+    @if (IsSectionDefined("contentHolderMetaInfo"))
     {
-        @RenderSection("metaPostInfo", required: false)
+        @RenderSection("contentHolderMetaInfo", required: false)
     }
     else
     {

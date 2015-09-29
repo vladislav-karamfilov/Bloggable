@@ -1,0 +1,10 @@
+﻿@model Bloggable.Web.Models.Pages.ViewModels.PageDetailsViewModel
+    
+@{
+    ViewBag.Title = Model.Title;
+}
+
+@section contentHolderMetaInfo {
+    @Html.Partial("_PageMetaInfo", Model)
+}
+

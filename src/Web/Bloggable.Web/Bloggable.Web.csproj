@@ -452,6 +452,8 @@
     <Content Include="Views\Errors\PageNotFound.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Errors\BadRequest.cshtml" />
+    <Content Include="Views\Pages\Page.cshtml" />
+    <Content Include="Views\Pages\_PageMetaInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bloggable.Common\Bloggable.Common.csproj">
