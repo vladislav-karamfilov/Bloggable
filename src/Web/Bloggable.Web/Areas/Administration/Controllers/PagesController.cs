@@ -35,6 +35,8 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Exclude = "Id")]ViewModel model)
         {
+            model.Permalink = model.Permalink.Trim('/');
+
             var entity = this.CreateEntity(model);
 
             if (entity != null)
@@ -63,6 +65,8 @@
         [ValidateAntiForgeryToken]
         public ActionResult Update(ViewModel model)
         {
+            model.Permalink = model.Permalink.Trim('/');
+
             var updatedEntity = this.FindAndUpdateEntity(model.Id, model);
 
             if (updatedEntity != null)

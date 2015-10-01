@@ -138,7 +138,7 @@
     <Compile Include="Account\ViewModels\LoginViewModel.cs" />
     <Compile Include="Manage\ViewModels\ManageLoginsViewModel.cs" />
     <Compile Include="Manage\Models\ManageMessageId.cs" />
-    <Compile Include="Pages\ViewModels\PageDetailsViewModel.cs" />
+    <Compile Include="Pages\ViewModels\PageViewModel.cs" />
     <Compile Include="Posts\ViewModels\PostDetailsViewModel.cs" />
     <Compile Include="Posts\ViewModels\PostsByTagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,5 +1,8 @@
-﻿@model Bloggable.Web.Models.Pages.ViewModels.PageDetailsViewModel
-    
+﻿@using Bloggable.Web.Controllers
+@using PagesAdministrationController = Bloggable.Web.Areas.Administration.Controllers.PagesController
+
+@model Bloggable.Web.Models.Pages.ViewModels.PageViewModel
+
 @{
     ViewBag.Title = Model.Title;
 }
@@ -8,3 +11,25 @@
     @Html.Partial("_PageMetaInfo", Model)
 }
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>@(Html.ActionLink<PagesController>(Model.Title, c => c.Page(Model.Permalink)))</h1>
+            <hr />
+
+            @Html.Raw(Model.Content)
+        </div>
+        <div class="col-md-4">
+            @if (User.IsAdmin())
+            {
+                <div class="bottom-buffer">
+                    <i class="fa fa-pencil"></i>
+                    @(Html.ActionLink<PagesAdministrationController>("Edit", c => c.Update(Model.Id), null, new { @class = "btn btn-primary" }))
+                </div>
+            }
+            <div>
+                TODO: Add links to most popular or most recent blog posts, share buttons or social links
+            </div>
+        </div>
+    </div>
+</div>

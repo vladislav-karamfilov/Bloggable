@@ -5,6 +5,6 @@
 
     public interface IPagesDataService : IService
     {
-        Page GetById(object id);
+        Page GetByPermalink(string permalink, bool includeDeleted = false);
     }
 }

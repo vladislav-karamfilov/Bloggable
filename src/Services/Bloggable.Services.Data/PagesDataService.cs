@@ -1,5 +1,7 @@
 namespace Bloggable.Services.Data
 {
+    using System.Linq;
+
     using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
     using Bloggable.Services.Data.Contracts;
@@ -13,9 +15,11 @@ namespace Bloggable.Services.Data
             this.pages = pages;
         }
 
-        public Page GetById(object id)
+        public Page GetByPermalink(string permalink, bool includeDeleted = false)
         {
-            var page = this.pages.GetById(id);
+            var allPages = includeDeleted ? this.pages.AllWithDeleted() : this.pages.All();
+
+            var page = allPages.FirstOrDefault(p => p.Permalink == permalink);
 
             return page;
         }
