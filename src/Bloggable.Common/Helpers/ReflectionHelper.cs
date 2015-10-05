@@ -9,7 +9,7 @@
     {
         public static IEnumerable<Type> GetSubClasses<T>(params Assembly[] assemblies) => 
             assemblies
-                .SelectMany(a => a.GetTypes())
+                .SelectMany(a => a.GetExportedTypes())
                 .Where(type => type.IsSubclassOf(typeof(T)) && !type.IsAbstract);
     }
 }

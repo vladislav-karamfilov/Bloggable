@@ -1,7 +1,12 @@
 ﻿namespace Bloggable.Web.Config
 {
+    using System.Reflection;
     using System.Web.Mvc;
     using System.Web.Routing;
+
+    using Bloggable.Common.Constants;
+    using Bloggable.Web.Infrastructure.Extensions;
+    using Bloggable.Web.Infrastructure.RouteConstraints;
 
     public class RouteConfig
     {
@@ -9,11 +14,17 @@
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // routes.MapRoute(
-            //    name: "Page",
-            //    url: "{id}",
-            //    defaults: new { controller = "Pages", action = "Page" },
-            //    namespaces: new[] { "Bloggable.Web.Controllers" });
+            routes.AppendTrailingSlash = false;
+            routes.LowercaseUrls = true;
+            
+            routes
+                .MapRoute(
+                   name: "Page",
+                   url: "{id}",
+                   defaults: new { controller = "Pages", action = "Page" },
+                   namespaces: new[] { "Bloggable.Web.Controllers" })
+                .WithConstraints("id", new SkipControllersWithIndexActionRouteConstraint(Assembly.Load(AssemblyConstants.Web)));
+
             routes.MapRoute(
                 name: "Blog post",
                 url: "Blog/{year}/{month}/{urlTitle}/{id}",

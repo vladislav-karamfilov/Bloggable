@@ -1,0 +1,186 @@
+﻿<error errorId="cb030d2e-5d94-4709-a5c8-7834514ff88a" application="/LM/W3SVC/2/ROOT" host="VLADISLAV-PC" type="System.NotImplementedException" message="The method or operation is not implemented." source="Bloggable.Web" detail="System.NotImplementedException: The method or operation is not implemented.&#xD;&#xA;   at Bloggable.Web.Controllers.HomeController.Index(Nullable`1 page) in D:\Development\Bloggable\src\Web\Bloggable.Web\Controllers\HomeController.cs:line 26&#xD;&#xA;   at lambda_method(Closure , ControllerBase , Object[] )&#xD;&#xA;   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)&#xD;&#xA;   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;BeginInvokeSynchronousActionMethod&gt;b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3d()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass33.&lt;BeginInvokeActionMethodWithFilters&gt;b__32(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)" user="vladislav" time="2015-10-02T08:56:46.4487259Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:bg-BG,bg;q=0.8,en;q=0.6&#xD;&#xA;HTTP_COOKIE:_ga=GA1.1.606960577.1440264600; cookies-notification=ok; glimpseOptions=%7B%22glimpsePolicy%22%3Anull%7D; glimpsePolicy=; .AspNet.SoftUniJudgeCookie=ThGvS3PiqPr2d6IAXA7lP2WcWJt2PbN1UfeG5fbI9qYh0TYMowv9yzij0XwOBqdqmEAnzPqhb2uGssSRkODTb4Jalk3guaKsZmoFtppfP8YnJfXByt39jkBTl5uXacA5rETIZIhcYXIh-yzq_bhnZtLIyfCAxnUpn0FA1d7skGmFpn0KLnDwyLuT2v_F5fbDe9SxjEcNP1X8hIpGfaQGdZ_UORYKuaFEe_NbGIX5Ls_VMUqNz2EsiQ9f1onQl_COY-jITBjGF7t9PvkDr1ygmYztEe5hfoL9os5zRJUm2Nbrxu0jtpMO2TET9CIkjCYIKJz33lHmqND_b29kF7Yw4WGqG3v9XqHD_qHPE1sDR3dXKek9kf8r3EXrL1VXQINHDCu7UFctPeSeRO7DUDx7ekwDrK7emHFObUbFrEUuWaTc7s7iO48XNrsfxD9_HSsgBkDKQ3XABTNSj0w4pR0MMWCPVOM; __RequestVerificationToken=V-cBelfJYxgkilmIvINtRdzag-ASkokx7u8g6dLdymPBl789rJG3SCiW2UxHQo7rV7yZilCPG2FutJzzelJ_kEpzzOw1; .AspNet.ApplicationCookie=-8E8lAFoKT7t8NuFIUfpnoZPR-SPsfPbLMKwYoYBfeDKZf7jC8az2VNc3K0M4fgiPnLS0-w4xkp4ZTxc3TrVQkD_hMgHq2Kya9i4IAzp6GuM3lHEwBEDGd_YwffOMrgzP7kaEVTuY8v-1pAp52InVEeXlMQ3Az1hyVAjRG9zfwd-M1m1SSealWCGPdduHvexljT2t9EItzPcjIE619WBiKZnedwd27fhbB830bKjoH1fMQZoeLrldvorkpI-IPpK7kkjjZPJsAm1Fg05noj1H4jVY62-91jzOK7SHAmmmAulk2zkzjBeOjHH_p6-UQ2akT74QNiA01vg7W27oKXFBBs7jj4V6UTzPZieJPsFt82JX-aUjcolrebLhrBF7r-Qjlm-EgcMGwy0Me4zmTWSXyHclnPBjnswMzW4lV_bghZVx0EY1X832hAdvD13NzuhlTcd5zG-G8j1BFKCnEKeVQ6z9nmkjOATkSw5R70-J9cmARcu9d9U5M_8Rf0hwhmV1IvImQ; language=bg; .AspNet.SoftUniAuth=3zyz66eoigI4kvfzzMCHQD993_iyR41HD4AwMT2HQL4zmA1oEDG_Mno2lpTCbW5UHgYyMI8a76V_5Jtq3I94kPZgOQOtSUApgjqcXPSCmEI2RbwFArSbxmN4Fz2cpTcXedV2PvAwnRpo9sZPv2_kCamP7jnr3ync3-k3VZ7t8gZUprNx5mnHXVXYZ54_K88Ovsmvb1Kx8fCM8w4bQfdk62aqo316yiSffuaOJauaJTkIzqeH79ReUTBnvtic5XPqlIoU_M1fleSDptvvsQ17D3HXrDUv33Ug0inAAyHhdQe9NajBMHuiLKe63VnpIjb8O9M6fOhXMuU96yNyjZ_MWvyPGvn0TxX9s4LsSsgAOfI77iZ38rYE26N7HDtb4OFsb1DWrcCjBcxO4M11xR7OaJF5orpHTsoJDklx0Us1Rj_peOBbXLPXSHPbUlGZiqLgOLKQZS8EcmJsIbBW9Q_ETiNud4j9V-QrnS9_zTtiCJiiD9ofTu2tULRqHTTsGHNb58KQwR5qZTEvm1n318Zue9anQiNIx7-2FlL4gSxqZxgUusg0&#xD;&#xA;HTTP_HOST:localhost:1337&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch&#xD;&#xA;Accept-Language: bg-BG,bg;q=0.8,en;q=0.6&#xD;&#xA;Cookie: _ga=GA1.1.606960577.1440264600; cookies-notification=ok; glimpseOptions=%7B%22glimpsePolicy%22%3Anull%7D; glimpsePolicy=; .AspNet.SoftUniJudgeCookie=ThGvS3PiqPr2d6IAXA7lP2WcWJt2PbN1UfeG5fbI9qYh0TYMowv9yzij0XwOBqdqmEAnzPqhb2uGssSRkODTb4Jalk3guaKsZmoFtppfP8YnJfXByt39jkBTl5uXacA5rETIZIhcYXIh-yzq_bhnZtLIyfCAxnUpn0FA1d7skGmFpn0KLnDwyLuT2v_F5fbDe9SxjEcNP1X8hIpGfaQGdZ_UORYKuaFEe_NbGIX5Ls_VMUqNz2EsiQ9f1onQl_COY-jITBjGF7t9PvkDr1ygmYztEe5hfoL9os5zRJUm2Nbrxu0jtpMO2TET9CIkjCYIKJz33lHmqND_b29kF7Yw4WGqG3v9XqHD_qHPE1sDR3dXKek9kf8r3EXrL1VXQINHDCu7UFctPeSeRO7DUDx7ekwDrK7emHFObUbFrEUuWaTc7s7iO48XNrsfxD9_HSsgBkDKQ3XABTNSj0w4pR0MMWCPVOM; __RequestVerificationToken=V-cBelfJYxgkilmIvINtRdzag-ASkokx7u8g6dLdymPBl789rJG3SCiW2UxHQo7rV7yZilCPG2FutJzzelJ_kEpzzOw1; .AspNet.ApplicationCookie=-8E8lAFoKT7t8NuFIUfpnoZPR-SPsfPbLMKwYoYBfeDKZf7jC8az2VNc3K0M4fgiPnLS0-w4xkp4ZTxc3TrVQkD_hMgHq2Kya9i4IAzp6GuM3lHEwBEDGd_YwffOMrgzP7kaEVTuY8v-1pAp52InVEeXlMQ3Az1hyVAjRG9zfwd-M1m1SSealWCGPdduHvexljT2t9EItzPcjIE619WBiKZnedwd27fhbB830bKjoH1fMQZoeLrldvorkpI-IPpK7kkjjZPJsAm1Fg05noj1H4jVY62-91jzOK7SHAmmmAulk2zkzjBeOjHH_p6-UQ2akT74QNiA01vg7W27oKXFBBs7jj4V6UTzPZieJPsFt82JX-aUjcolrebLhrBF7r-Qjlm-EgcMGwy0Me4zmTWSXyHclnPBjnswMzW4lV_bghZVx0EY1X832hAdvD13NzuhlTcd5zG-G8j1BFKCnEKeVQ6z9nmkjOATkSw5R70-J9cmARcu9d9U5M_8Rf0hwhmV1IvImQ; language=bg; .AspNet.SoftUniAuth=3zyz66eoigI4kvfzzMCHQD993_iyR41HD4AwMT2HQL4zmA1oEDG_Mno2lpTCbW5UHgYyMI8a76V_5Jtq3I94kPZgOQOtSUApgjqcXPSCmEI2RbwFArSbxmN4Fz2cpTcXedV2PvAwnRpo9sZPv2_kCamP7jnr3ync3-k3VZ7t8gZUprNx5mnHXVXYZ54_K88Ovsmvb1Kx8fCM8w4bQfdk62aqo316yiSffuaOJauaJTkIzqeH79ReUTBnvtic5XPqlIoU_M1fleSDptvvsQ17D3HXrDUv33Ug0inAAyHhdQe9NajBMHuiLKe63VnpIjb8O9M6fOhXMuU96yNyjZ_MWvyPGvn0TxX9s4LsSsgAOfI77iZ38rYE26N7HDtb4OFsb1DWrcCjBcxO4M11xR7OaJF5orpHTsoJDklx0Us1Rj_peOBbXLPXSHPbUlGZiqLgOLKQZS8EcmJsIbBW9Q_ETiNud4j9V-QrnS9_zTtiCJiiD9ofTu2tULRqHTTsGHNb58KQwR5qZTEvm1n318Zue9anQiNIx7-2FlL4gSxqZxgUusg0&#xD;&#xA;Host: localhost:1337&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Development\Bloggable\src\Web\Bloggable.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="vladislav" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="vladislav" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Development\Bloggable\src\Web\Bloggable.Web" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="6709" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1337" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="bg-BG,bg;q=0.8,en;q=0.6" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="_ga=GA1.1.606960577.1440264600; cookies-notification=ok; glimpseOptions=%7B%22glimpsePolicy%22%3Anull%7D; glimpsePolicy=; .AspNet.SoftUniJudgeCookie=ThGvS3PiqPr2d6IAXA7lP2WcWJt2PbN1UfeG5fbI9qYh0TYMowv9yzij0XwOBqdqmEAnzPqhb2uGssSRkODTb4Jalk3guaKsZmoFtppfP8YnJfXByt39jkBTl5uXacA5rETIZIhcYXIh-yzq_bhnZtLIyfCAxnUpn0FA1d7skGmFpn0KLnDwyLuT2v_F5fbDe9SxjEcNP1X8hIpGfaQGdZ_UORYKuaFEe_NbGIX5Ls_VMUqNz2EsiQ9f1onQl_COY-jITBjGF7t9PvkDr1ygmYztEe5hfoL9os5zRJUm2Nbrxu0jtpMO2TET9CIkjCYIKJz33lHmqND_b29kF7Yw4WGqG3v9XqHD_qHPE1sDR3dXKek9kf8r3EXrL1VXQINHDCu7UFctPeSeRO7DUDx7ekwDrK7emHFObUbFrEUuWaTc7s7iO48XNrsfxD9_HSsgBkDKQ3XABTNSj0w4pR0MMWCPVOM; __RequestVerificationToken=V-cBelfJYxgkilmIvINtRdzag-ASkokx7u8g6dLdymPBl789rJG3SCiW2UxHQo7rV7yZilCPG2FutJzzelJ_kEpzzOw1; .AspNet.ApplicationCookie=-8E8lAFoKT7t8NuFIUfpnoZPR-SPsfPbLMKwYoYBfeDKZf7jC8az2VNc3K0M4fgiPnLS0-w4xkp4ZTxc3TrVQkD_hMgHq2Kya9i4IAzp6GuM3lHEwBEDGd_YwffOMrgzP7kaEVTuY8v-1pAp52InVEeXlMQ3Az1hyVAjRG9zfwd-M1m1SSealWCGPdduHvexljT2t9EItzPcjIE619WBiKZnedwd27fhbB830bKjoH1fMQZoeLrldvorkpI-IPpK7kkjjZPJsAm1Fg05noj1H4jVY62-91jzOK7SHAmmmAulk2zkzjBeOjHH_p6-UQ2akT74QNiA01vg7W27oKXFBBs7jj4V6UTzPZieJPsFt82JX-aUjcolrebLhrBF7r-Qjlm-EgcMGwy0Me4zmTWSXyHclnPBjnswMzW4lV_bghZVx0EY1X832hAdvD13NzuhlTcd5zG-G8j1BFKCnEKeVQ6z9nmkjOATkSw5R70-J9cmARcu9d9U5M_8Rf0hwhmV1IvImQ; language=bg; .AspNet.SoftUniAuth=3zyz66eoigI4kvfzzMCHQD993_iyR41HD4AwMT2HQL4zmA1oEDG_Mno2lpTCbW5UHgYyMI8a76V_5Jtq3I94kPZgOQOtSUApgjqcXPSCmEI2RbwFArSbxmN4Fz2cpTcXedV2PvAwnRpo9sZPv2_kCamP7jnr3ync3-k3VZ7t8gZUprNx5mnHXVXYZ54_K88Ovsmvb1Kx8fCM8w4bQfdk62aqo316yiSffuaOJauaJTkIzqeH79ReUTBnvtic5XPqlIoU_M1fleSDptvvsQ17D3HXrDUv33Ug0inAAyHhdQe9NajBMHuiLKe63VnpIjb8O9M6fOhXMuU96yNyjZ_MWvyPGvn0TxX9s4LsSsgAOfI77iZ38rYE26N7HDtb4OFsb1DWrcCjBcxO4M11xR7OaJF5orpHTsoJDklx0Us1Rj_peOBbXLPXSHPbUlGZiqLgOLKQZS8EcmJsIbBW9Q_ETiNud4j9V-QrnS9_zTtiCJiiD9ofTu2tULRqHTTsGHNb58KQwR5qZTEvm1n318Zue9anQiNIx7-2FlL4gSxqZxgUusg0" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1337" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="_ga">
+      <value string="GA1.1.606960577.1440264600" />
+    </item>
+    <item name="cookies-notification">
+      <value string="ok" />
+    </item>
+    <item name="glimpseOptions">
+      <value string="%7B%22glimpsePolicy%22%3Anull%7D" />
+    </item>
+    <item name="glimpsePolicy">
+      <value string="" />
+    </item>
+    <item name=".AspNet.SoftUniJudgeCookie">
+      <value string="ThGvS3PiqPr2d6IAXA7lP2WcWJt2PbN1UfeG5fbI9qYh0TYMowv9yzij0XwOBqdqmEAnzPqhb2uGssSRkODTb4Jalk3guaKsZmoFtppfP8YnJfXByt39jkBTl5uXacA5rETIZIhcYXIh-yzq_bhnZtLIyfCAxnUpn0FA1d7skGmFpn0KLnDwyLuT2v_F5fbDe9SxjEcNP1X8hIpGfaQGdZ_UORYKuaFEe_NbGIX5Ls_VMUqNz2EsiQ9f1onQl_COY-jITBjGF7t9PvkDr1ygmYztEe5hfoL9os5zRJUm2Nbrxu0jtpMO2TET9CIkjCYIKJz33lHmqND_b29kF7Yw4WGqG3v9XqHD_qHPE1sDR3dXKek9kf8r3EXrL1VXQINHDCu7UFctPeSeRO7DUDx7ekwDrK7emHFObUbFrEUuWaTc7s7iO48XNrsfxD9_HSsgBkDKQ3XABTNSj0w4pR0MMWCPVOM" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="V-cBelfJYxgkilmIvINtRdzag-ASkokx7u8g6dLdymPBl789rJG3SCiW2UxHQo7rV7yZilCPG2FutJzzelJ_kEpzzOw1" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="-8E8lAFoKT7t8NuFIUfpnoZPR-SPsfPbLMKwYoYBfeDKZf7jC8az2VNc3K0M4fgiPnLS0-w4xkp4ZTxc3TrVQkD_hMgHq2Kya9i4IAzp6GuM3lHEwBEDGd_YwffOMrgzP7kaEVTuY8v-1pAp52InVEeXlMQ3Az1hyVAjRG9zfwd-M1m1SSealWCGPdduHvexljT2t9EItzPcjIE619WBiKZnedwd27fhbB830bKjoH1fMQZoeLrldvorkpI-IPpK7kkjjZPJsAm1Fg05noj1H4jVY62-91jzOK7SHAmmmAulk2zkzjBeOjHH_p6-UQ2akT74QNiA01vg7W27oKXFBBs7jj4V6UTzPZieJPsFt82JX-aUjcolrebLhrBF7r-Qjlm-EgcMGwy0Me4zmTWSXyHclnPBjnswMzW4lV_bghZVx0EY1X832hAdvD13NzuhlTcd5zG-G8j1BFKCnEKeVQ6z9nmkjOATkSw5R70-J9cmARcu9d9U5M_8Rf0hwhmV1IvImQ" />
+    </item>
+    <item name="language">
+      <value string="bg" />
+    </item>
+    <item name=".AspNet.SoftUniAuth">
+      <value string="3zyz66eoigI4kvfzzMCHQD993_iyR41HD4AwMT2HQL4zmA1oEDG_Mno2lpTCbW5UHgYyMI8a76V_5Jtq3I94kPZgOQOtSUApgjqcXPSCmEI2RbwFArSbxmN4Fz2cpTcXedV2PvAwnRpo9sZPv2_kCamP7jnr3ync3-k3VZ7t8gZUprNx5mnHXVXYZ54_K88Ovsmvb1Kx8fCM8w4bQfdk62aqo316yiSffuaOJauaJTkIzqeH79ReUTBnvtic5XPqlIoU_M1fleSDptvvsQ17D3HXrDUv33Ug0inAAyHhdQe9NajBMHuiLKe63VnpIjb8O9M6fOhXMuU96yNyjZ_MWvyPGvn0TxX9s4LsSsgAOfI77iZ38rYE26N7HDtb4OFsb1DWrcCjBcxO4M11xR7OaJF5orpHTsoJDklx0Us1Rj_peOBbXLPXSHPbUlGZiqLgOLKQZS8EcmJsIbBW9Q_ETiNud4j9V-QrnS9_zTtiCJiiD9ofTu2tULRqHTTsGHNb58KQwR5qZTEvm1n318Zue9anQiNIx7-2FlL4gSxqZxgUusg0" />
+    </item>
+  </cookies>
+</error>
