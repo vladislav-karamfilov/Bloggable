@@ -5,6 +5,7 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using Bloggable.Common.Extensions;
     using Bloggable.Web.Infrastructure.ActionResults;
 
     public class PreserveViewDataHandleErrorAttribute : HandleErrorAttribute
@@ -35,10 +36,9 @@
                     var actionName = (string)filterContext.RouteData.Values["action"];
 
                     var model = new HandleErrorInfo(filterContext.Exception, controllerName, actionName);
-                    var viewData = new ViewDataDictionary<HandleErrorInfo>(filterContext.Controller.ViewData)
-                    {
-                        Model = model
-                    };
+                    var viewData = new ViewDataDictionary<HandleErrorInfo> { Model = model };
+
+                    filterContext.Controller.ViewData.ForEach(viewData.Add);
 
                     filterContext.Result = new ViewResult
                     {
