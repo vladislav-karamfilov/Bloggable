@@ -19,8 +19,9 @@
         {
             var value = bindingContext.ValueProvider.GetValue("id");
 
-            int entityId;
-            if (value != null && int.TryParse(value.AttemptedValue, out entityId))
+            object entityId = value?.AttemptedValue;
+
+            if (entityId != null)
             {
                 var entity = this.entities.GetById(entityId);
                 return entity;
