@@ -19,12 +19,19 @@
             bool disableCookieTempData;
             if (bool.TryParse(ConfigurationManager.AppSettings["cookieTempData:disable"], out disableCookieTempData) && disableCookieTempData)
             {
-                this.RegisterRedisTempDataProvider(container);
+                try
+                {
+                    this.RegisterRedisTempDataProvider(container);
+                    return;
+                }
+                catch (RedisConnectionException)
+                {
+                    // Failed to connect to Redis DB (it may not be installed)
+                    // => fallback to another TempDataProvider
+                }
             }
-            else
-            {
-                this.RegisterCookiesTempDataProvider(container);
-            }
+
+            this.RegisterCookiesTempDataProvider(container);
         }
 
         private void RegisterRedisTempDataProvider(Container container)
@@ -33,7 +40,8 @@
             const string ServerName = "localhost";
             const int DatabaseIndex = 0;
 
-            container.RegisterSingleton(() => ConnectionMultiplexer.Connect(ServerName));
+            var redisConnectionMultiplexer = ConnectionMultiplexer.Connect(ServerName);
+            container.RegisterSingleton(() => redisConnectionMultiplexer);
             container.RegisterPerWebRequest(() => container.GetInstance<ConnectionMultiplexer>().GetDatabase(DatabaseIndex));
             container.RegisterPerWebRequest<ITempDataProvider>(() =>
             {
