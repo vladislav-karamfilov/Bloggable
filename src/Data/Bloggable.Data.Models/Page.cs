@@ -7,11 +7,11 @@
 
     public class Page : ContentHolder
     {
-        // TODO: Add regular expression validation allowing only characters (latin and cyrillic), digits, -, _
         [Required]
         [Index(IsUnique = true)]
         [MinLength(ContentHolderValidationConstants.UrlMinLength)]
         [MaxLength(ContentHolderValidationConstants.UrlMaxLength)]
+        [RegularExpression(ContentHolderValidationConstants.PermalinkRegEx)]
         public string Permalink { get; set; }
     }
 }

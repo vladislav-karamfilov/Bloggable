@@ -23,5 +23,7 @@
         public const int MetaKeywordsMinLength = 5;
 
         public const int MetaKeywordsMaxLength = 100;
+
+        public const string PermalinkRegEx = @"[a-zA-Zа-яА-Я0-9\-_]+";
     }
 }
