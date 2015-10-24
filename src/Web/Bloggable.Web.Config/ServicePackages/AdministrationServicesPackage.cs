@@ -16,8 +16,8 @@
 
             container.Register(typeof(IDeletableEntityAdministrationService<>), typeof(DeletableEntityAdministrationService<>), webRequestLifestyle);
             container.Register(typeof(IAdministrationService<>), typeof(AdministrationService<>), webRequestLifestyle);
-            container.Register<ISettingsAdministrationService, SettingsAdministrationService>();
-            container.Register<IPagesAdministrationService, PagesAdministrationService>();
+            container.Register<ISettingsAdministrationService, SettingsAdministrationService>(webRequestLifestyle);
+            container.Register<IPagesAdministrationService, PagesAdministrationService>(webRequestLifestyle);
         }
     }
 }
