@@ -135,10 +135,10 @@
     <Compile Include="Models\ITaggableModel.cs" />
     <Compile Include="ActionResults\StandardJsonResult.cs" />
     <Compile Include="ActionResults\Models\JsonResponse.cs" />
-    <Compile Include="Modules\ClearServerErrorModule.cs" />
-    <Compile Include="Modules\MvcResponseRewriteCustomErrorHandlerModule.cs" />
-    <Compile Include="Modules\RemoveServerHeaderModule.cs" />
-    <Compile Include="Modules\AddXfoHeaderModule.cs" />
+    <Compile Include="HttpModules\ClearServerErrorModule.cs" />
+    <Compile Include="HttpModules\MvcResponseRewriteCustomErrorHandlerModule.cs" />
+    <Compile Include="HttpModules\RemoveServerHeaderModule.cs" />
+    <Compile Include="HttpModules\AddXfoHeaderModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteConstraints\SkipControllersWithIndexActionRouteConstraint.cs" />
   </ItemGroup>

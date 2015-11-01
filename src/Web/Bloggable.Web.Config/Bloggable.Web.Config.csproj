@@ -178,7 +178,6 @@
     <Compile Include="ModelBinderConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteConfig.cs" />
-    <Compile Include="ServicePackages\AdministrationServicesPackage.cs" />
     <Compile Include="ServicePackages\DataPackage.cs" />
     <Compile Include="ServicePackages\ActionFiltersPackage.cs" />
     <Compile Include="ServicePackages\IdentityPackage.cs" />

@@ -4,6 +4,9 @@
     using System.Reflection;
 
     using Bloggable.Common.Constants;
+    using Bloggable.Common.Extensions;
+    using Bloggable.Services.Administration.Base;
+    using Bloggable.Services.Administration.Contracts;
     using Bloggable.Services.Common;
 
     using SimpleInjector;
@@ -14,34 +17,34 @@
     {
         public void RegisterServices(Container container)
         {
+            var webRequestLifestyle = new WebRequestLifestyle();
+
+            // Generic types
+            container.Register(typeof(IDeletableEntityAdministrationService<>), typeof(DeletableEntityAdministrationService<>), webRequestLifestyle);
+            container.Register(typeof(IAdministrationService<>), typeof(AdministrationService<>), webRequestLifestyle);
+
+            // Non-generic types
             var serviceAssemblies = new[]
             {
-                typeof(IService).Assembly, 
-                Assembly.Load(AssemblyConstants.ServicesData), 
+                typeof(IService).Assembly,
+                Assembly.Load(AssemblyConstants.ServicesData),
                 Assembly.Load(AssemblyConstants.ServicesAdministration),
             };
 
-            var registrations = serviceAssemblies
+            var nonGenericTypeServiceRegistrationsInfo = serviceAssemblies
                 .SelectMany(a => a.GetExportedTypes())
                 .Where(t => typeof(IService).IsAssignableFrom(t) && !t.IsAbstract && !t.IsGenericTypeDefinition)
-                .Select(t => new { Service = t.GetInterfaces().Single(i => i != typeof(IService)), Implementation = t })
+                .Select(t => new
+                {
+                    ConcreteType = t,
+                    ServiceTypes = t.GetInterfaces().Where(i => i.IsPublic && i != typeof(IService) && !i.GenericTypeArguments.Any())
+                })
                 .ToList();
 
-            var webRequestLifestyle = new WebRequestLifestyle();
-            foreach (var registration in registrations)
+            foreach (var registration in nonGenericTypeServiceRegistrationsInfo)
             {
-                container.AddRegistration(
-                    registration.Service,
-                    webRequestLifestyle.CreateRegistration(registration.Service, registration.Implementation, container));
+                registration.ServiceTypes.ForEach(serviceType => container.Register(serviceType, registration.ConcreteType, webRequestLifestyle));
             }
-
-            //// TODO: Register with LINQ!
-
-            ////container.Register<ICacheService, HttpRuntimeCacheService>(webRequestLifestyle);
-            ////container.Register<ICacheItemsProviderService, CacheItemsProviderService>(webRequestLifestyle);
-            ////container.Register<ITagsDataService, TagsDataService>(webRequestLifestyle);
-            ////container.Register<IPostsDataService, PostsDataService>(webRequestLifestyle);
-            ////container.Register<ICommentsDataService, CommentsDataService>(webRequestLifestyle);
         }
     }
 }

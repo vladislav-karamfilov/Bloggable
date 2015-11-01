@@ -1,12 +1,11 @@
-﻿namespace Bloggable.Web.Infrastructure.Modules
+﻿namespace Bloggable.Web.Infrastructure.HttpModules
 {
     using System;
     using System.Web;
 
-    public class AddXfoHeaderModule : IHttpModule
+    public class RemoveServerHeaderModule : IHttpModule
     {
-        private const string XfoHeaderName = "X-Frame-Options";
-        private const string XfoHeaderValue = "SAMEORIGIN";
+        private const string ServerHeaderName = "Server";
 
         public void Init(HttpApplication context)
         {
@@ -20,7 +19,7 @@
         private void OnPreSendRequestHeaders(object sender, EventArgs eventArgs)
         {
             var app = (HttpApplication)sender;
-            app.Context.Response.Headers[XfoHeaderName] = XfoHeaderValue;
+            app.Context.Response.Headers.Remove(ServerHeaderName);
         }
     }
 }

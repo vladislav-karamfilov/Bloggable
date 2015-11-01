@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Web.Infrastructure.Modules
+﻿namespace Bloggable.Web.Infrastructure.HttpModules
 {
     using System;
     using System.Collections.Generic;

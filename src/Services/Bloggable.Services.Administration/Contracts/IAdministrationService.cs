@@ -3,8 +3,9 @@
     using System.Linq;
 
     using Bloggable.Data.Contracts;
+    using Bloggable.Services.Common;
 
-    public interface IAdministrationService<TEntity>
+    public interface IAdministrationService<TEntity> : IService
         where TEntity : IEntity
     {
         IQueryable<TEntity> Read();

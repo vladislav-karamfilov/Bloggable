@@ -15,6 +15,8 @@ namespace Bloggable.Web.Config
         {
             var container = new Container();
 
+            container.Options.AllowOverridingRegistrations = true;
+
             container.RegisterPackages(new[] { Assembly.GetExecutingAssembly() });
 
             container.RegisterMvcControllers(mvcControllersAssembly);

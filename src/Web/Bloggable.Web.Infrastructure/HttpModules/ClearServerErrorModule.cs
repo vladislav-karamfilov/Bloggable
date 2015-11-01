@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Web.Infrastructure.Modules
+﻿namespace Bloggable.Web.Infrastructure.HttpModules
 {
     using System;
     using System.Net;
@@ -24,14 +24,18 @@
         protected void OnError(object sender, EventArgs eventArgs)
         {
             var app = (HttpApplication)sender;
-            var server = app.Server;
 
-            var lastError = server.GetLastError();
-            server.ClearError();
+            if (app.Context.IsCustomErrorEnabled)
+            {
+                var server = app.Server;
 
-            // You can log the error here
-            var httpException = lastError as HttpException;
-            app.Response.StatusCode = httpException?.GetHttpCode() ?? (int)HttpStatusCode.InternalServerError;
+                var lastError = server.GetLastError();
+                server.ClearError();
+
+                // You can log the error here
+                var httpException = lastError as HttpException;
+                app.Response.StatusCode = httpException?.GetHttpCode() ?? (int)HttpStatusCode.InternalServerError;
+            }
         }
     }
 }
