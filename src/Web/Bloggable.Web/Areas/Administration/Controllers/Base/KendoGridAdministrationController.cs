@@ -2,12 +2,10 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
-
+    
     using Bloggable.Data.Contracts;
     using Bloggable.Services.Administration.Contracts;
+    using Bloggable.Services.Common.Mapping.Contracts;
     using Bloggable.Web.Infrastructure.Extensions;
     using Bloggable.Web.Models.Administration;
 
@@ -18,19 +16,22 @@
         where TEntity : class, IAuditInfo
         where TViewModel : AdministrationGridViewModel
     {
-        protected KendoGridAdministrationController(IAdministrationService<TEntity> administrationService)
+        protected KendoGridAdministrationController(IAdministrationService<TEntity> administrationService, IMappingService mappingService)
         {
             this.AdministrationService = administrationService;
+            this.MappingService = mappingService;
         }
 
         protected IAdministrationService<TEntity> AdministrationService { get; }
+
+        protected IMappingService MappingService { get; }
 
         [HttpPost]
         public ActionResult Read([DataSourceRequest]DataSourceRequest request) =>
             this.JsonWithoutReferenceLoop(this.GetData().ToDataSourceResult(request));
 
         protected virtual IEnumerable<TViewModel> GetData() =>
-            this.AdministrationService.Read().Project().To<TViewModel>();
+            this.MappingService.MapCollection<TViewModel>(this.AdministrationService.Read());
 
         protected virtual TEntity CreateEntity(TViewModel model)
         {
@@ -38,7 +39,7 @@
 
             if (model != null && this.ModelState.IsValid)
             {
-                entity = Mapper.Map<TEntity>(model);
+                entity = this.MappingService.Map<TEntity>(model);
                 this.AdministrationService.Create(entity);
                 model.CreatedOn = entity.CreatedOn;
             }
@@ -55,7 +56,7 @@
                 entity = this.AdministrationService.Get(id);
                 if (entity != null)
                 {
-                    Mapper.Map(model, entity);
+                    this.MappingService.Map(model, entity);
                     this.AdministrationService.Update(entity);
                     model.ModifiedOn = entity.ModifiedOn;
                 }

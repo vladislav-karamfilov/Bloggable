@@ -3,11 +3,9 @@
     using System;
     using System.Linq;
     using System.Web.Mvc;
-
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
-
+    
     using Bloggable.Common.Constants;
+    using Bloggable.Services.Common.Mapping.Contracts;
     using Bloggable.Services.Data.Contracts;
     using Bloggable.Web.Infrastructure.Extensions;
     using Bloggable.Web.Models.Comments.InputModels;
@@ -20,10 +18,12 @@
     public class CommentsController : BaseController
     {
         private readonly ICommentsDataService commentsData;
+        private readonly IMappingService mappingService;
 
-        public CommentsController(ICommentsDataService commentsData)
+        public CommentsController(ICommentsDataService commentsData, IMappingService mappingService)
         {
             this.commentsData = commentsData;
+            this.mappingService = mappingService;
         }
 
         public ActionResult Read(int id, int? page)
@@ -78,7 +78,7 @@
                     JsonRequestBehavior.AllowGet);
             }
 
-            var viewModel = Mapper.Map<UpdateCommentInputModel>(comment);
+            var viewModel = this.mappingService.Map<UpdateCommentInputModel>(comment);
             return this.PartialView("_UpdateComment", viewModel);
         }
 
@@ -101,7 +101,7 @@
 
                 var comment = this.commentsData.UpdateComment(inputModel.Id, inputModel.Content);
 
-                var viewModel = Mapper.Map<CommentViewModel>(comment);
+                var viewModel = this.mappingService.Map<CommentViewModel>(comment);
                 return this.PartialView("DisplayTemplates/CommentViewModel", viewModel);
             }
 
@@ -110,12 +110,9 @@
 
         private IPagedList<CommentViewModel> GetPostCommentsPage(int postId, int page, int pageSize)
         {
-            var commentsPage = this.commentsData
-                .GetByPost(postId)
-                .OrderBy(c => c.CreatedOn)
-                .Project()
-                .To<CommentViewModel>()
-                .ToPagedList(page, pageSize);
+            var comments = this.commentsData.GetByPost(postId).OrderBy(c => c.CreatedOn);
+
+            var commentsPage = this.mappingService.MapCollection<CommentViewModel>(comments).ToPagedList(page, pageSize);
 
             return commentsPage;
         }

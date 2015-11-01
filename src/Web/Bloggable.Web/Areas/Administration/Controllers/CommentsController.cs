@@ -3,10 +3,9 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-
-    using AutoMapper.QueryableExtensions;
-
+    
     using Bloggable.Services.Administration.Contracts;
+    using Bloggable.Services.Common.Mapping.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
 
     using Kendo.Mvc.UI;
@@ -20,8 +19,8 @@
 
         private int? postId;
 
-        public CommentsController(IDeletableEntityAdministrationService<EntityModel> administrationService)
-            : base(administrationService)
+        public CommentsController(IDeletableEntityAdministrationService<EntityModel> administrationService, IMappingService mappingService)
+            : base(administrationService, mappingService)
         {
             this.administrationService = administrationService;
         }
@@ -40,7 +39,10 @@
             return this.GridOperation(request, model);
         }
 
-        protected override IEnumerable<ViewModel> GetData() =>
-            this.administrationService.ReadWithDeleted().Where(c => c.PostId == this.postId).Project().To<ViewModel>();
+        protected override IEnumerable<ViewModel> GetData()
+        {
+            var data = this.administrationService.ReadWithDeleted().Where(c => c.PostId == this.postId);
+            return this.MappingService.MapCollection<ViewModel>(data);
+        }
     }
 }

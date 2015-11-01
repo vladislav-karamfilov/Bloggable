@@ -2,10 +2,9 @@
 {
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
-
-    using AutoMapper;
-
+    
     using Bloggable.Services.Administration.Contracts;
+    using Bloggable.Services.Common.Mapping.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
     using Bloggable.Web.Infrastructure.Extensions;
 
@@ -19,8 +18,8 @@
     {
         private readonly IPagesAdministrationService administrationService;
 
-        public PagesController(IPagesAdministrationService administrationService)
-            : base(administrationService)
+        public PagesController(IPagesAdministrationService administrationService, IMappingService mappingService)
+            : base(administrationService, mappingService)
         {
             this.administrationService = administrationService;
         }
@@ -52,7 +51,7 @@
 
             if (entity != null)
             {
-                var model = Mapper.Map<ViewModel>(entity);
+                var model = this.MappingService.Map<ViewModel>(entity);
                 return this.View(model);
             }
 

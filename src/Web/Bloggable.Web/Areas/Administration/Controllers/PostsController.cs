@@ -3,10 +3,9 @@
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
 
-    using AutoMapper;
-
     using Bloggable.Common.Extensions;
     using Bloggable.Services.Administration.Contracts;
+    using Bloggable.Services.Common.Mapping.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
     using Bloggable.Web.Controllers;
     using Bloggable.Web.Infrastructure.Extensions;
@@ -22,8 +21,8 @@
     {
         private readonly IDeletableEntityAdministrationService<EntityModel> administrationService;
 
-        public PostsController(IDeletableEntityAdministrationService<EntityModel> administrationService)
-            : base(administrationService)
+        public PostsController(IDeletableEntityAdministrationService<EntityModel> administrationService, IMappingService mappingService)
+            : base(administrationService, mappingService)
         {
             this.administrationService = administrationService;
         }
@@ -56,7 +55,7 @@
 
             if (entity != null)
             {
-                var model = Mapper.Map<ViewModel>(entity);
+                var model = this.MappingService.Map<ViewModel>(entity);
                 return this.View(model);
             }
 

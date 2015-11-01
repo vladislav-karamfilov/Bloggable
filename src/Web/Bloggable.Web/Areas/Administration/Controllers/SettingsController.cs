@@ -6,6 +6,7 @@
     using Bloggable.Common.Constants;
     using Bloggable.Services.Administration.Contracts;
     using Bloggable.Services.Common.Cache.Contracts;
+    using Bloggable.Services.Common.Mapping.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
     using Bloggable.Web.Infrastructure.Extensions;
 
@@ -19,8 +20,8 @@
         private readonly ISettingsAdministrationService administrationService;
         private readonly ICacheService cache;
 
-        public SettingsController(ISettingsAdministrationService administrationService, ICacheService cache)
-            : base(administrationService)
+        public SettingsController(ISettingsAdministrationService administrationService, ICacheService cache, IMappingService mappingService)
+            : base(administrationService, mappingService)
         {
             this.administrationService = administrationService;
             this.cache = cache;

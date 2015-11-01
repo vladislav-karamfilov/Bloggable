@@ -3,6 +3,7 @@
     using System.Web.Mvc;
 
     using Bloggable.Services.Administration.Contracts;
+    using Bloggable.Services.Common.Mapping.Contracts;
     using Bloggable.Web.Areas.Administration.Controllers.Base;
 
     using Kendo.Mvc.UI;
@@ -12,8 +13,8 @@
 
     public class AdministrationLogsController : KendoGridAdministrationController<EntityModel, ViewModel>
     {
-        public AdministrationLogsController(IAdministrationService<EntityModel> administrationService)
-            : base(administrationService)
+        public AdministrationLogsController(IAdministrationService<EntityModel> administrationService, IMappingService mappingService)
+            : base(administrationService, mappingService)
         {
         }
 
