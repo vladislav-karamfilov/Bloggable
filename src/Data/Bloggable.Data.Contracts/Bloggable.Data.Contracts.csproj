@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuditInfo.cs" />
+    <Compile Include="Helpers\Contracts\IEntityKeyTypesProvider.cs" />
+    <Compile Include="Helpers\EfEntityKeyTypesProvider.cs" />
     <Compile Include="IdentifiableAuditInfo.cs" />
     <Compile Include="IdentifiableDeletableEntity.cs" />
     <Compile Include="CodeFirstConventions\IsUnicodeAttributeConvention.cs" />

@@ -6,14 +6,14 @@
 
     using Bloggable.Data.Contracts.Repositories;
 
-    public class EfRepository<T> : IRepository<T> 
+    public class EfRepository<T> : IRepository<T>
         where T : class
     {
         public EfRepository(DbContext context)
         {
             if (context == null)
             {
-                throw new ArgumentException("An instance of DbContext is required to use this repository.", nameof(context));
+                throw new ArgumentNullException(nameof(context), "An instance of DbContext is required to use this repository.");
             }
 
             this.Context = context;
@@ -26,7 +26,7 @@
 
         public virtual IQueryable<T> All() => this.DbSet.AsQueryable();
 
-        public virtual T GetById(object id) => this.DbSet.Find(id);
+        public virtual T GetById(params object[] id) => this.DbSet.Find(id);
 
         public virtual void Add(T entity)
         {
@@ -66,7 +66,7 @@
             }
         }
 
-        public virtual void Delete(object id)
+        public virtual void Delete(params object[] id)
         {
             var entity = this.GetById(id);
             if (entity != null)
@@ -77,9 +77,6 @@
 
         public int SaveChanges() => this.Context.SaveChanges();
 
-        public void Dispose()
-        {
-            this.Context.Dispose();
-        }
+        public void Dispose() => this.Context.Dispose();
     }
 }

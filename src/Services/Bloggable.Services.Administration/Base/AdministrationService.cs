@@ -18,7 +18,7 @@
 
         public virtual IQueryable<TEntity> Read() => this.Entities.All();
 
-        public virtual TEntity Get(object id) => this.Entities.GetById(id);
+        public virtual TEntity Get(params object[] id) => this.Entities.GetById(id);
 
         public virtual void Create(TEntity entity)
         {
@@ -32,7 +32,7 @@
             this.Entities.SaveChanges();
         }
 
-        public virtual void Delete(object id)
+        public virtual void Delete(params object[] id)
         {
             this.Entities.Delete(id);
             this.Entities.SaveChanges();

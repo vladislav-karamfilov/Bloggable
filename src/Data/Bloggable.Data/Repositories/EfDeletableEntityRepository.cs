@@ -24,7 +24,7 @@
             base.Delete(entity);
         }
 
-        public void HardDelete(object id)
+        public void HardDelete(params object[] id)
         {
             base.Delete(id);
         }
@@ -37,7 +37,7 @@
             this.Update(entity);
         }
 
-        public override void Delete(object id)
+        public override void Delete(params object[] id)
         {
             var entity = this.GetById(id);
             if (entity != null)

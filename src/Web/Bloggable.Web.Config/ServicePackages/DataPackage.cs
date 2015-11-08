@@ -4,6 +4,8 @@
 
     using Bloggable.Common.Constants;
     using Bloggable.Data;
+    using Bloggable.Data.Contracts.Helpers;
+    using Bloggable.Data.Contracts.Helpers.Contracts;
     using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
     using Bloggable.Data.Repositories;
@@ -26,6 +28,8 @@
 
             container.Register(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>), webRequestLifestyle);
             container.Register(typeof(IRepository<>), typeof(EfRepository<>), webRequestLifestyle);
+
+            container.Register<IEntityKeyTypesProvider, EfEntityKeyTypesProvider>();
         }
     }
 }

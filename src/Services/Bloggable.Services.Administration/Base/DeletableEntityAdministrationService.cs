@@ -21,7 +21,7 @@
 
         public virtual IQueryable<TDeletableEntity> ReadWithDeleted() => this.Entities.AllWithDeleted();
 
-        public virtual void HardDelete(object id)
+        public virtual void HardDelete(params object[] id)
         {
             this.Entities.HardDelete(id);
             this.Entities.SaveChanges();

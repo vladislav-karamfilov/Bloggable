@@ -9,7 +9,7 @@
     {
         IQueryable<TDeletableEntity> ReadWithDeleted();
 
-        void HardDelete(object id);
+        void HardDelete(params object[] id);
 
         void HardDelete(TDeletableEntity entity);
     }
