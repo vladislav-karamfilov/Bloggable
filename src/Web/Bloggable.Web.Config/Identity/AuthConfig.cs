@@ -2,6 +2,7 @@
 {
     using System;
 
+    using Bloggable.Common.Extensions;
     using Bloggable.Data.Models;
 
     using Microsoft.AspNet.Identity;
@@ -14,12 +15,20 @@
 
     public class AuthConfig
     {
-        public static void ConfigureAuth(IAppBuilder app, Func<IdentityDbContext<User>> identityDbContextFactory)
+        public static void ConfigureAuth(IAppBuilder app, IServiceProvider serviceProvider)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(identityDbContextFactory);
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+            app.CreatePerOwinContext(serviceProvider.GetService<IdentityDbContext<User>>);
+
+            app.CreatePerOwinContext<ApplicationUserManager>(
+                (options, owinContext) => 
+                {
+                    var userManager = serviceProvider.GetService<ApplicationUserManager>();
+                    userManager.Configure(options);
+
+                    return userManager;
+                });
+            app.CreatePerOwinContext(serviceProvider.GetService<ApplicationSignInManager>);
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
