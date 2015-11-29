@@ -19,7 +19,7 @@
     {
         protected void Application_Start()
         {
-            DataConfig.ConfigureData();
+            DataConfig.ConfigureDataStore();
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);

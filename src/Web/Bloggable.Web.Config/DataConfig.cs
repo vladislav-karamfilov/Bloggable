@@ -7,7 +7,7 @@
 
     public class DataConfig
     {
-        public static void ConfigureData()
+        public static void ConfigureDataStore()
         {
             Database.SetInitializer(
                 new MigrateDatabaseToLatestVersion<BloggableDbContext, DefaultMigrationConfiguration>(true));
