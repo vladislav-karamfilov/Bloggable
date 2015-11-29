@@ -460,10 +460,6 @@
       <Project>{9E658BA8-6E16-47F0-952F-A9546D871118}</Project>
       <Name>Bloggable.Data.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Data\Bloggable.Data\Bloggable.Data.csproj">
-      <Project>{880E85A2-3E14-49D8-9B9C-FA95405891F4}</Project>
-      <Name>Bloggable.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Services\Bloggable.Services.Administration\Bloggable.Services.Administration.csproj">
       <Project>{2251F6BD-AA72-4AF4-9E91-609356BED088}</Project>
       <Name>Bloggable.Services.Administration</Name>

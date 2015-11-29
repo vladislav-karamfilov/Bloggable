@@ -1,6 +1,5 @@
 ﻿namespace Bloggable.Web
 {
-    using System.Data.Entity;
     using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
     using System.Web;
@@ -10,8 +9,6 @@
 
     using Bloggable.Common.Constants;
     using Bloggable.Common.Mapping;
-    using Bloggable.Data;
-    using Bloggable.Data.Migrations;
     using Bloggable.Web.Config;
 
     [SuppressMessage(
@@ -22,7 +19,7 @@
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BloggableDbContext, DefaultMigrationConfiguration>(true));
+            DataConfig.ConfigureData();
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
