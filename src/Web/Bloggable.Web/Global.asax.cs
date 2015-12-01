@@ -1,6 +1,5 @@
 ﻿namespace Bloggable.Web
 {
-    using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
     using System.Web;
     using System.Web.Mvc;
@@ -11,11 +10,7 @@
     using Bloggable.Common.Mapping;
     using Bloggable.Web.Config;
 
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules", 
-        "SA1649:File name must match first type name", 
-        Justification = "Global.asax.cs is required for ASP.NET apps to start correctly.")]
-    public class MvcApplication : HttpApplication
+    public class Global : HttpApplication
     {
         protected void Application_Start()
         {
