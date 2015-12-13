@@ -18,12 +18,15 @@
 
         public void OnActionExecuting(PopulateSystemSettingsViewDataAttribute viewDataAttribute, ActionExecutingContext filterContext)
         {
-            filterContext.Controller.ViewData[AppSettingConstants.SystemSettingsViewDataKey] =
-                this.cacheItemsProvider.GetSettings(3 * CacheConstants.DefaultCacheSeconds);
         }
 
         public void OnActionExecuted(PopulateSystemSettingsViewDataAttribute viewDataAttribute, ActionExecutedContext filterContext)
         {
+            if (filterContext.Result is ViewResultBase)
+            {
+                filterContext.Controller.ViewData[AppSettingConstants.SystemSettingsViewDataKey] =
+                    this.cacheItemsProvider.GetSettings(3 * CacheConstants.DefaultCacheSeconds);
+            }
         }
     }
 }
