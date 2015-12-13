@@ -14,6 +14,11 @@
 
         public EfEntityKeyTypesProvider(DbContext dbContext)
         {
+            if (dbContext == null)
+            {
+                throw new ArgumentNullException(nameof(dbContext));
+            }
+
             this.dbContext = dbContext;
         }
 

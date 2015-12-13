@@ -14,6 +14,11 @@
 
         public PostsDataService(IDeletableEntityRepository<Post> posts)
         {
+            if (posts == null)
+            {
+                throw new ArgumentNullException(nameof(posts));
+            }
+
             this.posts = posts;
         }
 

@@ -1,5 +1,7 @@
 ﻿namespace Bloggable.Services.Data
 {
+    using System;
+
     using Bloggable.Data.Contracts.Repositories;
     using Bloggable.Data.Models;
     using Bloggable.Services.Data.Contracts;
@@ -10,6 +12,11 @@
 
         public RatingsDataService(IRepository<Rating> ratings)
         {
+            if (ratings == null)
+            {
+                throw new ArgumentNullException(nameof(ratings));
+            }
+
             this.ratings = ratings;
         }
 

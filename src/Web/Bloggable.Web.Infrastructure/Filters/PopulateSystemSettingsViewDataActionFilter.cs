@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Infrastructure.Filters
 {
+    using System;
     using System.Web.Mvc;
 
     using Bloggable.Common.Constants;
@@ -13,6 +14,11 @@
 
         public PopulateSystemSettingsViewDataActionFilter(ICacheItemsProviderService cacheItemsProvider)
         {
+            if (cacheItemsProvider == null)
+            {
+                throw new ArgumentNullException(nameof(cacheItemsProvider));
+            }
+
             this.cacheItemsProvider = cacheItemsProvider;
         }
 

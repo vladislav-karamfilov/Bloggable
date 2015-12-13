@@ -17,7 +17,8 @@
         public void RegisterServices(Container container)
         {
             bool disableCookieTempData;
-            if (bool.TryParse(ConfigurationManager.AppSettings["cookieTempData:disable"], out disableCookieTempData) && disableCookieTempData)
+            if (bool.TryParse(ConfigurationManager.AppSettings["cookieTempData:disable"], out disableCookieTempData) &&
+                disableCookieTempData)
             {
                 try
                 {

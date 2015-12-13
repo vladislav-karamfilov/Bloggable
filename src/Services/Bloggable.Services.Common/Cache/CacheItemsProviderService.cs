@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Services.Common.Cache
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -15,6 +16,16 @@
 
         public CacheItemsProviderService(ICacheService cache, IRepository<Setting> settings)
         {
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache));
+            }
+
+            if (settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
             this.cache = cache;
             this.settings = settings;
         }

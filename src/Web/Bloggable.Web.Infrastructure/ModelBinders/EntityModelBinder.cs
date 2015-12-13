@@ -16,6 +16,16 @@
 
         public EntityModelBinder(IRepository<TEntity> entities, IEntityKeyTypesProvider entityKeyTypesProvider)
         {
+            if (entities == null)
+            {
+                throw new ArgumentNullException(nameof(entities));
+            }
+
+            if (entityKeyTypesProvider == null)
+            {
+                throw new ArgumentNullException(nameof(entityKeyTypesProvider));
+            }
+
             this.entities = entities;
             this.entityKeyTypesProvider = entityKeyTypesProvider;
         }

@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Controllers
 {
+    using System;
     using System.Web.Mvc;
 
     using Bloggable.Common.Constants;
@@ -16,6 +17,16 @@
 
         public TagsController(ITagsDataService tagsData, IMappingService mappingService)
         {
+            if (tagsData == null)
+            {
+                throw new ArgumentNullException(nameof(tagsData));
+            }
+
+            if (mappingService == null)
+            {
+                throw new ArgumentNullException(nameof(mappingService));
+            }
+
             this.tagsData = tagsData;
             this.mappingService = mappingService;
         }

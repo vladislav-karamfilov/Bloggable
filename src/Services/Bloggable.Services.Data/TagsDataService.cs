@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Services.Data
 {
+    using System;
     using System.Linq;
 
     using Bloggable.Data.Contracts.Repositories;
@@ -12,6 +13,11 @@
 
         public TagsDataService(IRepository<Tag> tags)
         {
+            if (tags == null)
+            {
+                throw new ArgumentNullException(nameof(tags));
+            }
+
             this.tags = tags;
         }
 

@@ -13,6 +13,11 @@
 
         public CommentsDataService(IDeletableEntityRepository<Comment> comments)
         {
+            if (comments == null)
+            {
+                throw new ArgumentNullException(nameof(comments));
+            }
+
             this.comments = comments;
         }
 

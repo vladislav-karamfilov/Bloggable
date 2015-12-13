@@ -7,11 +7,16 @@
 
     public class TaggableModelModelBinderProvider : IModelBinderProvider
     {
-        private readonly Func<TaggableModelModelBinder> taggableModelModelBinderFactory;
+        private readonly Func<TaggableModelModelBinder> taggableModelModelBinderFunc;
 
-        public TaggableModelModelBinderProvider(Func<TaggableModelModelBinder> taggableModelModelBinderFactory)
+        public TaggableModelModelBinderProvider(Func<TaggableModelModelBinder> taggableModelModelBinderFunc)
         {
-            this.taggableModelModelBinderFactory = taggableModelModelBinderFactory;
+            if (taggableModelModelBinderFunc == null)
+            {
+                throw new ArgumentNullException(nameof(taggableModelModelBinderFunc));
+            }
+
+            this.taggableModelModelBinderFunc = taggableModelModelBinderFunc;
         }
 
         public IModelBinder GetBinder(Type modelType)
@@ -20,7 +25,7 @@
 
             if (typeof(ITaggableModel).IsAssignableFrom(modelType))
             {
-                modelBinder = this.taggableModelModelBinderFactory();
+                modelBinder = this.taggableModelModelBinderFunc();
             }
 
             return modelBinder;

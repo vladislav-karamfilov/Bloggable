@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Infrastructure.Filters
 {
+    using System;
     using System.Web.Mvc;
 
     using Bloggable.Data.Models;
@@ -15,6 +16,11 @@
 
         public AdministrationLogFilter(IAdministrationService<AdministrationLog> administrationLogs)
         {
+            if (administrationLogs == null)
+            {
+                throw new ArgumentNullException(nameof(administrationLogs));
+            }
+
             this.administrationLogs = administrationLogs;
         }
 

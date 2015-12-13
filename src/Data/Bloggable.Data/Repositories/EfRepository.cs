@@ -13,7 +13,7 @@
         {
             if (context == null)
             {
-                throw new ArgumentNullException(nameof(context), "An instance of DbContext is required to use this repository.");
+                throw new ArgumentNullException(nameof(context));
             }
 
             this.Context = context;

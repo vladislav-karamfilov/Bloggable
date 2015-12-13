@@ -22,6 +22,16 @@
 
         public CommentsController(ICommentsDataService commentsData, IMappingService mappingService)
         {
+            if (commentsData == null)
+            {
+                throw new ArgumentNullException(nameof(commentsData));
+            }
+
+            if (mappingService == null)
+            {
+                throw new ArgumentNullException(nameof(mappingService));
+            }
+
             this.commentsData = commentsData;
             this.mappingService = mappingService;
         }

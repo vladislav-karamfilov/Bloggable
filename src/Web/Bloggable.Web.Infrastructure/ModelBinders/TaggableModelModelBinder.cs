@@ -16,6 +16,11 @@
 
         public TaggableModelModelBinder(ITagsDataService tagsData)
         {
+            if (tagsData == null)
+            {
+                throw new ArgumentNullException(nameof(tagsData));
+            }
+
             this.tagsData = tagsData;
         }
 

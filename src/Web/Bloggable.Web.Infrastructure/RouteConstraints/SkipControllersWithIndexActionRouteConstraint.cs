@@ -21,6 +21,11 @@
 
         public SkipControllersWithIndexActionRouteConstraint(Assembly controllersAssembly)
         {
+            if (controllersAssembly == null)
+            {
+                throw new ArgumentNullException(nameof(controllersAssembly));
+            }
+
             this.controllersAssembly = controllersAssembly;
         }
 

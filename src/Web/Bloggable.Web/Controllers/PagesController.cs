@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Controllers
 {
+    using System;
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
 
@@ -15,6 +16,16 @@
 
         public PagesController(IPagesDataService pagesData, IMappingService mappingService)
         {
+            if (pagesData == null)
+            {
+                throw new ArgumentNullException(nameof(pagesData));
+            }
+
+            if (mappingService == null)
+            {
+                throw new ArgumentNullException(nameof(mappingService));
+            }
+
             this.pagesData = pagesData;
             this.mappingService = mappingService;
         }

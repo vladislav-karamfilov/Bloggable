@@ -20,7 +20,10 @@
             var webRequestLifestyle = new WebRequestLifestyle();
 
             // Generic types
-            container.Register(typeof(IDeletableEntityAdministrationService<>), typeof(DeletableEntityAdministrationService<>), webRequestLifestyle);
+            container.Register(
+                typeof(IDeletableEntityAdministrationService<>), 
+                typeof(DeletableEntityAdministrationService<>), 
+                webRequestLifestyle);
             container.Register(typeof(IAdministrationService<>), typeof(AdministrationService<>), webRequestLifestyle);
 
             // Non-generic types
@@ -37,13 +40,16 @@
                 .Select(t => new
                 {
                     ConcreteType = t,
-                    ServiceTypes = t.GetInterfaces().Where(i => i.IsPublic && i != typeof(IService) && !i.GenericTypeArguments.Any())
+                    ServiceTypes = t
+                        .GetInterfaces()
+                        .Where(i => i.IsPublic && i != typeof(IService) && !i.GenericTypeArguments.Any())
                 })
                 .ToList();
 
             foreach (var registration in nonGenericTypeServiceRegistrationsInfo)
             {
-                registration.ServiceTypes.ForEach(serviceType => container.Register(serviceType, registration.ConcreteType, webRequestLifestyle));
+                registration.ServiceTypes.ForEach(
+                    serviceType => container.Register(serviceType, registration.ConcreteType, webRequestLifestyle));
             }
         }
     }

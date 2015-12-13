@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
     
@@ -17,6 +18,16 @@
 
         public HomeController(IPostsDataService postsData, IMappingService mappingService)
         {
+            if (postsData == null)
+            {
+                throw new ArgumentNullException(nameof(postsData));
+            }
+
+            if (mappingService == null)
+            {
+                throw new ArgumentNullException(nameof(mappingService));
+            }
+
             this.postsData = postsData;
             this.mappingService = mappingService;
         }

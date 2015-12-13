@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Services.Administration.Base
 {
+    using System;
     using System.Linq;
 
     using Bloggable.Data.Contracts;
@@ -11,6 +12,11 @@
     {
         public AdministrationService(IRepository<TEntity> entities)
         {
+            if (entities == null)
+            {
+                throw new ArgumentNullException(nameof(entities));
+            }
+
             this.Entities = entities;
         }
 

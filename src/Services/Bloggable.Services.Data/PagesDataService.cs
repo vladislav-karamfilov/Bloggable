@@ -1,5 +1,6 @@
 namespace Bloggable.Services.Data
 {
+    using System;
     using System.Linq;
 
     using Bloggable.Data.Contracts.Repositories;
@@ -12,6 +13,11 @@ namespace Bloggable.Services.Data
 
         public PagesDataService(IDeletableEntityRepository<Page> pages)
         {
+            if (pages == null)
+            {
+                throw new ArgumentNullException(nameof(pages));
+            }
+
             this.pages = pages;
         }
 

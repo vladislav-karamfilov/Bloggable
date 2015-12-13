@@ -1,8 +1,9 @@
 ﻿namespace Bloggable.Web.Areas.Administration.Controllers.Base
 {
+    using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
-    
+
     using Bloggable.Data.Contracts;
     using Bloggable.Services.Administration.Contracts;
     using Bloggable.Services.Common.Mapping.Contracts;
@@ -18,6 +19,16 @@
     {
         protected KendoGridAdministrationController(IAdministrationService<TEntity> administrationService, IMappingService mappingService)
         {
+            if (administrationService == null)
+            {
+                throw new ArgumentNullException(nameof(administrationService));
+            }
+
+            if (mappingService == null)
+            {
+                throw new ArgumentNullException(nameof(mappingService));
+            }
+
             this.AdministrationService = administrationService;
             this.MappingService = mappingService;
         }

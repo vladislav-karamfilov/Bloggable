@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Areas.Administration.Controllers
 {
+    using System;
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
 
@@ -20,9 +21,14 @@
         private readonly ISettingsAdministrationService administrationService;
         private readonly ICacheService cache;
 
-        public SettingsController(ISettingsAdministrationService administrationService, ICacheService cache, IMappingService mappingService)
+        public SettingsController(ISettingsAdministrationService administrationService, IMappingService mappingService, ICacheService cache)
             : base(administrationService, mappingService)
         {
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache));
+            }
+
             this.administrationService = administrationService;
             this.cache = cache;
         }

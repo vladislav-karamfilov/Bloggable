@@ -1,5 +1,6 @@
 ﻿namespace Bloggable.Web.Controllers
 {
+    using System;
     using System.Web.Mvc;
 
     using Bloggable.Services.Data.Contracts;
@@ -10,6 +11,11 @@
 
         public UserValidationController(IUsersDataService usersData)
         {
+            if (usersData == null)
+            {
+                throw new ArgumentNullException(nameof(usersData));
+            }
+
             this.usersData = usersData;
         }
 
