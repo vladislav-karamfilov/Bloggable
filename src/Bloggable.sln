@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggable.Common", "Bloggable.Common\Bloggable.Common.csproj", "{636BFF57-5803-43AE-8A27-3AFCBC52BABF}"
 EndProject
@@ -30,13 +30,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggable.Web.Models", "Web\Bloggable.Web.Models\Bloggable.Web.Models.csproj", "{1CE2EBC4-0DCF-4BE4-91B2-20610065E472}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggable.Web.Config", "Web\Bloggable.Web.Config\Bloggable.Web.Config.csproj", "{D1E7D236-32EF-45D7-883F-CEFE78620690}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{519918D2-0949-4B8F-B9F3-1FBF10A6271F}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggable.Web.Infrastructure", "Web\Bloggable.Web.Infrastructure\Bloggable.Web.Infrastructure.csproj", "{20D8D7B7-04BA-406C-A552-CB25FC7E63B9}"
 EndProject
