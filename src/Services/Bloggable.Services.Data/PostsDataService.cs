@@ -22,7 +22,7 @@
             this.posts = posts;
         }
 
-        public IQueryable<Post> All(Expression<Func<Post, bool>> filter = null, bool includeDeleted = false)
+        public IQueryable<Post> GetAll(Expression<Func<Post, bool>> filter = null, bool includeDeleted = false)
         {
             var allPosts = includeDeleted ? this.posts.AllWithDeleted() : this.posts.All();
 
@@ -34,7 +34,7 @@
             return allPosts;
         }
 
-        public IQueryable<Post> ByTag(string tag, bool includeDeleted = false)
+        public IQueryable<Post> GetByTag(string tag, bool includeDeleted = false)
         {
             var allPosts = includeDeleted ? this.posts.AllWithDeleted() : this.posts.All();
 
@@ -43,7 +43,12 @@
             return postsByTag;
         }
 
-        public IQueryable<Post> GetPagePosts(int page, int pageSize, Expression<Func<Post, object>> orderKeySelector, bool ascending = true, bool includeDeleted = false)
+        public IQueryable<Post> GetPagePosts(
+            int page,
+            int pageSize,
+            Expression<Func<Post, object>> orderKeySelector,
+            bool ascending = true,
+            bool includeDeleted = false)
         {
             if (page < 0)
             {
@@ -55,9 +60,11 @@
                 throw new ArgumentOutOfRangeException(nameof(pageSize), "pageSize should be non-negative number.");
             }
 
-            var allPosts = this.All(null, includeDeleted);
+            var allPosts = this.GetAll(null, includeDeleted);
 
-            var orderedPosts = ascending ? allPosts.OrderBy(orderKeySelector) : allPosts.OrderByDescending(orderKeySelector);
+            var orderedPosts = ascending 
+                ? allPosts.OrderBy(orderKeySelector) 
+                : allPosts.OrderByDescending(orderKeySelector);
 
             var postsPage = orderedPosts.Skip(page * pageSize).Take(pageSize);
 

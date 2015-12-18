@@ -14,7 +14,7 @@
         public TDestination Map<TSource, TDestination>(TSource source, TDestination destination) => 
             Mapper.Map(source, destination);
 
-        public IQueryable<TDestination> MapCollection<TDestination>(IQueryable source, object parameters = null) => 
+        public IQueryable<TDestination> MapCollection<TDestination>(IQueryable source, object parameters = null) =>
             source.ProjectTo<TDestination>(parameters);
     }
 }

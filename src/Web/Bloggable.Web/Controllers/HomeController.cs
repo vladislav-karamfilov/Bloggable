@@ -36,7 +36,7 @@
         {
             var currentPage = page > 0 ? page.Value : 1;
 
-            var posts = this.postsData.All().OrderByDescending(p => p.CreatedOn);
+            var posts = this.postsData.GetAll().OrderByDescending(p => p.CreatedOn);
 
             var postsPage = this.mappingService
                 .MapCollection<PostAnnotationViewModel>(posts)

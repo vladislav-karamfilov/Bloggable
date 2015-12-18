@@ -43,7 +43,7 @@
         public ActionResult Post(int year, int month, string urlTitle, int id)
         {
             var post = this.mappingService
-                .MapCollection<PostDetailsViewModel>(this.postsData.All(p => p.Id == id))
+                .MapCollection<PostDetailsViewModel>(this.postsData.GetAll(p => p.Id == id))
                 .FirstOrDefault();
 
             if (post == null ||
@@ -69,7 +69,7 @@
             }
 
             var postsByTag = this.mappingService
-                .MapCollection<PostAnnotationViewModel>(this.postsData.ByTag(tag.Name));
+                .MapCollection<PostAnnotationViewModel>(this.postsData.GetByTag(tag.Name));
 
             var model = new PostsByTagViewModel
             {
