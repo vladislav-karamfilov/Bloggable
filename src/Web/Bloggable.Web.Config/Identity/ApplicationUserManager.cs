@@ -6,8 +6,7 @@
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
-
-    // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
+    
     public class ApplicationUserManager : UserManager<User>
     {
         public ApplicationUserManager(IUserStore<User> store)
@@ -39,7 +38,8 @@
             this.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
             this.MaxFailedAccessAttemptsBeforeLockout = 5;
 
-            // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
+            // Register two factor authentication providers. This application uses 
+            // Phone and Emails as a step of receiving a code for verifying the user.
             // You can write your own provider and plug it in here.
             this.RegisterTwoFactorProvider(
                 "Phone Code",
