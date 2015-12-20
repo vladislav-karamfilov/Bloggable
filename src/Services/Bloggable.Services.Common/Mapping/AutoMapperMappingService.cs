@@ -11,7 +11,7 @@
     {
         public TDestination Map<TDestination>(object source) => Mapper.Map<TDestination>(source);
 
-        public TDestination Map<TSource, TDestination>(TSource source, TDestination destination) => 
+        public void Map<TSource, TDestination>(TSource source, TDestination destination) =>
             Mapper.Map(source, destination);
 
         public IQueryable<TDestination> MapCollection<TDestination>(IQueryable source, object parameters = null) =>
