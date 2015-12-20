@@ -1,9 +1,8 @@
 ﻿namespace Bloggable.Data.Contracts.Repositories
 {
-    using System;
     using System.Linq;
 
-    public interface IRepository<T> : IDisposable 
+    public interface IRepository<T>
         where T : class
     {
         IQueryable<T> All();
