@@ -26,8 +26,8 @@
             container.Register<DbContext>(container.GetInstance<BloggableDbContext>, webRequestLifestyle);
             container.Register<IdentityDbContext<User>>(container.GetInstance<BloggableDbContext>, webRequestLifestyle);
 
-            container.Register(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>), webRequestLifestyle);
             container.Register(typeof(IRepository<>), typeof(EfRepository<>), webRequestLifestyle);
+            container.Register(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>), webRequestLifestyle);
 
             container.Register<IEntityKeyTypesProvider, EfEntityKeyTypesProvider>();
         }
