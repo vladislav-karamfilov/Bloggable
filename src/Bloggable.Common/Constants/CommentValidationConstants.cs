@@ -1,6 +1,6 @@
 ﻿namespace Bloggable.Common.Constants
 {
-    public class CommentValidationConstants
+    public static class CommentValidationConstants
     {
         public const int ContentMinLength = 10;
 

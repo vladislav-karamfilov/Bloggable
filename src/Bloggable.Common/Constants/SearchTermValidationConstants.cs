@@ -1,6 +1,6 @@
 ﻿namespace Bloggable.Common.Constants
 {
-    public class SearchTermValidationConstants
+    public static class SearchTermValidationConstants
     {
         public const int ContentMinLength = 2;
 

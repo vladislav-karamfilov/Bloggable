@@ -1,12 +1,12 @@
 ﻿namespace Bloggable.Common.Constants
 {
-    public class UserValidationConstants
+    public static class UserValidationConstants
     {
         public const int UserNameMinLength = 5;
 
         public const int UserNameMaxLength = 40;
 
-        public const string UserNameRegEx = @"^[a-zA-Z]([/._]?[a-zA-Z0-9]+)+$";
+        public const string UserNameRegEx = @"^[a-zA-Z]([._]?[a-zA-Z0-9]+)+$";
 
         public const int EmailMinLength = 6;
 

@@ -1,6 +1,6 @@
 ﻿namespace Bloggable.Common.Constants
 {
-    public class AppSettingConstants
+    public static class AppSettingConstants
     {
         public const string DefaultDbConnectionName = "DefaultConnection";
 

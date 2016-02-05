@@ -1,6 +1,6 @@
 ﻿namespace Bloggable.Common.Constants
 {
-    public class ContentTypeConstants
+    public static class ContentTypeConstants
     {
         public const string RssXml = "application/rss+xml";
 

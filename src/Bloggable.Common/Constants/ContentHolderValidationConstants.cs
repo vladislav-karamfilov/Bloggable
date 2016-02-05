@@ -1,6 +1,6 @@
 ﻿namespace Bloggable.Common.Constants
 {
-    public class ContentHolderValidationConstants
+    public static class ContentHolderValidationConstants
     {
         public const int TitleMinLength = 5;
 

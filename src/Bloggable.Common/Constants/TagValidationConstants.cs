@@ -1,6 +1,6 @@
 ﻿namespace Bloggable.Common.Constants
 {
-    public class TagValidationConstants
+    public static class TagValidationConstants
     {
         public const int TagNameMinLength = 2;
 

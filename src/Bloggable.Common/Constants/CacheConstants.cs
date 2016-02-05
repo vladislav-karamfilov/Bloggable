@@ -1,6 +1,6 @@
 ﻿namespace Bloggable.Common.Constants
 {
-    public class CacheConstants
+    public static class CacheConstants
     {
         public const int DefaultCacheSeconds = 3600;
 

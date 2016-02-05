@@ -1,6 +1,6 @@
 ﻿namespace Bloggable.Common.Constants
 {
-    public class AssemblyConstants
+    public static class AssemblyConstants
     {
         public const string DataModels = "Bloggable.Data.Models";
 

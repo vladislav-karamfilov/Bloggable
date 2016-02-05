@@ -1,6 +1,6 @@
 ﻿namespace Bloggable.Common.Constants
 {
-    public class ReferralValidationConstants
+    public static class ReferralValidationConstants
     {
         public const int NameMinLength = 3;
 
