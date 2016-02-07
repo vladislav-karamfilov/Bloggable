@@ -127,8 +127,8 @@
       <HintPath>$(SolutionDir)packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
@@ -357,7 +357,10 @@
     <Content Include="Areas\Administration\Views\Pages\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Pages\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Pages\Update.cshtml" />
-    <None Include="Scripts\jquery\jquery-2.1.4.intellisense.js" />
+    <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\jquery\jquery-2.2.0.js" />
+    <Content Include="Scripts\jquery\jquery-2.2.0.min.js" />
+    <Content Include="Scripts\jquery\jquery-2.2.0.min.map" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\administration.js" />
     <Content Include="Scripts\app\global.js" />
@@ -373,9 +376,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.4.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.4.min.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery-Validate\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-Validate\jquery.validate.js" />
     <Content Include="Scripts\jquery-Validate\jquery.validate.min.js" />
@@ -488,9 +488,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-rc2\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-rc2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0-rc2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

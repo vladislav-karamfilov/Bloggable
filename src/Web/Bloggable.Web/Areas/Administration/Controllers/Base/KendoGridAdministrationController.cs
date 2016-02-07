@@ -17,7 +17,9 @@
         where TEntity : class, IAuditInfo
         where TViewModel : AdministrationGridViewModel
     {
-        protected KendoGridAdministrationController(IAdministrationService<TEntity> administrationService, IMappingService mappingService)
+        protected KendoGridAdministrationController(
+            IAdministrationService<TEntity> administrationService,
+            IMappingService mappingService)
         {
             if (administrationService == null)
             {

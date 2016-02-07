@@ -21,7 +21,10 @@
         private readonly ISettingsAdministrationService administrationService;
         private readonly ICacheService cache;
 
-        public SettingsController(ISettingsAdministrationService administrationService, IMappingService mappingService, ICacheService cache)
+        public SettingsController(
+            ISettingsAdministrationService administrationService,
+            IMappingService mappingService,
+            ICacheService cache)
             : base(administrationService, mappingService)
         {
             if (cache == null)

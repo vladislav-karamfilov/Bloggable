@@ -13,7 +13,9 @@
 
     public class AdministrationLogsController : KendoGridAdministrationController<EntityModel, ViewModel>
     {
-        public AdministrationLogsController(IAdministrationService<EntityModel> administrationService, IMappingService mappingService)
+        public AdministrationLogsController(
+            IAdministrationService<EntityModel> administrationService,
+            IMappingService mappingService)
             : base(administrationService, mappingService)
         {
         }

@@ -21,7 +21,9 @@
     {
         private readonly IDeletableEntityAdministrationService<EntityModel> administrationService;
 
-        public PostsController(IDeletableEntityAdministrationService<EntityModel> administrationService, IMappingService mappingService)
+        public PostsController(
+            IDeletableEntityAdministrationService<EntityModel> administrationService,
+            IMappingService mappingService)
             : base(administrationService, mappingService)
         {
             this.administrationService = administrationService;

@@ -19,7 +19,9 @@
 
         private int? postId;
 
-        public CommentsController(IDeletableEntityAdministrationService<EntityModel> administrationService, IMappingService mappingService)
+        public CommentsController(
+            IDeletableEntityAdministrationService<EntityModel> administrationService,
+            IMappingService mappingService)
             : base(administrationService, mappingService)
         {
             this.administrationService = administrationService;
