@@ -3,8 +3,11 @@
     using System.Linq;
     using System.Reflection;
 
+    using AutoMapper;
+
     using Bloggable.Common.Constants;
     using Bloggable.Common.Extensions;
+    using Bloggable.Common.Mapping;
     using Bloggable.Services.Administration.Base;
     using Bloggable.Services.Administration.Contracts;
     using Bloggable.Services.Common;
@@ -51,6 +54,9 @@
                 registration.ServiceTypes.ForEach(
                     serviceType => container.Register(serviceType, registration.ConcreteType, webRequestLifestyle));
             }
+
+            // Custom registrations
+            container.Register(() => AutoMapperConfig.MapperConfiguration.CreateMapper(), webRequestLifestyle);
         }
     }
 }

@@ -7,13 +7,15 @@
 
     using AutoMapper;
 
-    public class AutoMapperConfig
+    public static class AutoMapperConfig
     {
+        public static MapperConfiguration MapperConfiguration { get; private set; }
+
         public static void RegisterMappings(params Assembly[] assemblies)
         {
             var types = assemblies.SelectMany(a => a.GetExportedTypes()).ToList();
 
-            Mapper.Initialize(configuration =>
+            MapperConfiguration = new MapperConfiguration(configuration =>
             {
                 RegisterStandardFromMappings(configuration, types);
 
@@ -21,6 +23,8 @@
 
                 RegisterCustomMaps(configuration, types);
             });
+
+            //mapperConfiguration.AssertConfigurationIsValid();
         }
 
         private static void RegisterStandardFromMappings(IProfileExpression configuration, IEnumerable<Type> types)
@@ -37,7 +41,7 @@
             CreateMappings(configuration, maps);
         }
 
-        private static void RegisterCustomMaps(IConfiguration configuration, IEnumerable<Type> types)
+        private static void RegisterCustomMaps(IMapperConfiguration configuration, IEnumerable<Type> types)
         {
             var maps = GetCustomMappings(types);
 
@@ -98,7 +102,7 @@
             }
         }
 
-        private static void CreateMappings(IConfiguration configuration, IEnumerable<IHaveCustomMappings> maps)
+        private static void CreateMappings(IMapperConfiguration configuration, IEnumerable<IHaveCustomMappings> maps)
         {
             foreach (var map in maps)
             {

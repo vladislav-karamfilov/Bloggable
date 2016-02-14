@@ -95,7 +95,7 @@
                 Exception currentException = ex;
                 while (currentException != null)
                 {
-                    Trace.TraceInformation(currentException.Message);
+                    Trace.TraceError(currentException.Message);
                     currentException = currentException.InnerException;
                 }
 
@@ -107,7 +107,7 @@
                 {
                     foreach (var validationError in validationErrors.ValidationErrors)
                     {
-                        Trace.TraceInformation("Property: {1}{0} Error: {2}", Environment.NewLine, validationError.PropertyName, validationError.ErrorMessage);
+                        Trace.TraceError($"Property: {validationError.PropertyName}{Environment.NewLine} Error: {validationError.ErrorMessage}");
                     }
                 }
 

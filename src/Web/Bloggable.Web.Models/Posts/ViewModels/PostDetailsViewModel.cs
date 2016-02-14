@@ -14,7 +14,7 @@
 
         public string MetaKeywords { get; set; }
         
-        public void CreateMappings(IConfiguration configuration)
+        public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Post, PostDetailsViewModel>()
                 .IncludeBase<Post, PostAnnotationViewModel>();

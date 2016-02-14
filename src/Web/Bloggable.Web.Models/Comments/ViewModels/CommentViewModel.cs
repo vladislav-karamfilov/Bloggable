@@ -19,7 +19,7 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        public void CreateMappings(IConfiguration configuration)
+        public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Comment, CommentViewModel>()
                 .ForMember(m => m.Author, opt => opt.MapFrom(e => e.Author.UserName));

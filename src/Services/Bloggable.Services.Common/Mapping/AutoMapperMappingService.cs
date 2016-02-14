@@ -9,12 +9,19 @@
 
     public class AutoMapperMappingService : IMappingService
     {
-        public TDestination Map<TDestination>(object source) => Mapper.Map<TDestination>(source);
+        private readonly IMapper mapper;
+
+        public AutoMapperMappingService(IMapper mapper)
+        {
+            this.mapper = mapper;
+        }
+
+        public TDestination Map<TDestination>(object source) => this.mapper.Map<TDestination>(source);
 
         public void Map<TSource, TDestination>(TSource source, TDestination destination) =>
-            Mapper.Map(source, destination);
+            this.mapper.Map(source, destination);
 
         public IQueryable<TDestination> MapCollection<TDestination>(IQueryable source, object parameters = null) =>
-            source.ProjectTo<TDestination>(parameters);
+            source.ProjectTo<TDestination>(this.mapper.ConfigurationProvider, parameters);
     }
 }

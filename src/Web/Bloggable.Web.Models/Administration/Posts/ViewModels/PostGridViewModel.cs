@@ -14,7 +14,12 @@
 
     using Newtonsoft.Json;
 
-    public class PostGridViewModel : ContentHolderGridViewModel, IMapFrom<Post>, IMapTo<Post>, IHaveCustomMappings, ITaggableModel
+    public class PostGridViewModel : 
+        ContentHolderGridViewModel,
+        IMapFrom<Post>,
+        IMapTo<Post>,
+        IHaveCustomMappings,
+        ITaggableModel
     {
         private string mergedTags;
 
@@ -73,9 +78,10 @@
         [ScaffoldColumn(false)]
         public ICollection<Tag> Tags { get; set; }
 
-        public void CreateMappings(IConfiguration configuration)
+        public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<PostGridViewModel, Post>().ForMember(e => e.CreatedOn, opt => opt.Ignore());
+            configuration.CreateMap<PostGridViewModel, Post>()
+                .ForMember(e => e.CreatedOn, opt => opt.Ignore());
         }
     }
 }

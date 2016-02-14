@@ -19,7 +19,7 @@
 
         public string PostParams { get; set; }
 
-        public void CreateMappings(IConfiguration configuration)
+        public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<AdministrationLog, AdministrationLogGridViewModel>()
                 .ForMember(m => m.UserName, opt => opt.MapFrom(e => e.User.UserName));
