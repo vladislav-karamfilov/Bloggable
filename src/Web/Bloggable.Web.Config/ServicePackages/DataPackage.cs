@@ -5,8 +5,8 @@
     using Bloggable.Common.Constants;
     using Bloggable.Data;
     using Bloggable.Data.Contracts.Helpers;
-    using Bloggable.Data.Contracts.Helpers.Contracts;
     using Bloggable.Data.Contracts.Repositories;
+    using Bloggable.Data.Helpers;
     using Bloggable.Data.Models;
     using Bloggable.Data.Repositories;
 

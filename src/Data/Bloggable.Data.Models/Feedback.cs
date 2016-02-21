@@ -3,8 +3,8 @@
     using System.ComponentModel.DataAnnotations;
 
     using Bloggable.Common.Constants;
-    using Bloggable.Data.Contracts;
     using Bloggable.Data.Contracts.DataAnnotations;
+    using Bloggable.Data.Models.Base;
 
     public class Feedback : IdentifiableAuditInfo<int>
     {

@@ -1,8 +1,8 @@
 ﻿namespace Bloggable.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
-
-    using Bloggable.Data.Contracts;
+    
+    using Bloggable.Data.Models.Base;
 
     public class Rating : IdentifiableAuditInfo<int>
     {

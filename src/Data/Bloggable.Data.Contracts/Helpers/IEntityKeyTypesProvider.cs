@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Data.Contracts.Helpers.Contracts
+﻿namespace Bloggable.Data.Contracts.Helpers
 {
     using System;
 

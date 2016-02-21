@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Data.Contracts.Helpers
+﻿namespace Bloggable.Data.Helpers
 {
     using System;
     using System.Data.Entity;
@@ -6,7 +6,7 @@
     using System.Data.Entity.Infrastructure;
     using System.Linq;
 
-    using Bloggable.Data.Contracts.Helpers.Contracts;
+    using Bloggable.Data.Contracts.Helpers;
 
     public class EfEntityKeyTypesProvider : IEntityKeyTypesProvider
     {

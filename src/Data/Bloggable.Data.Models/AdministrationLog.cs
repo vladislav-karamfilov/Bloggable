@@ -3,7 +3,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using Bloggable.Common.Constants;
-    using Bloggable.Data.Contracts;
+    using Bloggable.Data.Models.Base;
 
     public class AdministrationLog : IdentifiableAuditInfo<long>
     {

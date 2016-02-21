@@ -1,4 +1,4 @@
-﻿namespace Bloggable.Data.Contracts.CodeFirstConventions
+﻿namespace Bloggable.Data.CodeFirstConventions
 {
     using System.Data.Entity.ModelConfiguration.Configuration;
     using System.Data.Entity.ModelConfiguration.Conventions;

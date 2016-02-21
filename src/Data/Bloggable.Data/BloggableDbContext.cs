@@ -8,8 +8,8 @@
     using System.Diagnostics;
     using System.Linq;
 
+    using Bloggable.Data.CodeFirstConventions;
     using Bloggable.Data.Contracts;
-    using Bloggable.Data.Contracts.CodeFirstConventions;
     using Bloggable.Data.Models;
 
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -72,7 +72,7 @@
 
                 if (entry.State == EntityState.Added)
                 {
-                    if (!entity.PreserveCreatedOn)
+                    if (entity.CreatedOn == default(DateTime))
                     {
                         entity.CreatedOn = DateTime.Now;
                     }

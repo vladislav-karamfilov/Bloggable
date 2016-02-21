@@ -5,7 +5,7 @@
     using System.Web.Mvc;
 
     using Bloggable.Data.Contracts;
-    using Bloggable.Data.Contracts.Helpers.Contracts;
+    using Bloggable.Data.Contracts.Helpers;
     using Bloggable.Data.Contracts.Repositories;
 
     public class EntityModelBinder<TEntity> : IModelBinder

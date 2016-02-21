@@ -62,6 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdministrationLog.cs" />
+    <Compile Include="Base\AuditInfo.cs" />
+    <Compile Include="Base\DeletableEntity.cs" />
+    <Compile Include="Base\IdentifiableAuditInfo.cs" />
+    <Compile Include="Base\IdentifiableDeletableEntity.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="ContentHolder.cs" />
     <Compile Include="Feedback.cs" />

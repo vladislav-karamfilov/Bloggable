@@ -27,25 +27,17 @@
         [MaxLength(UserValidationConstants.EmailMaxLength)]
         public override string Email { get; set; }
 
-        #region IAuditInfo Members
-
+        // IAuditInfo Members
         public DateTime CreatedOn { get; set; }
-
-        [NotMapped]
-        public bool PreserveCreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
 
-        #endregion
-
-        #region IDeletableEntity Members
-
+        // IDeletableEntity Members
+        [Index]
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
-
-        #endregion
-
+        
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

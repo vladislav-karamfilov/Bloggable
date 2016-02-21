@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     using Bloggable.Common.Constants;
-    using Bloggable.Data.Contracts;
+    using Bloggable.Data.Models.Base;
 
     public class Tag : IdentifiableAuditInfo<int>
     {

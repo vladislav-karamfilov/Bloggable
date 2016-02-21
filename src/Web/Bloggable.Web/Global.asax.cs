@@ -20,7 +20,9 @@
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ViewEngineConfig.RegisterViewEngines(ViewEngines.Engines);
-            AutoMapperConfig.RegisterMappings(Assembly.Load(AssemblyConstants.WebModels), Assembly.Load(AssemblyConstants.WebInfrastructure));
+            AutoMapperConfig.RegisterMappings(
+                Assembly.Load(AssemblyConstants.WebModels),
+                Assembly.Load(AssemblyConstants.WebInfrastructure));
             
             MvcHandler.DisableMvcResponseHeader = true;
         }

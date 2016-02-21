@@ -7,7 +7,7 @@
 
     using AutoMapper;
 
-    public static class AutoMapperConfig
+    public class AutoMapperConfig
     {
         public static MapperConfiguration MapperConfiguration { get; private set; }
 
