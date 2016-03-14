@@ -128,7 +128,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>$(SolutionDir)packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
@@ -357,10 +357,9 @@
     <Content Include="Areas\Administration\Views\Pages\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Pages\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Pages\Update.cshtml" />
-    <None Include="Scripts\jquery\jquery-2.2.0.intellisense.js" />
-    <Content Include="Scripts\jquery\jquery-2.2.0.js" />
-    <Content Include="Scripts\jquery\jquery-2.2.0.min.js" />
-    <Content Include="Scripts\jquery\jquery-2.2.0.min.map" />
+    <Content Include="Scripts\jquery\jquery-2.2.1.js" />
+    <Content Include="Scripts\jquery\jquery-2.2.1.min.js" />
+    <Content Include="Scripts\jquery\jquery-2.2.1.min.map" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\administration.js" />
     <Content Include="Scripts\app\global.js" />
