@@ -62,7 +62,8 @@
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                this.UserTokenProvider = new DataProtectorTokenProvider<User>(dataProtectionProvider.Create("ASP.NET Identity"));
+                this.UserTokenProvider = new DataProtectorTokenProvider<User>(
+                    dataProtectionProvider.Create("ASP.NET Identity"));
             }
         }
     }
