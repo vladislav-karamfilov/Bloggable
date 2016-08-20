@@ -30,7 +30,7 @@
         [HiddenInput(DisplayValue = false)]
         public string InitialPermalink { get; set; }
 
-        public void CreateMappings(IMapperConfiguration configuration)
+        public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Page, PageGridViewModel>()
                 .ForMember(m => m.Permalink, opt => opt.MapFrom(e => e.Permalink));

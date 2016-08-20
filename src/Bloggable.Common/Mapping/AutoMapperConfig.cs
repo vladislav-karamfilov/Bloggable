@@ -9,7 +9,7 @@
 
     public class AutoMapperConfig
     {
-        public static MapperConfiguration MapperConfiguration { get; private set; }
+        public static IConfigurationProvider MapperConfiguration { get; private set; }
 
         public static void RegisterMappings(params Assembly[] assemblies)
         {
@@ -41,7 +41,7 @@
             CreateMappings(configuration, maps);
         }
 
-        private static void RegisterCustomMaps(IMapperConfiguration configuration, IEnumerable<Type> types)
+        private static void RegisterCustomMaps(IMapperConfigurationExpression configuration, IEnumerable<Type> types)
         {
             var maps = GetCustomMappings(types);
 
@@ -102,7 +102,9 @@
             }
         }
 
-        private static void CreateMappings(IMapperConfiguration configuration, IEnumerable<IHaveCustomMappings> maps)
+        private static void CreateMappings(
+            IMapperConfigurationExpression configuration,
+            IEnumerable<IHaveCustomMappings> maps)
         {
             foreach (var map in maps)
             {

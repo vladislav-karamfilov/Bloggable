@@ -78,7 +78,7 @@
         [ScaffoldColumn(false)]
         public ICollection<Tag> Tags { get; set; }
 
-        public void CreateMappings(IMapperConfiguration configuration)
+        public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<PostGridViewModel, Post>()
                 .ForMember(e => e.CreatedOn, opt => opt.Ignore());
