@@ -24,7 +24,7 @@
                 RegisterCustomMaps(configuration, types);
             });
 
-            // TODO: mapperConfiguration.AssertConfigurationIsValid();
+            // TODO: MapperConfiguration.AssertConfigurationIsValid();
         }
 
         private static void RegisterStandardFromMappings(IProfileExpression configuration, IEnumerable<Type> types)

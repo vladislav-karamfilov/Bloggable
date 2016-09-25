@@ -33,7 +33,8 @@
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Page, PageGridViewModel>()
-                .ForMember(m => m.Permalink, opt => opt.MapFrom(e => e.Permalink));
+                .ForMember(m => m.Permalink, opt => opt.MapFrom(e => e.Permalink))
+                .ForMember(m => m.InitialPermalink, opt => opt.MapFrom(e => e.Permalink));
 
             configuration.CreateMap<PageGridViewModel, Page>()
                 .ForMember(e => e.CreatedOn, opt => opt.Ignore());
