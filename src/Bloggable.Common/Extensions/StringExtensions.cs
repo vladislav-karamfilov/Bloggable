@@ -73,7 +73,10 @@
                     }
                     else if (symbolToAdd == WhiteSpace)
                     {
-                        result.Append(isAbbreviation && abbreviation.Length > 1 ? abbreviation.ToString() : currentWord.ToString());
+                        result.Append(
+                            isAbbreviation && abbreviation.Length > 1
+                                ? abbreviation.ToString()
+                                : currentWord.ToString());
                         currentWord.Clear();
                         abbreviation.Clear();
 
@@ -92,7 +95,10 @@
 
                 if (currentWord.Length > 0)
                 {
-                    result.Append(isAbbreviation && abbreviation.Length > 1 ? abbreviation.ToString() : currentWord.ToString());
+                    result.Append(
+                        isAbbreviation && abbreviation.Length > 1
+                            ? abbreviation.ToString()
+                            : currentWord.ToString());
                 }
 
                 resultText = result.ToString();
