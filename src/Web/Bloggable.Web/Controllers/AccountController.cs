@@ -65,14 +65,11 @@
 
         [HttpPost]
         [AllowAnonymous]
-        [CaptchaValidator(
-            PrivateKey = "6LcCOhsUAAAAAISEASaWdKn62txvFSUqicshRvgD",
-            ErrorMessage = "Invalid input captcha.",
-            RequiredMessage = "The captcha field is required.")]
+        [CaptchaValidator]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl, bool captchaValid)
         {
-            if (!this.ModelState.IsValid)
+            if (!this.ModelState.IsValid || !captchaValid)
             {
                 return this.View(model);
             }
