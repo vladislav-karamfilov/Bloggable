@@ -14,6 +14,8 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
+    using reCAPTCHA.MVC;
+
     [Authorize]
     public class AccountController : BaseController
     {
@@ -63,10 +65,11 @@
 
         [HttpPost]
         [AllowAnonymous]
+        [CaptchaValidator]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl, bool captchaValid)
         {
-            if (!this.ModelState.IsValid)
+            if (!this.ModelState.IsValid || !captchaValid)
             {
                 return this.View(model);
             }
